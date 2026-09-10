@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You 💗</title>
+<title>For You ♡</title>
 
 <style>
 * {
@@ -14,120 +14,173 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: "Trebuchet MS", Arial, sans-serif;
-    background: linear-gradient(135deg, #ffd6e7, #ffeef6, #ffc1d9);
-    overflow: hidden;
-    color: #6b2347;
+    background: #ffeef5;
+    color: #6d4655;
+    overflow-x: hidden;
 }
 
 /* Floating hearts */
-.floating-heart {
+.heart {
     position: fixed;
-    bottom: -30px;
-    font-size: 22px;
-    animation: floatUp linear infinite;
+    color: #f49ab8;
+    font-size: 20px;
+    animation: float 7s linear infinite;
     opacity: .7;
     pointer-events: none;
 }
 
-@keyframes floatUp {
+@keyframes float {
     0% {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(110vh) rotate(0deg);
         opacity: 0;
     }
-    20% {
-        opacity: .8;
-    }
+    20% { opacity: .8; }
     100% {
-        transform: translateY(-110vh) rotate(360deg);
+        transform: translateY(-10vh) rotate(360deg);
         opacity: 0;
     }
 }
 
-/* LOCK SCREEN */
-#lockScreen {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
+/* Countdown */
+#countdownPage {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: radial-gradient(circle, #fff0f6, #ffb5d0);
-    padding: 20px;
+    padding: 25px;
 }
 
-.lock-box {
-    width: min(90%, 520px);
-    padding: 40px 25px;
-    background: rgba(255,255,255,.8);
-    border: 3px solid #ff7eae;
+.countdown-box {
+    background: rgba(255,255,255,.85);
+    border: 3px solid #f5b6cb;
     border-radius: 30px;
-    box-shadow: 0 15px 50px rgba(164, 45, 91, .2);
+    padding: 40px 25px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 15px 40px rgba(200,100,130,.18);
 }
 
-.lock-box h1 {
-    font-size: 40px;
-    margin: 0 0 15px;
+.small {
+    font-size: 15px;
+    letter-spacing: 2px;
 }
 
-.lock-icon {
-    font-size: 65px;
-    animation: heartbeat 1.4s infinite;
+h1 {
+    font-size: clamp(35px, 8vw, 65px);
+    margin: 10px 0;
+    color: #d66d92;
 }
 
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-}
-
-#countdown {
+#timer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
     margin-top: 25px;
-    font-size: 30px;
-    font-weight: bold;
-    color: #d83b78;
 }
 
-.countdown-label {
-    font-size: 14px;
-    color: #9b5472;
+.time {
+    background: #fff4f8;
+    border: 2px solid #f2b1c8;
+    border-radius: 18px;
+    padding: 15px 12px;
+    min-width: 75px;
 }
 
-/* MAIN */
-#mainContent {
+.time strong {
+    display: block;
+    font-size: 28px;
+    color: #d35f87;
+}
+
+.time span {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+/* Main */
+#mainPage {
     display: none;
     min-height: 100vh;
-    justify-content: center;
-    align-items: center;
+    padding: 30px 15px 70px;
     text-align: center;
-    padding: 20px;
 }
 
-.card {
-    position: relative;
-    width: min(92%, 650px);
-    min-height: 500px;
-    padding: 45px 25px;
-    background: rgba(255,255,255,.82);
-    border: 3px solid #ff8bb7;
-    border-radius: 35px;
-    box-shadow: 0 20px 70px rgba(128, 30, 72, .2);
-    overflow: hidden;
-}
-
-.card h1 {
-    font-size: clamp(32px, 7vw, 55px);
-    margin: 20px 0 10px;
+.title {
+    font-size: clamp(30px, 7vw, 55px);
+    color: #d6658c;
+    margin-top: 20px;
 }
 
 .subtitle {
-    font-size: 18px;
-    margin-bottom: 35px;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+/* Photo frame */
+.photo-section {
+    max-width: 800px;
+    margin: auto;
+}
+
+.photo-frame {
+    position: relative;
+    display: inline-block;
+    padding: 18px;
+    background: #fff;
+    border: 3px solid #f0a8c0;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(190,100,130,.2);
+}
+
+.photo-frame img {
+    width: min(75vw, 430px);
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+
+/* Cute decorations */
+.tape {
+    position: absolute;
+    width: 90px;
+    height: 25px;
+    background: #f8cfda;
+    opacity: .85;
+    transform: rotate(-8deg);
+    top: -12px;
+    left: 30%;
+}
+
+.star {
+    position: absolute;
+    font-size: 35px;
+}
+
+.star.one {
+    right: -25px;
+    top: 30px;
+}
+
+.star.two {
+    left: -30px;
+    bottom: 30px;
+}
+
+/* Question */
+.question {
+    margin: 45px auto 15px;
+    font-size: clamp(25px, 6vw, 42px);
+    color: #bd5579;
 }
 
 .buttons {
-    position: relative;
-    height: 150px;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 button {
@@ -136,229 +189,245 @@ button {
     font-family: inherit;
 }
 
-#yesBtn,
-#noBtn {
-    padding: 15px 35px;
-    border-radius: 50px;
-    font-size: 20px;
-    font-weight: bold;
+.yes-btn,
+.no-btn {
+    padding: 14px 35px;
+    border-radius: 30px;
+    font-size: 18px;
     transition: .2s;
 }
 
-#yesBtn {
-    background: #ff4f91;
+.yes-btn {
+    background: #e982a6;
     color: white;
-    box-shadow: 0 8px 20px rgba(255, 79, 145, .35);
+    box-shadow: 0 7px 15px rgba(220,100,140,.25);
 }
 
-#yesBtn:hover {
+.yes-btn:hover {
     transform: scale(1.08);
 }
 
-#noBtn {
-    position: absolute;
-    left: 55%;
-    top: 0;
-    background: #eee;
-    color: #777;
+.no-btn {
+    background: white;
+    color: #bd6684;
+    border: 2px solid #efb1c5;
 }
 
-/* YES SCREEN */
-#loveScreen {
+/* Yay */
+#yay {
+    display: none;
+    margin-top: 30px;
+}
+
+#yay h2 {
+    font-size: clamp(38px, 9vw, 70px);
+    color: #df638d;
+    margin: 5px;
+    animation: pop .7s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(.3); opacity: 0; }
+    70% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Arrow area */
+.arrow-area {
+    position: relative;
+    width: min(90vw, 650px);
+    height: 150px;
+    margin: 10px auto 0;
     display: none;
 }
 
-.cute-scene {
-    margin: 20px auto;
-    width: 220px;
-    height: 180px;
-    position: relative;
-}
-
-/* Cute animated bear */
-.bear {
+.arrow {
     position: absolute;
-    width: 110px;
-    height: 100px;
-    background: #c98b65;
-    border-radius: 50% 50% 45% 45%;
-    left: 55px;
-    top: 45px;
-    animation: bounce 1.5s infinite ease-in-out;
+    left: 5%;
+    top: 60px;
+    font-size: 65px;
+    transform: rotate(-8deg);
 }
 
-.ear {
+.arrow-line {
     position: absolute;
-    width: 35px;
-    height: 35px;
-    background: #b87450;
-    border-radius: 50%;
-    top: -12px;
+    left: 20%;
+    top: 85px;
+    width: 65%;
+    height: 4px;
+    background: #d87999;
+    transform: rotate(-5deg);
+    transform-origin: left;
 }
 
-.ear.left { left: 5px; }
-.ear.right { right: 5px; }
-
-.eye {
+.arrow-tip {
     position: absolute;
-    width: 10px;
-    height: 14px;
-    background: #44232d;
-    border-radius: 50%;
-    top: 35px;
+    right: 14%;
+    top: 66px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 25px solid #d87999;
+    transform: rotate(-5deg);
 }
 
-.eye.left { left: 28px; }
-.eye.right { right: 28px; }
-
-.nose {
-    position: absolute;
-    width: 14px;
-    height: 10px;
-    background: #44232d;
-    border-radius: 50%;
-    left: 48px;
-    top: 50px;
+/* Shoot animation */
+.arrow-area.shoot .arrow {
+    animation: shoot 1.4s ease forwards;
 }
 
-.heart-float {
-    position: absolute;
-    font-size: 35px;
-    animation: heartFloat 2s infinite;
+.arrow-area.shoot .arrow-line {
+    animation: lineShoot 1.4s ease forwards;
 }
 
-.heart1 {
-    left: 15px;
-    top: 20px;
+.arrow-area.shoot .arrow-tip {
+    animation: tipShoot 1.4s ease forwards;
 }
 
-.heart2 {
-    right: 15px;
-    top: 5px;
-    animation-delay: .6s;
-}
-
-@keyframes bounce {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-@keyframes heartFloat {
-    0%,100% {
-        transform: translateY(0) scale(1);
-        opacity: .7;
-    }
-    50% {
-        transform: translateY(-20px) scale(1.2);
-        opacity: 1;
-    }
-}
-
-.love-message {
-    font-size: 21px;
-    line-height: 1.6;
-}
-
-/* CLICKABLE HEART */
-#heartButton {
-    margin: 25px auto;
-    width: 100px;
-    height: 100px;
-    background: #ff4f91;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 55px;
-    box-shadow: 0 10px 35px rgba(255, 79, 145, .4);
-    animation: heartbeat 1.2s infinite;
-}
-
-#heartButton:hover {
-    transform: scale(1.12);
-}
-
-/* LETTER */
-#letter {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    background: rgba(89, 25, 52, .55);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.letter-paper {
-    position: relative;
-    max-width: 600px;
-    max-height: 85vh;
-    overflow-y: auto;
-    background: #fffafc;
-    border-radius: 15px;
-    padding: 40px 30px;
-    border: 3px solid #ff9cbe;
-    box-shadow: 0 20px 70px rgba(0,0,0,.25);
-    animation: letterOpen .6s ease;
-    text-align: left;
-}
-
-@keyframes letterOpen {
+@keyframes shoot {
     from {
-        transform: scale(.5) rotate(-5deg);
-        opacity: 0;
+        left: 5%;
     }
     to {
-        transform: scale(1) rotate(0);
-        opacity: 1;
+        left: 78%;
     }
 }
 
-.letter-paper h2 {
-    text-align: center;
-    color: #df407b;
-    font-size: 30px;
+@keyframes lineShoot {
+    from { width: 0; }
+    to { width: 65%; }
 }
 
-.letter-paper p {
+@keyframes tipShoot {
+    from { right: 14%; }
+    to { right: 5%; }
+}
+
+/* Letter */
+#letter {
+    display: none;
+    max-width: 650px;
+    margin: 10px auto;
+    position: relative;
+    animation: letterAppear 1s ease;
+}
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.paper {
+    background: #fffdf5;
+    padding: 40px 30px;
+    border-radius: 8px;
+    border: 2px solid #ead5b8;
+    box-shadow: 0 12px 30px rgba(130,90,70,.15);
+    text-align: left;
+    position: relative;
+}
+
+.paper:before,
+.paper:after {
+    content: "♡";
+    position: absolute;
+    color: #e890ad;
+    font-size: 35px;
+}
+
+.paper:before {
+    top: 12px;
+    left: 15px;
+}
+
+.paper:after {
+    bottom: 10px;
+    right: 15px;
+}
+
+.paper h3 {
+    text-align: center;
+    color: #d36587;
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.paper p {
+    font-family: Georgia, serif;
     line-height: 1.8;
     font-size: 17px;
 }
 
-.close {
+.signature {
+    text-align: right;
+    color: #c75f82;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+/* Dog decorations */
+.dog {
     position: absolute;
-    right: 15px;
-    top: 10px;
-    background: transparent;
-    font-size: 28px;
-    color: #b83c69;
+    font-size: 55px;
 }
 
-.music-button {
+.dog-left {
+    left: -50px;
+    bottom: -20px;
+}
+
+.dog-right {
+    right: -50px;
+    top: -25px;
+}
+
+/* Music button */
+.music-btn {
     position: fixed;
-    right: 15px;
-    bottom: 15px;
-    z-index: 300;
-    background: white;
-    border: 2px solid #ff80ac;
+    right: 18px;
+    bottom: 18px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    background: #df7e9f;
+    color: white;
     font-size: 22px;
+    box-shadow: 0 6px 15px rgba(180,80,110,.3);
+    z-index: 20;
 }
 
-@media(max-width:500px) {
-    .lock-box h1 {
-        font-size: 30px;
+/* Mobile */
+@media(max-width:600px) {
+    .countdown-box {
+        padding: 30px 15px;
     }
 
-    #countdown {
+    .time {
+        min-width: 65px;
+        padding: 12px 8px;
+    }
+
+    .time strong {
         font-size: 23px;
     }
 
-    .card {
-        min-height: 550px;
+    .paper {
+        padding: 35px 20px;
+    }
+
+    .dog-left {
+        left: -15px;
+    }
+
+    .dog-right {
+        right: -15px;
     }
 }
 </style>
@@ -366,124 +435,148 @@ button {
 
 <body>
 
-<!-- MUSIC -->
-<audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+<!-- Floating hearts -->
+<div class="heart" style="left:5%; animation-delay:0s;">♡</div>
+<div class="heart" style="left:18%; animation-delay:2s;">♥</div>
+<div class="heart" style="left:35%; animation-delay:4s;">♡</div>
+<div class="heart" style="left:55%; animation-delay:1s;">♥</div>
+<div class="heart" style="left:75%; animation-delay:3s;">♡</div>
+<div class="heart" style="left:90%; animation-delay:5s;">♥</div>
 
-<!-- LOCK SCREEN -->
-<section id="lockScreen">
-    <div class="lock-box">
 
-        <div class="lock-icon">💗</div>
+<!-- ================= COUNTDOWN ================= -->
 
-        <h1>Something is waiting for you...</h1>
+<section id="countdownPage">
+
+    <div class="countdown-box">
+
+        <div class="small">A LITTLE SURPRISE FOR YOU</div>
+
+        <h1>♡ Wait for it... ♡</h1>
 
         <p>
-            But you have to wait until<br>
-            <strong>September 11, 2026 • 12:00 AM</strong>
+            Something special will open when the clock says
+            <b>September 11, 2026</b>.
         </p>
 
-        <div class="countdown-label">
-            Time remaining:
-        </div>
+        <div id="timer">
 
-        <div id="countdown">
-            Loading...
+            <div class="time">
+                <strong id="days">00</strong>
+                <span>Days</span>
+            </div>
+
+            <div class="time">
+                <strong id="hours">00</strong>
+                <span>Hours</span>
+            </div>
+
+            <div class="time">
+                <strong id="minutes">00</strong>
+                <span>Minutes</span>
+            </div>
+
+            <div class="time">
+                <strong id="seconds">00</strong>
+                <span>Seconds</span>
+            </div>
+
         </div>
 
     </div>
+
 </section>
 
 
-<!-- MAIN CONTENT -->
-<section id="mainContent">
+<!-- ================= MAIN PAGE ================= -->
 
-    <div class="card">
+<section id="mainPage">
 
-        <div id="questionScreen">
+    <div class="title">
+        Happy September 11 ♡
+    </div>
 
-            <div style="font-size:55px;">💌</div>
+    <div class="subtitle">
+        I made a little something just for you.
+    </div>
 
-            <h1>Do you still love me?</h1>
 
-            <p class="subtitle">
-                Be honest... I already know the answer. 🤭
-            </p>
+    <!-- PHOTO -->
 
-            <div class="buttons">
+    <div class="photo-section">
 
-                <button id="yesBtn">
-                    YES 💗
-                </button>
+        <div class="photo-frame">
 
-                <button id="noBtn">
-                    NO 😭
-                </button>
+            <div class="tape"></div>
 
-            </div>
+            <span class="star one">✦</span>
+            <span class="star two">✦</span>
+
+            <img src="photo1.jpg" alt="Our photo">
 
         </div>
 
+    </div>
 
-        <!-- YES SCREEN -->
-        <div id="loveScreen">
 
-            <h1>YAAAAAY! 💗</h1>
+    <!-- QUESTION -->
 
-            <div class="cute-scene">
+    <div class="question">
+        Do you still love me? ♡
+    </div>
 
-                <div class="heart-float heart1">💗</div>
-                <div class="heart-float heart2">💕</div>
+    <div class="buttons">
 
-                <div class="bear">
+        <button class="yes-btn" onclick="yesClicked()">
+            YAYY ♡
+        </button>
 
-                    <div class="ear left"></div>
-                    <div class="ear right"></div>
+        <button class="no-btn" id="noBtn">
+            No
+        </button>
 
-                    <div class="eye left"></div>
-                    <div class="eye right"></div>
+    </div>
 
-                    <div class="nose"></div>
 
-                </div>
+    <!-- YAY -->
 
-            </div>
+    <div id="yay">
 
-            <p class="love-message">
-                I knew it! 🥹💗<br>
-                Happy Monthsary, Hon!!!
-            </p>
+        <h2>YAYYYYY! ♡</h2>
 
-            <button id="heartButton">
-                ❤️
-            </button>
+        <p>
+            I knew it! Now... look what happens next.
+        </p>
+
+    </div>
+
+
+    <!-- ARROW -->
+
+    <div class="arrow-area" id="arrowArea">
+
+        <div class="arrow">🏹</div>
+
+        <div class="arrow-line"></div>
+
+        <div class="arrow-tip"></div>
+
+    </div>
+
+
+    <!-- LETTER -->
+
+    <div id="letter">
+
+        <div class="paper">
+
+            <div class="dog dog-left">🐶</div>
+            <div class="dog dog-right">🐕</div>
 
             <p>
-                <small>Click the heart 💗</small>
+                Hon,
             </p>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- LOVE LETTER -->
-<div id="letter">
-
-    <div class="letter-paper">
-
-        <button class="close" id="closeLetter">×</button>
-
-        <h2>💌 Happy Monthsary 💌</h2>
-
-        <p>
-            Hon,
-        </p>
-
-        <p>
             Happy monthsary to us. ❤️
         </p>
 
@@ -525,59 +618,54 @@ button {
         </p>
 
         <p style="text-align:right;">
-            — misis mo🤪​
+            — misis mo🤪
         </p>
+        </div>
 
     </div>
 
-</div>
+</section>
 
 
-<!-- MUSIC CONTROL -->
-<button class="music-button" id="musicButton">
-    🎵
+<!-- MUSIC -->
+
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()" id="musicButton">
+    ♫
 </button>
 
 
 <script>
 
 /* =========================================
-   TARGET DATE
-========================================= */
-
-const targetDate = new Date().getTime() - 1000;
-    
-const lockScreen =
-    document.getElementById("lockScreen");
-
-const mainContent =
-    document.getElementById("mainContent");
-
-const countdown =
-    document.getElementById("countdown");
-
-const music =
-    document.getElementById("music");
-
-
-/* =========================================
    COUNTDOWN
+   September 11, 2026 — 12:00 AM
 ========================================= */
+
+const targetDate =
+    new Date("September 11, 2026 00:00:00").getTime();
+
+const countdownPage =
+    document.getElementById("countdownPage");
+
+const mainPage =
+    document.getElementById("mainPage");
+
 
 function updateCountdown() {
 
     const now = new Date().getTime();
-
     const distance = targetDate - now;
 
     if (distance <= 0) {
 
-        lockScreen.style.display = "none";
-        mainContent.style.display = "flex";
+        countdownPage.style.display = "none";
+        mainPage.style.display = "block";
 
         startMusic();
-
-        clearInterval(timer);
 
         return;
     }
@@ -603,232 +691,125 @@ function updateCountdown() {
             / 1000
         );
 
-    countdown.innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-}
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
 
-const timer = setInterval(updateCountdown, 1000);
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
 
 updateCountdown();
-
-
-/* =========================================
-   MUSIC
-========================================= */
-
-function startMusic() {
-
-    music.volume = 0.5;
-
-    music.play().catch(() => {
-
-        console.log(
-            "Autoplay was blocked. Tap the music button."
-        );
-
-    });
-}
-
-
-/* Music button */
-
-const musicButton =
-    document.getElementById("musicButton");
-
-musicButton.addEventListener("click", () => {
-
-    if (music.paused) {
-
-        music.play();
-
-        musicButton.innerHTML = "🔊";
-
-    } else {
-
-        music.pause();
-
-        musicButton.innerHTML = "🔇";
-
-    }
-
-});
-
-
-/* =========================================
-   NO BUTTON RUNS AWAY
-========================================= */
-
-const noBtn =
-    document.getElementById("noBtn");
-
-const buttonsArea =
-    document.querySelector(".buttons");
-
-function moveNoButton() {
-
-    const areaWidth =
-        buttonsArea.clientWidth - noBtn.offsetWidth;
-
-    const areaHeight =
-        buttonsArea.clientHeight - noBtn.offsetHeight;
-
-    const randomX =
-        Math.random() * areaWidth;
-
-    const randomY =
-        Math.random() * areaHeight;
-
-    noBtn.style.left =
-        randomX + "px";
-
-    noBtn.style.top =
-        randomY + "px";
-}
-
-
-/* Desktop */
-noBtn.addEventListener("mouseenter", moveNoButton);
-
-/* Mobile */
-noBtn.addEventListener("touchstart", function(e) {
-
-    e.preventDefault();
-
-    moveNoButton();
-
-});
-
-
-/* Also move if clicked */
-
-noBtn.addEventListener("click", function(e) {
-
-    e.preventDefault();
-
-    moveNoButton();
-
-});
+setInterval(updateCountdown, 1000);
 
 
 /* =========================================
    YES BUTTON
 ========================================= */
 
-const yesBtn =
-    document.getElementById("yesBtn");
+function yesClicked() {
 
-const questionScreen =
-    document.getElementById("questionScreen");
+    document.getElementById("yay").style.display = "block";
 
-const loveScreen =
-    document.getElementById("loveScreen");
+    const arrowArea =
+        document.getElementById("arrowArea");
 
-yesBtn.addEventListener("click", () => {
+    arrowArea.style.display = "block";
 
-    questionScreen.style.display = "none";
+    /* Start arrow animation */
+    setTimeout(() => {
+        arrowArea.classList.add("shoot");
+    }, 700);
 
-    loveScreen.style.display = "block";
-
-    startMusic();
-
-});
-
-
-/* =========================================
-   HEART → LOVE LETTER
-========================================= */
-
-const heartButton =
-    document.getElementById("heartButton");
-
-const letter =
-    document.getElementById("letter");
-
-heartButton.addEventListener("click", () => {
-
-    letter.style.display = "flex";
-
-});
-
-
-/* CLOSE LETTER */
-
-const closeLetter =
-    document.getElementById("closeLetter");
-
-closeLetter.addEventListener("click", () => {
-
-    letter.style.display = "none";
-
-});
-
-
-/* Click outside letter */
-
-letter.addEventListener("click", (e) => {
-
-    if (e.target === letter) {
-
-        letter.style.display = "none";
-
-    }
-
-});
-
-
-/* =========================================
-   FLOATING HEARTS
-========================================= */
-
-function createHeart() {
-
-    const heart =
-        document.createElement("div");
-
-    heart.className =
-        "floating-heart";
-
-    heart.innerHTML =
-        ["💗","💕","💖","💞","💓"]
-        [Math.floor(Math.random() * 5)];
-
-    heart.style.left =
-        Math.random() * 100 + "vw";
-
-    heart.style.animationDuration =
-        (5 + Math.random() * 5) + "s";
-
-    heart.style.fontSize =
-        (15 + Math.random() * 20) + "px";
-
-    document.body.appendChild(heart);
-
+    /* Show letter after arrow finishes */
     setTimeout(() => {
 
-        heart.remove();
+        document.getElementById("letter").style.display =
+            "block";
 
-    }, 10000);
+        document.getElementById("letter").scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 2200);
+
+    startMusic();
 }
-
-setInterval(createHeart, 700);
 
 
 /* =========================================
-   TRY TO START MUSIC AFTER FIRST TOUCH
+   NO BUTTON
 ========================================= */
 
-document.addEventListener("click", () => {
+const noBtn =
+    document.getElementById("noBtn");
 
-    if (
-        new Date().getTime() >= targetDate &&
-        music.paused
-    ) {
+noBtn.addEventListener("mouseover", moveNoButton);
 
-        music.play().catch(() => {});
+noBtn.addEventListener("touchstart", moveNoButton);
+
+
+function moveNoButton() {
+
+    const x =
+        Math.random() *
+        (window.innerWidth - noBtn.offsetWidth - 30);
+
+    const y =
+        Math.random() *
+        (window.innerHeight - noBtn.offsetHeight - 30);
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+
+function startMusic() {
+
+    music.play().catch(() => {
+        /*
+        Some browsers don't allow automatic
+        music until the user interacts with
+        the page.
+        */
+    });
+
+    musicButton.textContent = "♫";
+}
+
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play();
+        musicButton.textContent = "♫";
+
+    } else {
+
+        music.pause();
+        musicButton.textContent = "🔇";
 
     }
-
-}, { once: true });
+}
 
 </script>
 
