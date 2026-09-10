@@ -3,30 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>For You 💗</title>
 
 <style>
-
-/* =====================================================
-   GENERAL
-===================================================== */
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html,
-body {
+html, body {
     width: 100%;
     min-height: 100%;
 }
 
 body {
     background: #ffd7e5;
-    font-family: "Quicksand", Arial, sans-serif;
+    font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
 
@@ -50,9 +43,7 @@ body {
         #ffc9dc
     );
 
-    transition:
-        opacity .8s ease,
-        visibility .8s ease;
+    transition: opacity .8s ease, visibility .8s ease;
 }
 
 #lockScreen.hide {
@@ -63,15 +54,11 @@ body {
 
 .lock-box {
     width: min(90%, 420px);
-
     padding: 40px 25px;
-
     text-align: center;
 
     background: rgba(255,255,255,.55);
-
     border: 2px solid rgba(255,255,255,.8);
-
     border-radius: 30px;
 
     box-shadow:
@@ -82,38 +69,30 @@ body {
 
 .lock-heart {
     font-size: 60px;
-
-    animation:
-        heartbeat 1.5s infinite;
+    animation: heartbeat 1.5s infinite;
 }
 
 .lock-box h1 {
     margin-top: 15px;
-
     color: #d65d88;
-
     font-size: 30px;
 }
 
 .lock-box p {
     margin-top: 10px;
-
     color: #875267;
-
     font-size: 15px;
 }
 
 .countdown {
     margin-top: 22px;
-
     color: #c6537d;
-
-    font-weight: 700;
+    font-weight: bold;
 }
 
 
 /* =====================================================
-   MAIN CONTENT
+   MAIN
 ===================================================== */
 
 #mainContent {
@@ -137,8 +116,6 @@ body {
 
     box-shadow:
         0 20px 60px rgba(130,60,90,.2);
-
-    background: #ffe1eb;
 }
 
 
@@ -150,7 +127,6 @@ body {
     min-height: 650px;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
@@ -160,50 +136,31 @@ body {
 
     padding: 30px;
 
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(255,255,255,.8) 0 6px,
-            transparent 7px
-        ),
-        radial-gradient(
-            circle at 85% 70%,
-            rgba(255,255,255,.7) 0 6px,
-            transparent 7px
-        ),
-        #ffe3ed;
+    background: #ffe3ed;
 }
 
 .question-heart {
     font-size: 55px;
-
     margin-bottom: 15px;
 
-    animation:
-        heartbeat 1.4s infinite;
+    animation: heartbeat 1.4s infinite;
 }
 
 .question-screen h2 {
     color: #d45c86;
-
     font-size: clamp(30px, 7vw, 48px);
-
     font-family: Georgia, serif;
 }
 
 .question-screen p {
     margin-top: 10px;
-
     color: #805165;
-
-    font-size: 15px;
 }
 
 .buttons {
     position: relative;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -216,13 +173,11 @@ body {
 
 .btn {
     border: none;
-
     border-radius: 999px;
 
     padding: 14px 30px;
 
     font-size: 16px;
-
     font-weight: bold;
 
     cursor: pointer;
@@ -230,7 +185,6 @@ body {
 
 .yes {
     color: white;
-
     background: #df7099;
 
     box-shadow:
@@ -243,9 +197,7 @@ body {
 
 .no {
     color: #c45e82;
-
     background: white;
-
     position: relative;
 }
 
@@ -262,9 +214,9 @@ body {
     width: 100%;
 
     /*
-       SAME RATIO AS bg.jpeg
-       1024 x 1536 = 2 : 3
+       bg.jpeg = 1024 x 1536
     */
+
     aspect-ratio: 2 / 3;
 
     overflow: hidden;
@@ -272,120 +224,14 @@ body {
     background-image: url("bg.jpeg");
 
     background-size: 100% 100%;
-
     background-position: center;
-
     background-repeat: no-repeat;
 }
 
 .love-screen.show {
     display: block;
-
-    animation:
-        fadeIn .8s ease;
+    animation: fadeIn .8s ease;
 }
-
-
-/* =====================================================
-   PHOTO 1 — YOU
-===================================================== */
-
-/*
-   IMPORTANT:
-
-   These coordinates are based on the empty
-   frame in the bg.jpeg you provided.
-
-   The background already contains the frame
-   and the "You" label.
-
-   This image ONLY fills the empty area.
-*/
-
-.photo {
-    position: absolute;
-
-    overflow: hidden;
-
-    z-index: 10;
-
-    background: #f8d5e1;
-}
-
-
-/* LEFT PHOTO */
-
-.photo-you {
-    left: 9.3%;
-    top: 33.0%;
-
-    width: 34.7%;
-    height: 28.8%;
-
-    transform:
-        rotate(-8deg);
-
-    transform-origin: center center;
-
-    border-radius: 2px;
-}
-
-
-/* =====================================================
-   PHOTO 2 — ME
-===================================================== */
-
-.photo-me {
-    right: 8.8%;
-    top: 33.1%;
-
-    width: 35.0%;
-    height: 28.8%;
-
-    transform:
-        rotate(8deg);
-
-    transform-origin: center center;
-
-    border-radius: 2px;
-}
-
-
-/* =====================================================
-   ACTUAL PHOTOS
-===================================================== */
-
-.photo img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    /*
-       COVER = fills the frame completely
-       without leaving blank spaces.
-    */
-
-    object-fit: cover;
-
-    object-position: center;
-
-    user-select: none;
-
-    -webkit-user-drag: none;
-}
-
-
-/*
-   If you prefer the WHOLE photo visible instead
-   of filling the frame, change:
-
-       object-fit: cover;
-
-   to:
-
-       object-fit: contain;
-*/
 
 
 /* =====================================================
@@ -395,25 +241,26 @@ body {
 .cupid {
     position: absolute;
 
-    z-index: 30;
-
-    /*
-       Position at the top-center.
-       Adjust these two values if your cupid
-       needs to move.
-    */
+    z-index: 50;
 
     left: 50%;
-    top: 7%;
+    top: 4%;
+
+    /*
+       BIGGER CUPID
+    */
+
+    width: 31%;
+
+    max-width: 250px;
 
     transform:
         translateX(-50%);
 
-    width: 22%;
-
-    max-width: 170px;
-
     pointer-events: none;
+
+    animation:
+        cupidFloat 3s ease-in-out infinite;
 }
 
 .cupid img {
@@ -427,175 +274,282 @@ body {
 
 
 /* =====================================================
-   ARROW
+   PHOTOS
 ===================================================== */
 
-.arrow {
+/*
+   The background already has the frames.
+
+   These are ONLY the actual photos.
+
+   Smaller dimensions so they stay INSIDE
+   the white/pink frame areas.
+*/
+
+
+.photo {
     position: absolute;
 
-    z-index: 25;
+    overflow: hidden;
+
+    z-index: 20;
+
+    background: #f8d5e1;
 
     /*
-       Arrow position is around the middle
-       between the two photos.
+       IMPORTANT:
+       clips the photo to its box.
     */
 
-    left: 50%;
-    top: 61.5%;
-
-    transform:
-        translate(-50%, -50%);
-
-    width: 25%;
-
-    max-width: 190px;
-
-    pointer-events: none;
+    border-radius: 2px;
 }
 
-.arrow img {
+.photo img {
     width: 100%;
-    height: auto;
+    height: 100%;
 
     display: block;
 
-    object-fit: contain;
+    object-fit: cover;
+
+    object-position: center;
+
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 
 /* =====================================================
-   ENVELOPE AREA
+   LEFT PHOTO
 ===================================================== */
 
-.envelope-button {
-    position: absolute;
+.photo-you {
 
-    left: 50%;
-    bottom: 8%;
+    left: 11.8%;
+
+    top: 34.1%;
+
+    width: 30.9%;
+
+    height: 25.1%;
 
     transform:
-        translateX(-50%);
+        rotate(-8deg);
+
+    transform-origin: center center;
+}
+
+
+/* =====================================================
+   RIGHT PHOTO
+===================================================== */
+
+.photo-me {
+
+    right: 11.5%;
+
+    top: 34.2%;
+
+    width: 31.0%;
+
+    height: 25.1%;
+
+    transform:
+        rotate(8deg);
+
+    transform-origin: center center;
+}
+
+
+/* =====================================================
+   HEART
+===================================================== */
+
+.heart-button {
+
+    position: absolute;
 
     z-index: 40;
+
+    left: 50%;
+    top: 36%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 53%;
+
+    height: 30%;
 
     border: none;
 
     background: transparent;
 
-    cursor: pointer;
+    padding: 0;
 
-    animation:
-        floating 2.2s ease-in-out infinite;
+    cursor: default;
 
-    transition:
-        transform .2s ease;
-}
-
-.envelope-button:hover {
-    transform:
-        translateX(-50%)
-        scale(1.08);
+    pointer-events: none;
 }
 
 
 /*
-   Cute envelope made with CSS.
+   SVG HEART
 */
 
-.envelope {
-    position: relative;
+.heart-svg {
+    width: 100%;
+    height: 100%;
 
-    width: 115px;
-    height: 78px;
+    overflow: visible;
+}
 
-    background: #ffc1d7;
+.heart-path {
 
-    border: 3px solid #e8799e;
+    fill: none;
 
-    border-radius: 10px;
+    stroke: rgba(255,255,255,.98);
 
-    box-shadow:
-        0 8px 20px rgba(170,70,110,.18);
+    stroke-width: 6;
 
-    overflow: hidden;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+
+    filter:
+        drop-shadow(0 0 4px white)
+        drop-shadow(0 0 9px #ff75a7)
+        drop-shadow(0 0 18px #ff9cbd);
+
+    animation:
+        drawHeart 3s ease forwards;
+
+    animation-delay: .8s;
 }
 
 
-/* envelope flap */
+/*
+   Once drawing is finished,
+   JS adds .ready
+*/
 
-.envelope::before {
-    content: "";
+.heart-button.ready {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.heart-button.ready .heart-path {
+
+    animation:
+        heartGlow 1.4s ease-in-out infinite;
+
+    stroke-dashoffset: 0;
+}
+
+
+/* =====================================================
+   HEART BURST
+===================================================== */
+
+.heart-burst {
+
+    position: absolute;
+
+    z-index: 100;
+
+    left: 50%;
+    top: 50%;
+
+    width: 1px;
+    height: 1px;
+
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+.heart-burst.active {
+    opacity: 1;
+}
+
+.burst-piece {
 
     position: absolute;
 
     left: 0;
     top: 0;
 
-    width: 100%;
-    height: 65%;
-
-    background: #ffd5e3;
-
-    clip-path:
-        polygon(
-            0 0,
-            50% 75%,
-            100% 0
-        );
-
-    z-index: 3;
-}
-
-
-/* envelope bottom fold */
-
-.envelope::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 65%;
-
-    background: #f5a8c5;
-
-    clip-path:
-        polygon(
-            0 100%,
-            50% 25%,
-            100% 100%
-        );
-
-    z-index: 2;
-}
-
-.envelope-heart {
-    position: absolute;
-
-    z-index: 5;
-
-    left: 50%;
-    top: 28px;
-
-    transform:
-        translateX(-50%);
-
     font-size: 24px;
+
+    color: white;
+
+    text-shadow:
+        0 0 6px #ff77a7,
+        0 0 15px #ff77a7;
+
+    opacity: 0;
 }
 
-.open-text {
-    margin-top: 8px;
+.heart-burst.active .burst-piece {
+    animation: burstOut 1s ease forwards;
+}
 
-    color: #d45e87;
 
-    font-family: Georgia, serif;
+/* different directions */
 
-    font-size: 16px;
+.b1 {
+    --x: -150px;
+    --y: -100px;
+}
 
-    font-weight: bold;
+.b2 {
+    --x: -95px;
+    --y: -150px;
+    animation-delay: .05s !important;
+}
+
+.b3 {
+    --x: 0px;
+    --y: -170px;
+    animation-delay: .1s !important;
+}
+
+.b4 {
+    --x: 100px;
+    --y: -145px;
+    animation-delay: .15s !important;
+}
+
+.b5 {
+    --x: 155px;
+    --y: -70px;
+    animation-delay: .2s !important;
+}
+
+.b6 {
+    --x: -175px;
+    --y: 20px;
+    animation-delay: .25s !important;
+}
+
+.b7 {
+    --x: 175px;
+    --y: 20px;
+    animation-delay: .3s !important;
+}
+
+.b8 {
+    --x: -110px;
+    --y: 110px;
+    animation-delay: .35s !important;
+}
+
+.b9 {
+    --x: 110px;
+    --y: 110px;
+    animation-delay: .4s !important;
 }
 
 
@@ -604,6 +558,7 @@ body {
 ===================================================== */
 
 .letter-modal {
+
     display: none;
 
     position: fixed;
@@ -618,7 +573,7 @@ body {
     padding: 20px;
 
     background:
-        rgba(80,35,55,.5);
+        rgba(80,35,55,.52);
 }
 
 .letter-modal.show {
@@ -626,6 +581,7 @@ body {
 }
 
 .letter {
+
     position: relative;
 
     width: min(95vw, 600px);
@@ -646,9 +602,13 @@ body {
     color: #704b59;
 
     line-height: 1.7;
+
+    animation:
+        letterPop .6s ease;
 }
 
 .letter h2 {
+
     margin-bottom: 20px;
 
     text-align: center;
@@ -663,6 +623,7 @@ body {
 }
 
 .close-letter {
+
     position: absolute;
 
     top: 10px;
@@ -685,6 +646,7 @@ body {
 ===================================================== */
 
 .music-btn {
+
     position: fixed;
 
     right: 18px;
@@ -718,15 +680,15 @@ body {
 
 @keyframes heartbeat {
 
-    0%,100% {
+    0%, 100% {
         transform: scale(1);
     }
 
     50% {
         transform: scale(1.12);
     }
-
 }
+
 
 @keyframes fadeIn {
 
@@ -737,12 +699,12 @@ body {
     to {
         opacity: 1;
     }
-
 }
 
-@keyframes floating {
 
-    0%,100% {
+@keyframes cupidFloat {
+
+    0%, 100% {
         transform:
             translateX(-50%)
             translateY(0);
@@ -751,9 +713,93 @@ body {
     50% {
         transform:
             translateX(-50%)
-            translateY(-8px);
+            translateY(-13px);
+    }
+}
+
+
+@keyframes drawHeart {
+
+    0% {
+        stroke-dashoffset: 1200;
     }
 
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+@keyframes heartGlow {
+
+    0%, 100% {
+        filter:
+            drop-shadow(0 0 4px white)
+            drop-shadow(0 0 9px #ff75a7)
+            drop-shadow(0 0 18px #ff9cbd);
+    }
+
+    50% {
+        filter:
+            drop-shadow(0 0 7px white)
+            drop-shadow(0 0 16px #ff5f9a)
+            drop-shadow(0 0 28px #ff8db6);
+    }
+}
+
+
+@keyframes burstOut {
+
+    0% {
+
+        opacity: 1;
+
+        transform:
+            translate(0,0)
+            scale(.2)
+            rotate(0deg);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(var(--x),var(--y))
+            scale(1.2)
+            rotate(35deg);
+    }
+}
+
+
+@keyframes letterPop {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(.7)
+            translateY(30px);
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.03)
+            translateY(-5px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
 }
 
 
@@ -779,108 +825,88 @@ body {
         font-size: 31px;
     }
 
-    .love-screen {
-        /*
-           Keep the exact bg.jpeg ratio.
-        */
-        width: 100%;
-        aspect-ratio: 2 / 3;
-    }
-
     /*
-       Cupid
+       CUPID BIG BUT RESPONSIVE
     */
 
     .cupid {
-        top: 6%;
-
-        width: 23%;
+        width: 33%;
+        top: 4%;
     }
 
     /*
-       Photos remain aligned with
-       the frames in bg.jpeg.
+       PHOTOS
     */
 
     .photo-you {
-        left: 9.2%;
-        top: 33.0%;
 
-        width: 34.8%;
-        height: 28.7%;
+        left: 11.8%;
+
+        top: 34.1%;
+
+        width: 30.8%;
+
+        height: 25.0%;
 
         transform:
             rotate(-8deg);
     }
 
     .photo-me {
-        right: 8.7%;
-        top: 33.1%;
 
-        width: 35%;
-        height: 28.7%;
+        right: 11.5%;
+
+        top: 34.2%;
+
+        width: 30.9%;
+
+        height: 25.0%;
 
         transform:
             rotate(8deg);
     }
 
     /*
-       Arrow
+       HEART
     */
 
-    .arrow {
-        width: 25%;
+    .heart-button {
 
-        top: 61.5%;
+        width: 54%;
+
+        height: 29%;
+
+        top: 36%;
     }
 
-    /*
-       Envelope
-    */
-
-    .envelope {
-        width: 95px;
-        height: 65px;
+    .burst-piece {
+        font-size: 18px;
     }
 
-    .envelope-heart {
-        top: 22px;
-        font-size: 20px;
+    .letter {
+        padding: 32px 22px;
     }
-
-    .open-text {
-        font-size: 14px;
-    }
-
-    .envelope-button {
-        bottom: 7%;
-    }
-
 }
 
 
 /* =====================================================
-   VERY SMALL PHONES
+   SMALL PHONES
 ===================================================== */
 
 @media (max-width: 380px) {
 
+    .cupid {
+        width: 34%;
+    }
+
     .photo-you {
-        left: 9%;
-        width: 35%;
+        left: 12%;
+        width: 30.5%;
     }
 
     .photo-me {
-        right: 8.5%;
-        width: 35%;
-    }
-
-    .cupid {
-        width: 24%;
-    }
-
-    .arrow {
-        width: 27%;
+        right: 11.7%;
+        width: 30.6%;
     }
 
 }
@@ -925,7 +951,7 @@ body {
 
 
 <!-- =====================================================
-     MAIN CONTENT
+     MAIN
 ===================================================== -->
 
 <div id="mainContent">
@@ -977,7 +1003,7 @@ body {
 
 
         <!-- =================================================
-             LOVE PAGE
+             LOVE SCREEN
         ================================================== -->
 
         <section
@@ -987,26 +1013,8 @@ body {
 
 
             <!-- =================================================
-                 YOUR BACKGROUND
-
-                 bg.jpeg contains:
-                 - pink background
-                 - decorative frames
-                 - You
-                 - Me
-                 - hearts
-                 - ribbons
-                 - decorations
-
-                 NOTHING is recreated here.
-            ================================================== -->
-
-
-            <!-- =================================================
                  CUPID
-
-                 YOUR FILE:
-                 cupid.png
+                 FILE: cupid.png
             ================================================== -->
 
             <div class="cupid">
@@ -1022,11 +1030,7 @@ body {
 
             <!-- =================================================
                  LEFT PHOTO
-
-                 YOUR FILE:
-                 photo1.jpeg
-
-                 This is placed INSIDE the left frame.
+                 FILE: photo1.jpeg
             ================================================== -->
 
             <div
@@ -1044,11 +1048,7 @@ body {
 
             <!-- =================================================
                  RIGHT PHOTO
-
-                 YOUR FILE:
-                 photo2.jpeg
-
-                 This is placed INSIDE the right frame.
+                 FILE: photo2.jpeg
             ================================================== -->
 
             <div
@@ -1065,45 +1065,61 @@ body {
 
 
             <!-- =================================================
-                 ARROW
-
-                 YOUR FILE:
-                 arrow.png
+                 GLOWING HEART
             ================================================== -->
 
-            <div class="arrow">
+            <button
+                class="heart-button"
+                id="heartButton"
+                aria-label="Open your letter"
+            >
 
-                <img
-                    src="arrow.png"
-                    alt="Arrow"
+                <svg
+                    class="heart-svg"
+                    viewBox="0 0 500 365"
                 >
 
-            </div>
+                    <path
+                        class="heart-path"
+                        id="heartPath"
+                        d="
+                        M250 345
+                        C225 315 55 205 55 105
+                        C55 40 130 18 178 72
+                        L250 145
+                        L322 72
+                        C370 18 445 40 445 105
+                        C445 205 275 315 250 345
+                        Z
+                        "
+                    />
+
+                </svg>
+
+            </button>
 
 
 
             <!-- =================================================
-                 ENVELOPE
+                 HEART BURST
             ================================================== -->
 
-            <button
-                class="envelope-button"
-                id="envelope"
+            <div
+                class="heart-burst"
+                id="heartBurst"
             >
 
-                <div class="envelope">
+                <span class="burst-piece b1">♥</span>
+                <span class="burst-piece b2">♡</span>
+                <span class="burst-piece b3">♥</span>
+                <span class="burst-piece b4">♡</span>
+                <span class="burst-piece b5">♥</span>
+                <span class="burst-piece b6">♡</span>
+                <span class="burst-piece b7">♥</span>
+                <span class="burst-piece b8">♡</span>
+                <span class="burst-piece b9">♥</span>
 
-                    <div class="envelope-heart">
-                        💗
-                    </div>
-
-                </div>
-
-                <div class="open-text">
-                    Open me ♡
-                </div>
-
-            </button>
+            </div>
 
 
         </section>
@@ -1115,7 +1131,7 @@ body {
 
 
 <!-- =====================================================
-     LOVE LETTER
+     LETTER
 ===================================================== -->
 
 <div
@@ -1220,14 +1236,25 @@ body {
 
 <script>
 
-/* =====================================================
-   UNLOCK DATE
 
-   September 11, 2026
-   12:00 AM Italy time
+/* =====================================================
+   TIMER — TEST MODE
 ===================================================== */
 
-const targetDate = Date.now() - 1000;
+/*
+   CURRENTLY UNLOCKS IMMEDIATELY
+   SO YOU CAN TEST THE PAGE.
+
+   When you're done testing, replace this with:
+
+   const targetDate =
+       new Date(
+           "2026-09-11T00:00:00+02:00"
+       ).getTime();
+*/
+
+const targetDate =
+    Date.now() - 1000;
 
 
 const lockScreen =
@@ -1270,7 +1297,6 @@ function updateCountdown() {
             (1000 * 60 * 60 * 24)
         );
 
-
     const hours =
         Math.floor(
             (
@@ -1279,7 +1305,6 @@ function updateCountdown() {
             ) % 24
         );
 
-
     const minutes =
         Math.floor(
             (
@@ -1287,7 +1312,6 @@ function updateCountdown() {
                 (1000 * 60)
             ) % 60
         );
-
 
     const seconds =
         Math.floor(
@@ -1324,8 +1348,9 @@ setInterval(
 );
 
 
+
 /* =====================================================
-   YES BUTTON
+   YES
 ===================================================== */
 
 const yesBtn =
@@ -1370,8 +1395,9 @@ yesBtn.addEventListener(
 );
 
 
+
 /* =====================================================
-   NO BUTTON RUNS AWAY
+   NO BUTTON
 ===================================================== */
 
 const noBtn =
@@ -1414,14 +1440,11 @@ function moveNoButton() {
     noBtn.style.position =
         "absolute";
 
-
     noBtn.style.left =
         "50%";
 
-
     noBtn.style.top =
         "50%";
-
 
     noBtn.style.transform =
         `translate(
@@ -1462,13 +1485,24 @@ noBtn.addEventListener(
 );
 
 
+
 /* =====================================================
-   ENVELOPE
+   HEART DRAW → CLICK → BURST → LETTER
 ===================================================== */
 
-const envelope =
+const heartButton =
     document.getElementById(
-        "envelope"
+        "heartButton"
+    );
+
+const heartPath =
+    document.getElementById(
+        "heartPath"
+    );
+
+const heartBurst =
+    document.getElementById(
+        "heartBurst"
     );
 
 const letterModal =
@@ -1476,27 +1510,90 @@ const letterModal =
         "letterModal"
     );
 
-const closeLetter =
-    document.getElementById(
-        "closeLetter"
-    );
+
+/*
+   Wait until the heart's drawing animation
+   is completely finished.
+*/
+
+heartPath.addEventListener(
+    "animationend",
+    function(event) {
+
+        if (
+            event.animationName ===
+            "drawHeart"
+        ) {
+
+            heartButton.classList.add(
+                "ready"
+            );
+
+        }
+
+    }
+);
 
 
-envelope.addEventListener(
+/*
+   CLICK THE GLOWING HEART
+*/
+
+heartButton.addEventListener(
     "click",
-    () => {
+    function() {
 
-        letterModal.classList.add(
-            "show"
+        /*
+           Prevent clicking twice.
+        */
+
+        heartButton.style.pointerEvents =
+            "none";
+
+
+        /*
+           BURST
+        */
+
+        heartBurst.classList.add(
+            "active"
+        );
+
+
+        /*
+           Open the letter AFTER
+           the burst starts.
+        */
+
+        setTimeout(
+            function() {
+
+                letterModal.classList.add(
+                    "show"
+                );
+
+            },
+            650
         );
 
     }
 );
 
 
+
+/* =====================================================
+   CLOSE LETTER
+===================================================== */
+
+const closeLetter =
+    document.getElementById(
+        "closeLetter"
+    );
+
+
 closeLetter.addEventListener(
     "click",
-    () => {
+    function() {
 
         letterModal.classList.remove(
             "show"
@@ -1508,7 +1605,7 @@ closeLetter.addEventListener(
 
 letterModal.addEventListener(
     "click",
-    (event) => {
+    function(event) {
 
         if (
             event.target ===
@@ -1525,8 +1622,9 @@ letterModal.addEventListener(
 );
 
 
+
 /* =====================================================
-   MUSIC BUTTON
+   MUSIC
 ===================================================== */
 
 const music =
@@ -1545,7 +1643,7 @@ let musicPlaying = false;
 
 musicBtn.addEventListener(
     "click",
-    () => {
+    function() {
 
         if (musicPlaying) {
 
