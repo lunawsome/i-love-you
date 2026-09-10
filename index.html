@@ -23,7 +23,6 @@ body {
     color: #8f3155;
     overflow-x: hidden;
 
-    /* CUTE PINK WATERCOLOR BACKGROUND */
     background:
         radial-gradient(circle at 10% 10%, rgba(255,255,255,.65) 0 2px, transparent 3px),
         radial-gradient(circle at 30% 75%, rgba(255,255,255,.55) 0 3px, transparent 4px),
@@ -39,7 +38,6 @@ body {
         cover;
 }
 
-/* SOFT WATERCOLOR CLOUDS */
 body::before {
     content: "";
     position: fixed;
@@ -67,6 +65,7 @@ body::after {
 }
 
 /* FLOATING DECORATIONS */
+
 .float {
     position: fixed;
     z-index: 2;
@@ -120,12 +119,14 @@ body::after {
     0%,100% {
         transform: translateY(0) rotate(-5deg);
     }
+
     50% {
         transform: translateY(-14px) rotate(5deg);
     }
 }
 
 /* SCREEN */
+
 .screen {
     min-height: 100vh;
     padding: 25px 14px 50px;
@@ -134,7 +135,8 @@ body::after {
     justify-content: center;
 }
 
-/* MAIN SCRAPBOOK PAPER */
+/* MAIN SCRAPBOOK CARD */
+
 .card {
     position: relative;
     width: min(720px, 95vw);
@@ -156,7 +158,6 @@ body::after {
     transform: rotate(-.35deg);
 }
 
-/* PAPER TAPE */
 .card::before,
 .card::after {
     content: "";
@@ -177,7 +178,8 @@ body::after {
     transform: rotate(8deg);
 }
 
-/* DECORATIVE CORNERS */
+/* CORNERS */
+
 .corner {
     position: absolute;
     font-size: 25px;
@@ -204,6 +206,7 @@ body::after {
 }
 
 /* HEADINGS */
+
 h1 {
     font-family: "Short Stack", cursive;
     color: #a32f59;
@@ -211,11 +214,6 @@ h1 {
     line-height: 1.08;
     margin: 15px 0;
     text-shadow: 2px 2px rgba(255,255,255,.9);
-}
-
-h2 {
-    font-family: "Short Stack", cursive;
-    color: #a32f59;
 }
 
 .subtitle {
@@ -229,6 +227,7 @@ h2 {
 }
 
 /* BUTTONS */
+
 button {
     font-family: "Patrick Hand", cursive;
     cursor: pointer;
@@ -268,7 +267,7 @@ button {
     margin-top: 25px;
 }
 
-/* ---------------- LOCK SCREEN ---------------- */
+/* LOCK SCREEN */
 
 .lock-screen {
     text-align: center;
@@ -284,6 +283,7 @@ button {
     0%,100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-8px);
     }
@@ -296,12 +296,6 @@ button {
     margin: 8px 0;
 }
 
-.waiting-line {
-    font-size: 21px;
-    margin: 15px 0;
-}
-
-/* DATE PILL */
 .date-pill {
     display: inline-block;
     padding: 10px 22px;
@@ -311,12 +305,12 @@ button {
     font-size: 21px;
     font-weight: bold;
     background: #f9a8c5;
+
     box-shadow:
         inset 0 2px 5px rgba(255,255,255,.5),
         0 4px 10px rgba(180,67,108,.13);
 }
 
-/* TIMER */
 .timer-title {
     font-size: 20px;
     margin-bottom: 7px;
@@ -330,21 +324,19 @@ button {
     padding: 12px 22px;
     border-radius: 35px;
     color: white;
+
     background: linear-gradient(180deg, #ef6a9d, #db4e83);
+
     box-shadow:
         0 5px 0 #b93d6c,
         inset 0 2px 5px rgba(255,255,255,.35),
         0 8px 20px rgba(190,61,111,.18);
+
     font-family: "Short Stack", cursive;
     font-size: clamp(21px, 5vw, 30px);
     letter-spacing: 1px;
 }
 
-.timer.finished {
-    background: linear-gradient(180deg, #ef6a9d, #db4e83);
-}
-
-/* DOODLE BOTTOM */
 .doodle-line {
     margin: 25px auto 0;
     width: 220px;
@@ -352,7 +344,7 @@ button {
     letter-spacing: 8px;
 }
 
-/* ---------------- QUESTION ---------------- */
+/* QUESTION */
 
 .question-screen {
     display: none;
@@ -368,6 +360,7 @@ button {
     0%,100% {
         transform: rotate(-3deg);
     }
+
     50% {
         transform: rotate(3deg) translateY(-5px);
     }
@@ -383,12 +376,7 @@ button {
     margin-right: auto;
 }
 
-/* RUNAWAY NO */
-.no-btn {
-    position: relative;
-}
-
-/* ---------------- YES SCREEN ---------------- */
+/* YES SCREEN */
 
 .yes-screen {
     display: none;
@@ -405,7 +393,6 @@ button {
     margin-bottom: 20px;
 }
 
-/* BEAR */
 .bear {
     font-size: 70px;
     animation: bearMove 2.4s ease-in-out infinite;
@@ -415,20 +402,34 @@ button {
     0%,100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-7px);
     }
 }
 
-/* PHOTO SEQUENCE */
-.photo-sequence {
-    margin: 22px auto 0;
+/* PHOTO AREA */
+
+.photo-area {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    margin: 28px auto 0;
+    min-height: 330px;
+
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-sequence {
+    width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
-    max-width: 680px;
+    position: relative;
+    z-index: 2;
 }
 
 .person {
@@ -447,25 +448,28 @@ button {
         opacity: 0;
         transform: scale(.65) rotate(-8deg);
     }
+
     to {
         opacity: 1;
         transform: scale(1) rotate(-2deg);
     }
 }
 
-/* PHOTO PAPER */
+/* PHOTO FRAME */
+
 .photo-frame {
     position: relative;
     padding: 10px 10px 12px;
     background: #fff7fa;
     border: 3px solid #e77ba5;
+
     box-shadow:
         0 6px 13px rgba(137,52,90,.16),
         inset 0 0 10px rgba(245,155,184,.18);
+
     transform: rotate(-2deg);
 }
 
-/* PHOTO */
 .photo-frame img {
     width: 100%;
     height: 235px;
@@ -474,7 +478,8 @@ button {
     border: 1px solid rgba(170,70,110,.2);
 }
 
-/* LITTLE TAPE ON PHOTOS */
+/* PHOTO TAPE */
+
 .person::before {
     content: "";
     position: absolute;
@@ -487,7 +492,8 @@ button {
     background: rgba(244,175,199,.72);
 }
 
-/* PHOTO LABEL */
+/* LABELS */
+
 .photo-label {
     font-family: "Short Stack", cursive;
     font-size: 22px;
@@ -496,12 +502,16 @@ button {
 }
 
 /* PLUS / EQUAL */
+
 .symbol {
     display: none;
+    flex-shrink: 0;
     font-family: "Short Stack", cursive;
     font-size: 42px;
     color: #d34d80;
     animation: symbolPop .6s ease;
+    position: relative;
+    z-index: 3;
 }
 
 .symbol.show {
@@ -513,29 +523,39 @@ button {
         opacity: 0;
         transform: scale(.2) rotate(-20deg);
     }
+
     to {
         opacity: 1;
         transform: scale(1) rotate(0);
     }
 }
 
-/* ---------------- GLOWING HAND-DRAWN HEART ---------------- */
+/* =========================
+   ONE BIG HEART AROUND BOTH
+   ========================= */
 
-.heart-overlay {
+.combined-heart {
     position: absolute;
     z-index: 5;
     pointer-events: none;
-    width: 245px;
-    height: 245px;
+
+    width: 590px;
+    height: 355px;
+
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -48%);
-    overflow: visible;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 0;
 }
 
-/* Hand-drawn heart */
-.heart-doodle {
-    fill: rgba(255,105,158,.05);
+.combined-heart.show {
+    opacity: 1;
+}
+
+.combined-heart path {
+    fill: rgba(255,105,158,.035);
     stroke: #ff74a8;
     stroke-width: 5;
     stroke-linecap: round;
@@ -546,14 +566,15 @@ button {
         drop-shadow(0 0 8px rgba(255,72,137,.85))
         drop-shadow(0 0 17px rgba(255,92,151,.55));
 
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+
     animation:
-        drawHeart 1.7s ease forwards,
-        heartGlow 1.5s ease-in-out 1.7s infinite;
+        drawCombinedHeart 2s ease forwards,
+        heartGlow 1.5s ease-in-out 2s infinite;
 }
 
-@keyframes drawHeart {
+@keyframes drawCombinedHeart {
     to {
         stroke-dashoffset: 0;
     }
@@ -575,25 +596,33 @@ button {
     }
 }
 
-/* EXTRA SMALL HEART SPARKLES */
+/* HEART SPARKLES */
+
 .heart-sparkle {
     position: absolute;
-    z-index: 6;
+    z-index: 7;
     color: #ff65a0;
     font-size: 22px;
     opacity: 0;
-    animation: sparklePop 1s ease forwards;
+    pointer-events: none;
+}
+
+.combined-heart.show .spark1 {
+    animation: sparklePop 1s ease forwards 1.4s;
+}
+
+.combined-heart.show .spark2 {
+    animation: sparklePop 1s ease forwards 1.7s;
 }
 
 .spark1 {
-    top: 8%;
-    right: 7%;
+    top: 5%;
+    right: 8%;
 }
 
 .spark2 {
-    bottom: 12%;
-    left: 6%;
-    animation-delay: .4s;
+    bottom: 9%;
+    left: 8%;
 }
 
 @keyframes sparklePop {
@@ -601,35 +630,39 @@ button {
         opacity: 0;
         transform: scale(.2);
     }
+
     60% {
         opacity: 1;
         transform: scale(1.25);
     }
+
     100% {
         opacity: .8;
         transform: scale(1);
     }
 }
 
-/* ARROW */
-.arrow-area {
+/* CLICK HERE AREA */
+
+.heart-action {
     display: none;
-    margin: 12px auto 0;
     position: relative;
-    width: 190px;
-    height: 85px;
+    width: 300px;
+    height: 135px;
+    margin: -5px auto 0;
 }
 
-.arrow-area.show {
+.heart-action.show {
     display: block;
-    animation: arrowAppear .7s ease;
+    animation: actionAppear .8s ease;
 }
 
-@keyframes arrowAppear {
+@keyframes actionAppear {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(12px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -637,26 +670,33 @@ button {
 }
 
 .arrow-text {
+    position: absolute;
+    left: 8px;
+    top: 35px;
+
     font-size: 23px;
     color: #bd426d;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: rotate(-7deg);
+    transform: rotate(-8deg);
+    white-space: nowrap;
 }
+
+/* CURVED ARROW DIRECTLY TO HEART */
 
 .curved-arrow {
     position: absolute;
-    width: 130px;
-    height: 70px;
-    right: 0;
-    top: 17px;
+    width: 175px;
+    height: 105px;
+
+    left: 92px;
+    top: 3px;
+
+    overflow: visible;
 }
 
 .curved-arrow path {
     fill: none;
     stroke: #d84f80;
-    stroke-width: 3;
+    stroke-width: 3.5;
     stroke-linecap: round;
 }
 
@@ -664,17 +704,27 @@ button {
     fill: #d84f80;
 }
 
-/* BIG HEART */
+/* BIG CLICKABLE HEART */
+
 .big-heart {
     display: none;
+
     border: none;
     background: transparent;
-    font-size: 73px;
-    margin: 3px auto 0;
+
+    font-size: 76px;
+    line-height: 1;
+
+    margin: 0 auto;
+
     filter:
         drop-shadow(0 0 5px white)
         drop-shadow(0 0 12px rgba(255,68,130,.7));
+
     animation: bigHeartPulse 1.25s ease-in-out infinite;
+
+    position: relative;
+    z-index: 20;
 }
 
 .big-heart.show {
@@ -689,12 +739,13 @@ button {
     0%,100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.16);
     }
 }
 
-/* ---------------- LOVE LETTER ---------------- */
+/* LOVE LETTER */
 
 .letter-screen {
     display: none;
@@ -705,25 +756,31 @@ button {
     justify-content: center;
 }
 
-/* ENTIRE LETTER BACKGROUND */
+/* CUTE LETTER PAPER */
+
 .letter-paper {
     position: relative;
     width: min(700px, 94vw);
     padding: 43px 35px 48px;
+
     background:
-        linear-gradient(
-            rgba(255,250,245,.96),
-            rgba(255,244,242,.95)
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(255,180,205,.20),
+            transparent 25%
         ),
-        repeating-linear-gradient(
-            0deg,
-            transparent 0,
-            transparent 30px,
-            rgba(214,117,145,.10) 31px
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(255,190,210,.22),
+            transparent 28%
+        ),
+        linear-gradient(
+            rgba(255,250,245,.97),
+            rgba(255,244,242,.96)
         );
 
     border: 3px solid rgba(207,105,139,.38);
-    border-radius: 13px;
+    border-radius: 18px;
 
     box-shadow:
         0 16px 35px rgba(110,52,76,.20),
@@ -732,7 +789,6 @@ button {
     transform: rotate(.4deg);
 }
 
-/* LETTER TAPE */
 .letter-paper::before,
 .letter-paper::after {
     content: "";
@@ -753,10 +809,12 @@ button {
     transform: rotate(7deg);
 }
 
-/* LETTER DOODLES */
+/* LETTER DECORATIONS */
+
 .letter-deco {
     position: absolute;
     font-size: 27px;
+    opacity: .8;
 }
 
 .letter-deco.one {
@@ -791,7 +849,8 @@ button {
     margin: 0 0 15px;
 }
 
-/* IMPORTANT: NO HEADING ABOVE THE LETTER */
+/* ORIGINAL LETTER — DO NOT CHANGE */
+
 .letter-greeting {
     font-size: 27px;
     color: #a32f59;
@@ -805,13 +864,6 @@ button {
     margin-top: 22px;
 }
 
-.letter-heart {
-    text-align: center;
-    font-size: 31px;
-    margin: 5px 0 20px;
-}
-
-/* LITTLE FLOWERS */
 .flowers {
     text-align: center;
     font-size: 27px;
@@ -820,15 +872,19 @@ button {
 }
 
 /* CLOSE BUTTON */
+
 .close-letter {
     display: block;
     margin: 25px auto 0;
+
     border: none;
     border-radius: 30px;
     padding: 9px 24px;
+
     background: #ef8db0;
     color: white;
     font-size: 19px;
+
     box-shadow: 0 4px 0 #c85b82;
 }
 
@@ -837,7 +893,8 @@ button {
 }
 
 /* RESPONSIVE */
-@media (max-width: 600px) {
+
+@media (max-width: 650px) {
 
     .card {
         padding: 43px 18px 43px;
@@ -857,25 +914,41 @@ button {
         font-size: 20px;
     }
 
-    .photo-sequence {
-        gap: 7px;
+    .photo-area {
+        min-height: 285px;
     }
 
     .person {
-        width: 175px;
+        width: 150px;
     }
 
     .photo-frame img {
-        height: 190px;
+        height: 180px;
     }
 
-    .heart-overlay {
-        width: 200px;
-        height: 200px;
+    .photo-sequence {
+        gap: 5px;
     }
 
     .symbol {
-        font-size: 31px;
+        font-size: 30px;
+    }
+
+    .combined-heart {
+        width: 410px;
+        height: 280px;
+    }
+
+    .heart-action {
+        width: 270px;
+    }
+
+    .arrow-text {
+        font-size: 20px;
+    }
+
+    .curved-arrow {
+        left: 75px;
     }
 
     .letter-paper {
@@ -895,16 +968,15 @@ button {
 @media (max-width: 430px) {
 
     .person {
-        width: 145px;
+        width: 125px;
+    }
+
+    .photo-frame {
+        padding: 7px 7px 9px;
     }
 
     .photo-frame img {
-        height: 160px;
-    }
-
-    .heart-overlay {
-        width: 170px;
-        height: 170px;
+        height: 145px;
     }
 
     .photo-label {
@@ -912,11 +984,42 @@ button {
     }
 
     .photo-sequence {
-        gap: 5px;
+        gap: 3px;
+    }
+
+    .photo-area {
+        min-height: 250px;
+    }
+
+    .combined-heart {
+        width: 350px;
+        height: 240px;
+    }
+
+    .big-heart {
+        font-size: 68px;
+    }
+
+    .heart-action {
+        width: 245px;
+        height: 120px;
+    }
+
+    .arrow-text {
+        left: 0;
+        top: 32px;
+        font-size: 19px;
+    }
+
+    .curved-arrow {
+        width: 155px;
+        height: 95px;
+        left: 68px;
     }
 }
 
 /* HIDDEN */
+
 .hidden {
     display: none !important;
 }
@@ -925,7 +1028,8 @@ button {
 
 <body>
 
-<!-- FLOATING SCRAPBOOK DECORATIONS -->
+<!-- FLOATING DECORATIONS -->
+
 <div class="float f1">♡</div>
 <div class="float f2">♥</div>
 <div class="float f3">✧</div>
@@ -933,9 +1037,11 @@ button {
 <div class="float f5">✦</div>
 <div class="float f6">✿</div>
 
+
 <!-- ================= LOCK SCREEN ================= -->
 
 <section id="lockScreen" class="screen">
+
     <div class="card lock-screen">
 
         <div class="corner tl">✦</div>
@@ -943,28 +1049,28 @@ button {
         <div class="corner bl">✧</div>
         <div class="corner br">♡</div>
 
-        <<div class="bunny">🐰</div>
+        <div class="bunny">🐰</div>
 
-<div class="waiting">
-    You have to wait<br>
-    to open this ♡
-</div>
+        <div class="waiting">
+            You have to wait<br>
+            to open this ♡
+        </div>
 
-<div class="date-pill">
-    September 11, 2026 • 12:00 AM
-</div>
+        <div class="date-pill">
+            September 11, 2026 • 12:00 AM
+        </div>
 
-<div class="timer-title">
-    Time remaining:
-</div>
+        <div class="timer-title">
+            Time remaining:
+        </div>
 
-<div id="countdown" class="timer">
-    Loading...
-</div>
+        <div id="countdown" class="timer">
+            Loading...
+        </div>
 
-<div class="doodle-line">
-    ♡ 〰️ ♡
-</div>
+        <div class="doodle-line">
+            ♡ 〰️ ♡
+        </div>
 
     </div>
 </section>
@@ -973,6 +1079,7 @@ button {
 <!-- ================= QUESTION SCREEN ================= -->
 
 <section id="questionScreen" class="screen question-screen">
+
     <div class="card">
 
         <div class="corner tl">♡</div>
@@ -983,14 +1090,20 @@ button {
         <div class="envelope-icon">💌</div>
 
         <div class="question">
-            <h1>Do you still<br>love me?</h1>
+
+            <h1>
+                Do you still<br>
+                love me?
+            </h1>
 
             <div class="subtitle">
-                Be honest... I already know the answer. 🤭
+                😏​😏​😏​😏​😏​😏​
             </div>
+
         </div>
 
         <div class="buttons">
+
             <button class="yes-btn" onclick="showYes()">
                 YES ♡
             </button>
@@ -998,6 +1111,7 @@ button {
             <button id="noButton" class="no-btn">
                 NO
             </button>
+
         </div>
 
         <div class="doodle-line">
@@ -1005,12 +1119,14 @@ button {
         </div>
 
     </div>
+
 </section>
 
 
 <!-- ================= YES SCREEN ================= -->
 
 <section id="yesScreen" class="screen yes-screen">
+
     <div class="card">
 
         <div class="corner tl">♡</div>
@@ -1018,7 +1134,9 @@ button {
         <div class="corner bl">✿</div>
         <div class="corner br">♡</div>
 
-        <div class="bear">🐻</div>
+        <div class="bear">
+            🐻
+        </div>
 
         <h1 class="yay">
             YAAAAAY! 💗
@@ -1028,126 +1146,143 @@ button {
             I'm so lucky to have you! ♡
         </div>
 
-        <div class="photo-sequence">
 
-            <!-- YOU -->
-            <div id="person1" class="person">
+        <!-- PHOTO AREA -->
 
-                <div class="photo-frame">
+        <div class="photo-area">
 
-                    <img src="photo1.jpeg" alt="You">
+            <div class="photo-sequence">
 
-                    <!-- GLOWING HAND-DRAWN HEART -->
-                    <svg class="heart-overlay"
-                         viewBox="0 0 250 250"
-                         aria-hidden="true">
+                <!-- YOU -->
 
-                        <path
-                            class="heart-doodle"
-                            d="
-                            M125 218
-                            C112 203 39 160 28 105
-                            C18 57 57 30 91 43
-                            C110 50 121 66 125 80
-                            C130 66 141 50 160 43
-                            C194 30 232 57 222 105
-                            C211 160 138 203 125 218
-                            Z
-                            "
-                        />
-                    </svg>
+                <div id="person1" class="person">
 
-                    <span class="heart-sparkle spark1">✦</span>
-                    <span class="heart-sparkle spark2">♡</span>
+                    <div class="photo-frame">
+
+                        <img src="photo1.jpeg" alt="You">
+
+                    </div>
+
+                    <div class="photo-label">
+                        You
+                    </div>
 
                 </div>
 
-                <div class="photo-label">
-                    You ♡
+
+                <!-- PLUS -->
+
+                <div id="plusSymbol" class="symbol">
+                    +
                 </div>
 
-            </div>
 
+                <!-- ME -->
 
-            <!-- PLUS -->
-            <div id="plusSymbol" class="symbol">
-                +
-            </div>
+                <div id="person2" class="person">
 
+                    <div class="photo-frame">
 
-            <!-- ME -->
-            <div id="person2" class="person">
+                        <img src="photo2.jpeg" alt="Me">
 
-                <div class="photo-frame">
+                    </div>
 
-                    <img src="photo2.jpeg" alt="Me">
-
-                    <!-- GLOWING HAND-DRAWN HEART -->
-                    <svg class="heart-overlay"
-                         viewBox="0 0 250 250"
-                         aria-hidden="true">
-
-                        <path
-                            class="heart-doodle"
-                            d="
-                            M125 218
-                            C112 203 39 160 28 105
-                            C18 57 57 30 91 43
-                            C110 50 121 66 125 80
-                            C130 66 141 50 160 43
-                            C194 30 232 57 222 105
-                            C211 160 138 203 125 218
-                            Z
-                            "
-                        />
-                    </svg>
-
-                    <span class="heart-sparkle spark1">✦</span>
-                    <span class="heart-sparkle spark2">♡</span>
+                    <div class="photo-label">
+                        Me
+                    </div>
 
                 </div>
 
-                <div class="photo-label">
-                    Me ♡
+
+                <!-- EQUAL -->
+
+                <div id="equalSymbol" class="symbol">
+                    =
                 </div>
 
             </div>
 
 
-            <!-- EQUAL -->
-            <div id="equalSymbol" class="symbol">
-                =
-            </div>
+            <!-- ONE BIG HEART AROUND BOTH PHOTOS -->
+
+            <svg id="combinedHeart"
+                 class="combined-heart"
+                 viewBox="0 0 620 370"
+                 aria-hidden="true">
+
+                <path
+                    d="
+                    M310 335
+                    C292 313 80 222 48 126
+                    C24 54 79 16 139 28
+                    C210 42 263 91 310 145
+                    C357 91 410 42 481 28
+                    C541 16 596 54 572 126
+                    C540 222 328 313 310 335
+                    Z
+                    "
+                />
+
+                <text
+                    class="heart-sparkle spark1"
+                    x="535"
+                    y="75">
+                    ✦
+                </text>
+
+                <text
+                    class="heart-sparkle spark2"
+                    x="75"
+                    y="290">
+                    ♡
+                </text>
+
+            </svg>
 
         </div>
 
 
-        <!-- BIG HEART -->
+        <!-- BIG CLICKABLE HEART -->
+
         <button
             id="bigHeart"
             class="big-heart"
             onclick="openLetter()"
             aria-label="Open love letter">
+
             ❤️
+
         </button>
 
 
         <!-- CLICK HERE + CURVED ARROW -->
-        <div id="arrowArea" class="arrow-area">
+
+        <div id="heartAction" class="heart-action">
 
             <div class="arrow-text">
                 click here ♡
             </div>
 
-            <svg class="curved-arrow"
-                 viewBox="0 0 150 80">
+            <svg
+                class="curved-arrow"
+                viewBox="0 0 180 110"
+                aria-hidden="true">
 
                 <path
-                    d="M5,10 C35,5 35,58 108,53"
+                    d="
+                    M8 18
+                    C55 2,
+                      55 82,
+                      135 68
+                    "
                 />
 
                 <polygon
-                    points="108,53 97,47 99,59"
+                    points="
+                    135,68
+                    121,60
+                    124,76
+                    "
                 />
 
             </svg>
@@ -1160,6 +1295,7 @@ button {
         </div>
 
     </div>
+
 </section>
 
 
@@ -1169,14 +1305,27 @@ button {
 
     <div class="letter-paper">
 
-        <div class="letter-deco one">♡</div>
-        <div class="letter-deco two">✿</div>
-        <div class="letter-deco three">♡</div>
-        <div class="letter-deco four">✧</div>
+        <div class="letter-deco one">
+            ♡
+        </div>
+
+        <div class="letter-deco two">
+            ✿
+        </div>
+
+        <div class="letter-deco three">
+            ♡
+        </div>
+
+        <div class="letter-deco four">
+            ✧
+        </div>
+
 
         <div class="letter-content">
 
-            <!-- NO "HAPPY MONTHSARY" HEADING HERE -->
+            <!-- YOUR ORIGINAL LETTER — UNCHANGED -->
+
             <p class="letter-greeting">
                 Hon,
             </p>
@@ -1186,63 +1335,60 @@ button {
             </p>
 
             <p>
-                Another month has passed, and I just want to say how grateful I am that
-                you're still here. You make my days brighter, my heart lighter, and my
-                life so much more special.
+                Another month has passed, and I'm still grateful
+                that somehow, through everything, we're still here.
+                We've had our happy moments, little arguments,
+                random conversations, and memories that I'll always
+                keep close to my heart.
             </p>
 
             <p>
-                I may not always say the perfect words, but I hope you know how much you
-                mean to me. Thank you for your love, your patience, and for simply being you.
+                I may not always know the perfect words to say,
+                but I hope you know how much you mean to me.
+                Thank you for staying, for making me smile, and for understanding my 
+                random moodswing hehe.
             </p>
 
             <p>
-                Thank you for staying, even through my random moodswing hehe.
-                Thank you kasi you always make sure that I'll feel special every
-                monthsary natin.
+                Thank you kasi you always make sure that I'll feel special every monthsary natin. 
+                I don't know how ako makakabawi sa ngayon so I'll just try na iparamdam at ipaalam sayo
+                na super love kita kahit with this way muna. I hope you'll never get tired with our setup.
+                I know, it's hard for both of us pero, I promise to hold on us as long as may reason na panghahawakan ko.
+                And if walang reason, edi I'll look for every possible reason hehe. Mahal na mahal kita, Cielo.
             </p>
 
             <p>
-                I look forward to more months, more memories, more laughs, and a
-                lifetime with you. Kahit may distance minsan, I hope you know that
-                you're always close to my heart. Sana makapag-hug na ulit tayo soon. 🥺❤️
-            </p>
-
-            <div class="letter-heart">
-                ♡ ♥ ♡
-            </div>
-
-            <p>
-                Mahal na mahal kita, Cielo.
+                I hope we continue to fight the distance that blocking us from hugging each other.
+                More laughs, more late-night talks, more random
+                topics, and more monthsaries to celebrate. 
             </p>
 
             <p>
                 Happy monthsary, hon. 💗
             </p>
 
-            <p>
+            <p style="text-align:center; font-size:24px;">
                 I love you super ultra mega 😝❤️
             </p>
 
-            <p class="signature">
-                — misis mo 🤪
+            <p style="text-align:right;">
+                — misis mo🤪
             </p>
 
-            <div class="flowers">
-                🌷 ♡ 🌸 ♡ 🌷
-            </div>
-
         </div>
+
 
         <button class="close-letter" onclick="closeLetter()">
             close letter ♡
         </button>
 
     </div>
+
 </section>
 
 
 <!-- MUSIC -->
+
 <audio id="music" loop>
     <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -1255,14 +1401,11 @@ button {
    ========================================================= */
 
 /*
-   The actual unlock date is:
-   September 11, 2026 — 12:00 AM
-   using Europe/Rome.
-
-   IMPORTANT:
-   Set TEST_MODE to true only if you want to test the
-   unlocked pages before the actual date.
+   TRUE = skip the countdown for testing.
+   FALSE = actual countdown until September 11, 2026
+   at exactly 12:00 AM Europe/Rome.
 */
+
 const TEST_MODE = true;
 
 
@@ -1271,35 +1414,60 @@ const TEST_MODE = true;
    ========================================================= */
 
 /*
-   September 11, 2026 at 00:00 in Europe/Rome.
+   September 11, 2026 at 12:00 AM Europe/Rome.
 
-   On this date Rome is UTC+2, so:
-   2026-09-10 22:00:00 UTC
+   Rome is UTC+2 on this date.
+
+   Therefore:
+   September 10, 2026 — 22:00 UTC
 */
-const targetDate = new Date("2026-09-10T22:00:00Z").getTime();
+
+const targetDate =
+    new Date("2026-09-10T22:00:00Z").getTime();
 
 
 /* =========================================================
    ELEMENTS
    ========================================================= */
 
-const lockScreen = document.getElementById("lockScreen");
-const questionScreen = document.getElementById("questionScreen");
-const yesScreen = document.getElementById("yesScreen");
-const letterScreen = document.getElementById("letterScreen");
+const lockScreen =
+    document.getElementById("lockScreen");
 
-const countdown = document.getElementById("countdown");
+const questionScreen =
+    document.getElementById("questionScreen");
 
-const person1 = document.getElementById("person1");
-const person2 = document.getElementById("person2");
+const yesScreen =
+    document.getElementById("yesScreen");
 
-const plusSymbol = document.getElementById("plusSymbol");
-const equalSymbol = document.getElementById("equalSymbol");
+const letterScreen =
+    document.getElementById("letterScreen");
 
-const bigHeart = document.getElementById("bigHeart");
-const arrowArea = document.getElementById("arrowArea");
+const countdown =
+    document.getElementById("countdown");
 
-const music = document.getElementById("music");
+const person1 =
+    document.getElementById("person1");
+
+const person2 =
+    document.getElementById("person2");
+
+const plusSymbol =
+    document.getElementById("plusSymbol");
+
+const equalSymbol =
+    document.getElementById("equalSymbol");
+
+const combinedHeart =
+    document.getElementById("combinedHeart");
+
+const bigHeart =
+    document.getElementById("bigHeart");
+
+const heartAction =
+    document.getElementById("heartAction");
+
+const music =
+    document.getElementById("music");
 
 
 /* =========================================================
@@ -1309,111 +1477,157 @@ const music = document.getElementById("music");
 function updateCountdown() {
 
     if (TEST_MODE) {
+
         unlockPage();
+
         return;
     }
+
 
     const now = Date.now();
-    const difference = targetDate - now;
+
+    const difference =
+        targetDate - now;
+
 
     if (difference <= 0) {
-        countdown.innerHTML = "00d 00h 00m 00s";
-        countdown.classList.add("finished");
+
+        countdown.innerHTML =
+            "00d 00h 00m 00s";
 
         unlockPage();
+
         return;
     }
 
-    const totalSeconds = Math.floor(difference / 1000);
 
-    const days = Math.floor(totalSeconds / 86400);
+    const totalSeconds =
+        Math.floor(difference / 1000);
 
-    const hours = Math.floor(
-        (totalSeconds % 86400) / 3600
-    );
 
-    const minutes = Math.floor(
-        (totalSeconds % 3600) / 60
-    );
+    const days =
+        Math.floor(
+            totalSeconds / 86400
+        );
 
-    const seconds = totalSeconds % 60;
+
+    const hours =
+        Math.floor(
+            (totalSeconds % 86400) / 3600
+        );
+
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+
+    const seconds =
+        totalSeconds % 60;
+
 
     countdown.innerHTML =
-        String(days).padStart(2, "0") + "d " +
-        String(hours).padStart(2, "0") + "h " +
-        String(minutes).padStart(2, "0") + "m " +
-        String(seconds).padStart(2, "0") + "s";
+        String(days).padStart(2, "0") +
+        "d " +
+
+        String(hours).padStart(2, "0") +
+        "h " +
+
+        String(minutes).padStart(2, "0") +
+        "m " +
+
+        String(seconds).padStart(2, "0") +
+        "s";
 }
 
 
 /* =========================================================
-   UNLOCK
+   UNLOCK PAGE
    ========================================================= */
 
 let unlocked = false;
 
+
 function unlockPage() {
 
-    if (unlocked) return;
+    if (unlocked) {
+        return;
+    }
+
 
     unlocked = true;
 
-    lockScreen.style.display = "none";
-    questionScreen.style.display = "flex";
 
-    /* Try to start music */
-    music.volume = 0.45;
+    lockScreen.style.display =
+        "none";
 
-    music.play().catch(() => {
-        /*
-          Some phones block autoplay.
-          Music will still start after the first tap.
-        */
-    });
+    questionScreen.style.display =
+        "flex";
+
+
+    music.volume =
+        0.45;
+
+
+    music.play().catch(() => {});
 }
 
 
 /* =========================================================
-   START TIMER
+   START COUNTDOWN
    ========================================================= */
 
 updateCountdown();
 
-setInterval(updateCountdown, 1000);
+setInterval(
+    updateCountdown,
+    1000
+);
 
 
 /* =========================================================
-   MUSIC AFTER USER INTERACTION
+   MUSIC AFTER FIRST TAP
    ========================================================= */
 
-document.addEventListener("click", function() {
+document.addEventListener(
+    "click",
+    function() {
 
-    music.volume = 0.45;
+        music.volume =
+            0.45;
 
-    music.play().catch(() => {});
+        music.play().catch(() => {});
 
-}, { once: true });
+    },
+    { once: true }
+);
 
 
 /* =========================================================
    RUNAWAY NO BUTTON
    ========================================================= */
 
-const noButton = document.getElementById("noButton");
+const noButton =
+    document.getElementById("noButton");
+
 
 function moveNoButton() {
 
     const padding = 15;
+
 
     const maxX =
         window.innerWidth -
         noButton.offsetWidth -
         padding;
 
+
     const maxY =
         window.innerHeight -
         noButton.offsetHeight -
         padding;
+
 
     const x =
         Math.max(
@@ -1421,29 +1635,56 @@ function moveNoButton() {
             Math.random() * maxX
         );
 
+
     const y =
         Math.max(
             padding,
             Math.random() * maxY
         );
 
-    noButton.style.position = "fixed";
-    noButton.style.left = x + "px";
-    noButton.style.top = y + "px";
-    noButton.style.zIndex = "100";
+
+    noButton.style.position =
+        "fixed";
+
+    noButton.style.left =
+        x + "px";
+
+    noButton.style.top =
+        y + "px";
+
+    noButton.style.zIndex =
+        "100";
 }
 
-noButton.addEventListener("mouseenter", moveNoButton);
 
-noButton.addEventListener("touchstart", function(e) {
-    e.preventDefault();
-    moveNoButton();
-});
+noButton.addEventListener(
+    "mouseenter",
+    moveNoButton
+);
 
-noButton.addEventListener("click", function(e) {
-    e.preventDefault();
-    moveNoButton();
-});
+
+noButton.addEventListener(
+    "touchstart",
+    function(e) {
+
+        e.preventDefault();
+
+        moveNoButton();
+
+    }
+);
+
+
+noButton.addEventListener(
+    "click",
+    function(e) {
+
+        e.preventDefault();
+
+        moveNoButton();
+
+    }
+);
 
 
 /* =========================================================
@@ -1452,47 +1693,97 @@ noButton.addEventListener("click", function(e) {
 
 function showYes() {
 
-    questionScreen.style.display = "none";
-    yesScreen.style.display = "flex";
+    questionScreen.style.display =
+        "none";
+
+    yesScreen.style.display =
+        "flex";
+
 
     /*
-       Reveal sequence:
+       SEQUENCE:
+
        1. You
        2. +
        3. Me
        4. =
-       5. Heart
-       6. Click here
+       5. ONE BIG HEART around both
+       6. Clickable heart + arrow
     */
 
-    setTimeout(() => {
-        person1.classList.add("show");
-    }, 400);
+
+    /* YOU */
+
+    setTimeout(
+        function() {
+
+            person1.classList.add("show");
+
+        },
+        400
+    );
 
 
-    setTimeout(() => {
-        plusSymbol.classList.add("show");
-    }, 1200);
+    /* PLUS */
+
+    setTimeout(
+        function() {
+
+            plusSymbol.classList.add("show");
+
+        },
+        1200
+    );
 
 
-    setTimeout(() => {
-        person2.classList.add("show");
-    }, 1700);
+    /* ME */
+
+    setTimeout(
+        function() {
+
+            person2.classList.add("show");
+
+        },
+        1700
+    );
 
 
-    setTimeout(() => {
-        equalSymbol.classList.add("show");
-    }, 2500);
+    /* EQUAL */
+
+    setTimeout(
+        function() {
+
+            equalSymbol.classList.add("show");
+
+        },
+        2500
+    );
 
 
-    setTimeout(() => {
-        bigHeart.classList.add("show");
-    }, 3100);
+    /* ONE BIG HEART */
+
+    setTimeout(
+        function() {
+
+            combinedHeart.classList.add("show");
+
+        },
+        3100
+    );
 
 
-    setTimeout(() => {
-        arrowArea.classList.add("show");
-    }, 3500);
+    /* CLICKABLE HEART + ARROW */
+
+    setTimeout(
+        function() {
+
+            bigHeart.classList.add("show");
+
+            heartAction.classList.add("show");
+
+        },
+        5000
+    );
 }
 
 
@@ -1502,15 +1793,21 @@ function showYes() {
 
 function openLetter() {
 
-    yesScreen.style.display = "none";
-    letterScreen.style.display = "flex";
+    yesScreen.style.display =
+        "none";
+
+    letterScreen.style.display =
+        "flex";
+
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
 
-    music.volume = 0.5;
+
+    music.volume =
+        0.5;
 }
 
 
@@ -1520,8 +1817,12 @@ function openLetter() {
 
 function closeLetter() {
 
-    letterScreen.style.display = "none";
-    yesScreen.style.display = "flex";
+    letterScreen.style.display =
+        "none";
+
+    yesScreen.style.display =
+        "flex";
+
 
     window.scrollTo({
         top: 0,
@@ -1531,18 +1832,30 @@ function closeLetter() {
 
 
 /* =========================================================
-   PREVENT NO BUTTON FROM GOING BACK AFTER YES
+   RESET NO BUTTON ON RESIZE
    ========================================================= */
 
-window.addEventListener("resize", function() {
+window.addEventListener(
+    "resize",
+    function() {
 
-    if (noButton.style.position === "fixed") {
-        noButton.style.position = "";
-        noButton.style.left = "";
-        noButton.style.top = "";
+        if (
+            noButton.style.position ===
+            "fixed"
+        ) {
+
+            noButton.style.position =
+                "";
+
+            noButton.style.left =
+                "";
+
+            noButton.style.top =
+                "";
+        }
+
     }
-
-});
+);
 
 </script>
 
