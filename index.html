@@ -105,7 +105,7 @@ body {
 .card {
     position: relative;
     width: min(92%, 650px);
-    min-height: 500px;
+    min-height: 6500px;
     padding: 45px 25px;
     background: rgba(255,255,255,.82);
     border: 3px solid #ff8bb7;
@@ -349,352 +349,609 @@ button {
 }
 
     /* =========================================
-   CUPID + US
+   YAY + PHOTO MEMORY SCENE
 ========================================= */
 
-.cupid-memory {
+.memory-scene {
     position: relative;
     width: 100%;
-    max-width: 570px;
-    height: 310px;
-    margin: 0 auto 10px;
+    max-width: 600px;
+    height: 390px;
+    margin: 0 auto;
+
     overflow: hidden;
 }
 
-/* Cupid at the top */
-.cupid {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) scale(0);
 
-    font-size: 55px;
-    z-index: 8;
+/* =========================================
+   YAY TITLE
+========================================= */
 
-    animation: cupidAppear .7s ease-out .3s forwards;
+.yay-title {
+    position: relative;
+    z-index: 10;
+
+    margin-top: 0;
+
+    font-size: clamp(35px, 8vw, 58px);
+    font-weight: bold;
+
+    color: #df4b83;
+
+    opacity: 0;
+    transform: translateY(15px);
+
+    animation:
+        yayAppear .8s ease-out .1s forwards;
 }
 
-@keyframes cupidAppear {
-    0% {
-        transform: translateX(-50%) scale(0) rotate(-15deg);
-        opacity: 0;
-    }
-
-    70% {
-        transform: translateX(-50%) scale(1.15) rotate(5deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(-50%) scale(1) rotate(0);
-        opacity: 1;
-    }
+.yay-title span {
+    color: #ef6197;
 }
 
 
-/* PHOTO ROW */
+@keyframes yayAppear {
 
-.photo-row {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   DECORATIVE HEARTS
+========================================= */
+
+.decor-heart {
     position: absolute;
+    color: #e85b91;
+
+    font-size: 27px;
+
+    opacity: 0;
+
+    animation:
+        decorationAppear .7s ease-out 1s forwards,
+        decorationFloat 2.5s ease-in-out 2s infinite;
+}
+
+.h1 {
+    left: 4%;
     top: 75px;
+}
+
+.h2 {
+    left: 10%;
+    top: 145px;
+    font-size: 20px;
+}
+
+.h3 {
+    right: 5%;
+    top: 100px;
+}
+
+.h4 {
+    right: 12%;
+    top: 55px;
+    font-size: 25px;
+}
+
+@keyframes decorationAppear {
+
+    to {
+        opacity: .8;
+    }
+
+}
+
+@keyframes decorationFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+}
+
+
+/* =========================================
+   PHOTO AREA
+========================================= */
+
+.memory-photos {
+    position: absolute;
+
+    top: 105px;
     left: 50%;
+
+    width: 100%;
+    height: 210px;
+
     transform: translateX(-50%);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 100%;
     gap: 25px;
+
+    z-index: 4;
 }
 
 
-/* Individual photo */
+/* =========================================
+   PHOTO FRAMES
+========================================= */
 
-.memory-photo {
+.memory-card {
     position: relative;
 
     width: 145px;
-    height: 175px;
-
-    padding: 8px;
+    height: 180px;
 
     background: #fff;
 
-    border: 3px solid #ff80ad;
+    padding: 8px;
+
+    border: 3px solid #ed78a4;
 
     box-shadow:
-        0 8px 20px rgba(180, 50, 100, .18);
+        0 5px 15px rgba(150, 40, 80, .18);
+
+    text-align: center;
+
+    z-index: 4;
+}
+
+
+/* LEFT PHOTO */
+
+.first-photo {
+    transform: rotate(-8deg) translateX(-40px);
 
     opacity: 0;
 
-    z-index: 3;
+    animation:
+        leftPhotoAppear .8s cubic-bezier(.2,.8,.3,1.2) .8s forwards;
 }
 
 
-/* Left photo */
-.photo-left {
-    transform: rotate(-7deg) translateX(-40px);
+/* RIGHT PHOTO */
+
+.second-photo {
+    transform: rotate(8deg) translateX(40px);
+
+    opacity: 0;
 
     animation:
-        photoLeftAppear .8s ease-out .8s forwards,
-        photoFloatLeft 3s ease-in-out 2.5s infinite;
+        rightPhotoAppear .8s cubic-bezier(.2,.8,.3,1.2) 1s forwards;
 }
 
 
-/* Right photo */
-.photo-right {
-    transform: rotate(7deg) translateX(40px);
+@keyframes leftPhotoAppear {
 
-    animation:
-        photoRightAppear .8s ease-out 1s forwards,
-        photoFloatRight 3s ease-in-out 2.7s infinite;
+    0% {
+        opacity: 0;
+        transform:
+            rotate(-15deg)
+            translateX(-120px)
+            scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            rotate(-8deg)
+            translateX(0)
+            scale(1);
+    }
+
 }
 
 
-/* Photo image */
+@keyframes rightPhotoAppear {
 
-.memory-photo img {
+    0% {
+        opacity: 0;
+        transform:
+            rotate(15deg)
+            translateX(120px)
+            scale(.7);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            rotate(8deg)
+            translateX(0)
+            scale(1);
+    }
+
+}
+
+
+/* PHOTO */
+
+.memory-card img {
     width: 100%;
-    height: 100%;
+    height: 135px;
 
     object-fit: cover;
 
     display: block;
 
-    border: 2px solid #ffd0e0;
+    border: 2px solid #f3b0c8;
 }
 
 
-/* Bows */
+/* Caption */
 
-.mini-bow {
-    position: absolute;
+.memory-card p {
+    margin: 5px 0 0;
 
-    top: -17px;
-    right: -12px;
+    font-size: 12px;
 
-    font-size: 30px;
+    line-height: 1.15;
 
-    z-index: 5;
-}
-
-
-/* Photo entrances */
-
-@keyframes photoLeftAppear {
-
-    0% {
-        opacity: 0;
-        transform: rotate(-15deg) translateX(-100px) scale(.7);
-    }
-
-    100% {
-        opacity: 1;
-        transform: rotate(-7deg) translateX(0) scale(1);
-    }
-}
-
-@keyframes photoRightAppear {
-
-    0% {
-        opacity: 0;
-        transform: rotate(15deg) translateX(100px) scale(.7);
-    }
-
-    100% {
-        opacity: 1;
-        transform: rotate(7deg) translateX(0) scale(1);
-    }
-}
-
-
-/* Gentle movement */
-
-@keyframes photoFloatLeft {
-
-    0%, 100% {
-        margin-top: 0;
-        transform: rotate(-7deg);
-    }
-
-    50% {
-        margin-top: -6px;
-        transform: rotate(-4deg);
-    }
-}
-
-@keyframes photoFloatRight {
-
-    0%, 100% {
-        margin-top: 0;
-        transform: rotate(7deg);
-    }
-
-    50% {
-        margin-top: -6px;
-        transform: rotate(4deg);
-    }
+    color: #9e4b72;
 }
 
 
 /* =========================================
-   CUPID ARROW
+   RIBBON ON PHOTO
 ========================================= */
 
-.love-arrow {
+.ribbon {
     position: absolute;
 
-    left: 50%;
-    top: 95px;
+    top: -17px;
+    left: -12px;
 
-    z-index: 7;
+    font-size: 32px;
 
-    font-size: 43px;
-
-    opacity: 0;
-
-    transform: translateX(-50%) rotate(0deg);
-
-    animation: shootArrow 1.3s ease-in-out 1.7s forwards;
+    z-index: 8;
 }
 
 
-@keyframes shootArrow {
+/* =========================================
+   BUNNY CUPID
+========================================= */
+
+.bunny-cupid {
+    position: absolute;
+
+    top: 40px;
+    left: 50%;
+
+    width: 75px;
+    height: 65px;
+
+    z-index: 12;
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        scale(.3)
+        rotate(-8deg);
+
+    animation:
+        cupidAppear 1s cubic-bezier(.2,.8,.3,1.3) 2s forwards;
+}
+
+
+/*
+   Bunny emoji is only the base.
+   The bow/arrow sits beside it.
+*/
+
+.cupid-body {
+    font-size: 55px;
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    transform: rotate(-8deg);
+}
+
+.cupid-bow {
+    position: absolute;
+
+    font-size: 35px;
+
+    right: -28px;
+    top: 20px;
+
+    transform: rotate(-15deg);
+}
+
+
+@keyframes cupidAppear {
 
     0% {
-        left: 38%;
         opacity: 0;
-        transform: translateX(-50%) rotate(0deg) scale(.6);
+        transform:
+            translateX(-50%)
+            scale(.2)
+            rotate(-20deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            scale(1.15)
+            rotate(5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(0);
+    }
+
+}
+
+
+/* =========================================
+   PINK ARROW
+========================================= */
+
+.shooting-arrow {
+    position: absolute;
+
+    left: 50%;
+    top: 90px;
+
+    width: 125px;
+    height: 25px;
+
+    z-index: 10;
+
+    opacity: 0;
+
+    transform:
+        translateX(-50%)
+        scaleX(0);
+
+    animation:
+        arrowShoot 1.2s ease-in-out 2.8s forwards;
+}
+
+
+/* actual arrow line */
+
+.arrow-line {
+    position: absolute;
+
+    left: 0;
+    top: 10px;
+
+    width: 105px;
+    height: 4px;
+
+    background: #ef6799;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 0 5px rgba(239,103,153,.5);
+}
+
+
+/* little feathers */
+
+.arrow-line::before,
+.arrow-line::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    width: 17px;
+    height: 4px;
+
+    background: #ef6799;
+
+    border-radius: 5px;
+}
+
+.arrow-line::before {
+    top: -6px;
+    transform: rotate(25deg);
+}
+
+.arrow-line::after {
+    top: 6px;
+    transform: rotate(-25deg);
+}
+
+
+/* HEART ARROW HEAD */
+
+.arrow-head {
+    position: absolute;
+
+    right: 0;
+    top: -3px;
+
+    color: #ef6799;
+
+    font-size: 27px;
+
+    transform: rotate(15deg);
+}
+
+
+@keyframes arrowShoot {
+
+    0% {
+        opacity: 0;
+
+        left: 40%;
+
+        transform:
+            translateX(-50%)
+            scaleX(0);
     }
 
     15% {
         opacity: 1;
     }
 
-    60% {
+    70% {
         opacity: 1;
     }
 
     100% {
-        left: 62%;
-        opacity: 0;
-        transform: translateX(-50%) rotate(0deg) scale(1);
+        opacity: 1;
+
+        left: 60%;
+
+        transform:
+            translateX(-50%)
+            scaleX(1);
     }
+
 }
 
 
 /* =========================================
-   BIG HEART AROUND THE TWO PHOTOS
+   BIG HEART AROUND BOTH PHOTOS
 ========================================= */
 
-.heart-outline {
+.big-love-heart {
     position: absolute;
 
     left: 50%;
-    top: 72px;
+    top: 105px;
 
-    width: 350px;
-    height: 190px;
+    width: 390px;
+    height: 230px;
 
     transform:
         translateX(-50%)
-        scale(0);
+        scale(.1);
 
-    z-index: 6;
-
-    color: #ff5c9a;
-
-    font-family: Arial, sans-serif;
-
-    font-size: 255px;
-
-    line-height: 190px;
-
-    text-align: center;
-
-    text-shadow:
-        0 0 5px #fff,
-        0 0 15px #ff8fba,
-        0 0 30px #ff8fba;
-
-    pointer-events: none;
+    z-index: 8;
 
     opacity: 0;
 
+    pointer-events: none;
+
     animation:
-        heartReveal .9s cubic-bezier(.17,.67,.35,1.4) 3s forwards,
-        heartGlow 1.5s ease-in-out 3.9s infinite;
+        heartAppear 1.2s cubic-bezier(.2,.8,.3,1.3) 4.15s forwards;
 }
 
 
-@keyframes heartReveal {
+.big-love-heart svg {
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+}
+
+
+.big-love-heart path {
+    fill: none;
+
+    stroke: #ff6fa3;
+
+    stroke-width: 5;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    filter:
+        drop-shadow(0 0 5px #fff)
+        drop-shadow(0 0 12px #ff9cbe)
+        drop-shadow(0 0 22px #ff9cbe);
+
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+
+    animation:
+        drawHeart 1.5s ease-out 4.15s forwards;
+}
+
+
+@keyframes heartAppear {
 
     0% {
+        opacity: 0;
+
         transform:
             translateX(-50%)
-            scale(0);
-        opacity: 0;
+            scale(.1);
     }
 
-    70% {
+    60% {
+        opacity: 1;
+
         transform:
             translateX(-50%)
-            scale(1.15);
-        opacity: 1;
+            scale(1.08);
     }
 
     100% {
+        opacity: 1;
+
         transform:
             translateX(-50%)
             scale(1);
-        opacity: .9;
     }
+
 }
 
 
-@keyframes heartGlow {
+@keyframes drawHeart {
 
-    0%, 100% {
-        text-shadow:
-            0 0 5px #fff,
-            0 0 15px #ff8fba,
-            0 0 25px #ff8fba;
+    to {
+        stroke-dashoffset: 0;
     }
 
-    50% {
-        text-shadow:
-            0 0 10px #fff,
-            0 0 25px #ff6fa5,
-            0 0 45px #ff6fa5;
-    }
 }
 
 
-/* Caption */
+/* =========================================
+   YOU'RE MY ALWAYS
+========================================= */
 
-.photo-caption {
+.always-text {
     position: absolute;
 
-    bottom: 0;
-    left: 0;
+    bottom: 15px;
+
     width: 100%;
 
-    margin: 0;
+    text-align: center;
 
-    font-size: 17px;
+    font-size: 18px;
 
-    color: #a83c69;
+    color: #a84a72;
 
     font-weight: bold;
 
     opacity: 0;
 
-    animation: captionAppear .8s ease 3.6s forwards;
+    animation:
+        alwaysAppear .8s ease 5s forwards;
 }
 
 
-@keyframes captionAppear {
+@keyframes alwaysAppear {
 
     from {
         opacity: 0;
@@ -705,55 +962,69 @@ button {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 
-/* MOBILE */
+/* =========================================
+   MOBILE
+========================================= */
 
 @media(max-width:500px) {
 
-    .cupid-memory {
-        height: 285px;
+    .memory-scene {
+        height: 350px;
     }
 
-    .cupid {
-        font-size: 45px;
+    .memory-photos {
+        top: 105px;
+        gap: 8px;
     }
 
-    .photo-row {
-        gap: 12px;
-    }
-
-    .memory-photo {
+    .memory-card {
         width: 125px;
-        height: 155px;
+        height: 160px;
     }
 
-    .love-arrow {
-        font-size: 32px;
+    .memory-card img {
+        height: 118px;
     }
 
-    .heart-outline {
-        width: 310px;
-        height: 175px;
-        font-size: 220px;
-        top: 75px;
+    .memory-card p {
+        font-size: 10px;
     }
 
-}
-
-@media(max-width:500px) {
-    .lock-box h1 {
-        font-size: 30px;
+    .first-photo {
+        transform: rotate(-7deg) translateX(-15px);
     }
 
-    #countdown {
-        font-size: 23px;
+    .second-photo {
+        transform: rotate(7deg) translateX(15px);
     }
 
-    .card {
-        min-height: 550px;
+    .big-love-heart {
+        width: 330px;
+        height: 205px;
+        top: 105px;
     }
+
+    .bunny-cupid {
+        top: 42px;
+    }
+
+    .shooting-arrow {
+        top: 88px;
+        width: 90px;
+    }
+
+    .arrow-line {
+        width: 75px;
+    }
+
+    .yay-title {
+        font-size: 38px;
+    }
+
 }
 </style>
 </head>
@@ -825,40 +1096,77 @@ button {
 
             <h1>YAAAAAY! 💗</h1>
 
-            <!-- YAY PHOTO / CUPID SCENE -->
-<div class="cupid-memory">
+            
+            <!-- =========================================
+     YAY + OUR PHOTOS + CUPID
+========================================= -->
+
+<div class="memory-scene">
+
+    <!-- YAY -->
+    <div class="yay-title">
+        YAYYYYY! <span>♥</span>
+    </div>
+
+    <!-- Decorative hearts -->
+    <div class="decor-heart h1">♡</div>
+    <div class="decor-heart h2">♥</div>
+    <div class="decor-heart h3">♡</div>
+    <div class="decor-heart h4">✦</div>
 
     <!-- Cupid -->
-    <div class="cupid">🏹💘</div>
+    <div class="bunny-cupid">
+        <div class="cupid-body">🐰</div>
+        <div class="cupid-bow">🏹</div>
+    </div>
 
-    <!-- Two Photos -->
-    <div class="photo-row">
+    <!-- TWO PHOTOS -->
+    <div class="memory-photos">
 
-        <div class="memory-photo photo-left">
-            <div class="mini-bow">🎀</div>
+        <div class="memory-card first-photo">
+            <div class="ribbon">🎀</div>
+
             <img src="photo1.jpeg" alt="You">
+
+            <p>My little<br>princess ♡</p>
         </div>
 
-        <!-- Arrow -->
-        <div class="love-arrow">
-            💘
+
+        <!-- REAL PINK ARROW -->
+        <div class="shooting-arrow">
+            <div class="arrow-line"></div>
+            <div class="arrow-head">♥</div>
         </div>
 
-        <div class="memory-photo photo-right">
-            <div class="mini-bow">🎀</div>
+
+        <div class="memory-card second-photo">
+            <div class="ribbon">🎀</div>
+
             <img src="photo2.jpeg" alt="Me">
+
+            <p>Still my<br>favorite ♡</p>
         </div>
 
     </div>
 
-    <!-- Big Heart surrounding both -->
-    <div class="heart-outline">
-        ♡
+    <!-- BIG HEART DRAWING -->
+    <div class="big-love-heart">
+        <svg viewBox="0 0 400 260">
+            <path
+                d="M200 235
+                   C175 210 45 145 45 70
+                   C45 20 105 5 145 45
+                   L200 100
+                   L255 45
+                   C295 5 355 20 355 70
+                   C355 145 225 210 200 235Z"
+            />
+        </svg>
     </div>
 
-    <p class="photo-caption">
-        You're my always 💗
-    </p>
+    <div class="always-text">
+        You're my always ♡
+    </div>
 
 </div>
 
