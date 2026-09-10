@@ -6,980 +6,963 @@
 <title>For You 💗</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+* {
+    box-sizing: border-box;
 }
 
-body{
-  min-height:100vh;
-  font-family:"Comic Sans MS",cursive;
-  background:linear-gradient(135deg,#ffd6e7,#ffeef6,#ffd9ea);
-  overflow-x:hidden;
-  color:#7b3152;
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #ffeef6, #ffc1d9);
+    overflow: hidden;
+    color: #6b2347;
 }
 
-/* FLOATING HEARTS */
-.floating-heart{
-  position:fixed;
-  color:#ff8fba;
-  font-size:20px;
-  animation:floatUp linear infinite;
-  opacity:.7;
-  pointer-events:none;
-  z-index:1;
+/* Floating hearts */
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    animation: floatUp linear infinite;
+    opacity: .7;
+    pointer-events: none;
 }
 
-@keyframes floatUp{
-  0%{transform:translateY(110vh) rotate(0deg);opacity:0}
-  20%{opacity:.7}
-  100%{transform:translateY(-15vh) rotate(360deg);opacity:0}
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: .8;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 /* LOCK SCREEN */
-#lockScreen{
-  position:fixed;
-  inset:0;
-  background:linear-gradient(135deg,#ffd0e4,#fff0f7);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:1000;
-  padding:20px;
+#lockScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle, #fff0f6, #ffb5d0);
+    padding: 20px;
 }
 
-.lock-box{
-  width:min(390px,100%);
-  padding:40px 25px;
-  text-align:center;
-  background:rgba(255,255,255,.8);
-  border:3px solid #ffafd0;
-  border-radius:30px;
-  box-shadow:0 15px 40px rgba(190,80,120,.2);
+.lock-box {
+    width: min(90%, 520px);
+    padding: 40px 25px;
+    background: rgba(255,255,255,.8);
+    border: 3px solid #ff7eae;
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(164, 45, 91, .2);
 }
 
-.lock-box h1{
-  color:#d94d83;
-  font-size:30px;
-  margin-bottom:12px;
+.lock-box h1 {
+    font-size: 40px;
+    margin: 0 0 15px;
 }
 
-.lock-box p{
-  color:#9a5570;
-  margin-bottom:20px;
+.lock-icon {
+    font-size: 65px;
+    animation: heartbeat 1.4s infinite;
 }
 
-#countdown{
-  font-size:19px;
-  font-weight:bold;
-  color:#d94d83;
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+#countdown {
+    margin-top: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #d83b78;
+}
+
+.countdown-label {
+    font-size: 14px;
+    color: #9b5472;
 }
 
 /* MAIN */
-#main{
-  display:none;
-  min-height:100vh;
-  padding:30px 15px;
+#mainContent {
+    display: none;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
-.card{
-  width:min(850px,100%);
-  margin:auto;
-  background:rgba(255,255,255,.72);
-  border:3px solid #ffb4d1;
-  border-radius:35px;
-  padding:30px 18px 45px;
-  box-shadow:0 20px 60px rgba(178,65,112,.18);
-  text-align:center;
+.card {
+    position: relative;
+    width: min(92%, 650px);
+    min-height: 500px;
+    padding: 45px 25px;
+    background: rgba(255,255,255,.82);
+    border: 3px solid #ff8bb7;
+    border-radius: 35px;
+    box-shadow: 0 20px 70px rgba(128, 30, 72, .2);
+    overflow: hidden;
 }
 
-.question{
-  font-size:35px;
-  color:#c63e73;
-  margin:20px 0 30px;
+.card h1 {
+    font-size: clamp(32px, 7vw, 55px);
+    margin: 20px 0 10px;
 }
 
-.buttons{
-  display:flex;
-  justify-content:center;
-  gap:25px;
-  position:relative;
-  min-height:65px;
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 35px;
 }
 
-.btn{
-  border:none;
-  padding:14px 32px;
-  border-radius:30px;
-  font-family:inherit;
-  font-size:20px;
-  font-weight:bold;
-  cursor:pointer;
-  transition:.25s;
+.buttons {
+    position: relative;
+    height: 150px;
+    margin-top: 20px;
 }
 
-.yes{
-  background:#ff78aa;
-  color:white;
-  box-shadow:0 7px 15px rgba(220,75,130,.25);
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
 }
 
-.yes:hover{
-  transform:scale(1.08);
+#yesBtn,
+#noBtn {
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: .2s;
 }
 
-.no{
-  background:#fff;
-  color:#c94d7e;
-  border:2px solid #ff9fc4;
-  position:absolute;
+#yesBtn {
+    background: #ff4f91;
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 79, 145, .35);
+}
+
+#yesBtn:hover {
+    transform: scale(1.08);
+}
+
+#noBtn {
+    position: absolute;
+    left: 55%;
+    top: 0;
+    background: #eee;
+    color: #777;
 }
 
 /* YES SCREEN */
-#yesScreen{
-  display:none;
-  animation:fadeIn 1s ease;
+#loveScreen {
+    display: none;
 }
 
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
+.cute-scene {
+    margin: 20px auto;
+    width: 220px;
+    height: 180px;
+    position: relative;
 }
 
-.yay{
-  font-size:40px;
-  color:#d64078;
-  margin:15px 0 10px;
+/* Cute animated bear */
+.bear {
+    position: absolute;
+    width: 110px;
+    height: 100px;
+    background: #c98b65;
+    border-radius: 50% 50% 45% 45%;
+    left: 55px;
+    top: 45px;
+    animation: bounce 1.5s infinite ease-in-out;
 }
 
-.subtitle{
-  color:#a45170;
-  font-size:17px;
-  margin-bottom:10px;
+.ear {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #b87450;
+    border-radius: 50%;
+    top: -12px;
 }
 
-/* MEMORY SCENE */
-.memory-scene{
-  width:min(720px,100%);
-  height:560px;
-  margin:20px auto 0;
-  position:relative;
-  border-radius:35px;
-  background:
-    radial-gradient(circle at 20% 20%,rgba(255,255,255,.8) 0 5px,transparent 6px),
-    radial-gradient(circle at 80% 70%,rgba(255,255,255,.8) 0 4px,transparent 5px),
-    linear-gradient(135deg,#ffdce9,#ffeaf3,#ffd4e5);
-  border:3px solid #ffb0ce;
-  overflow:hidden;
-  box-shadow:inset 0 0 40px rgba(255,255,255,.5);
+.ear.left { left: 5px; }
+.ear.right { right: 5px; }
+
+.eye {
+    position: absolute;
+    width: 10px;
+    height: 14px;
+    background: #44232d;
+    border-radius: 50%;
+    top: 35px;
 }
 
-/* DECORATIONS */
-.deco{
-  position:absolute;
-  font-size:25px;
-  z-index:10;
+.eye.left { left: 28px; }
+.eye.right { right: 28px; }
+
+.nose {
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    background: #44232d;
+    border-radius: 50%;
+    left: 48px;
+    top: 50px;
 }
 
-.d1{top:20px;left:25px}
-.d2{top:35px;right:35px}
-.d3{bottom:25px;left:30px}
-.d4{bottom:25px;right:30px}
-
-/* CSS CUPID */
-.cupid{
-  position:absolute;
-  top:25px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:30;
-  width:100px;
-  height:100px;
+.heart-float {
+    position: absolute;
+    font-size: 35px;
+    animation: heartFloat 2s infinite;
 }
 
-.cupid-body{
-  position:absolute;
-  width:65px;
-  height:65px;
-  background:#fff;
-  border-radius:50%;
-  left:18px;
-  top:28px;
-  box-shadow:0 4px 10px rgba(180,80,120,.12);
+.heart1 {
+    left: 15px;
+    top: 20px;
 }
 
-.cupid-ear{
-  position:absolute;
-  width:27px;
-  height:38px;
-  background:#fff;
-  border-radius:50%;
-  top:3px;
+.heart2 {
+    right: 15px;
+    top: 5px;
+    animation-delay: .6s;
 }
 
-.cupid-ear.left{
-  left:17px;
-  transform:rotate(-18deg);
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
-.cupid-ear.right{
-  right:17px;
-  transform:rotate(18deg);
+@keyframes heartFloat {
+    0%,100% {
+        transform: translateY(0) scale(1);
+        opacity: .7;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
 }
 
-.cupid-ear:after{
-  content:"";
-  position:absolute;
-  inset:7px;
-  background:#ffb9d3;
-  border-radius:50%;
+.love-message {
+    font-size: 21px;
+    line-height: 1.6;
 }
 
-.eye{
-  position:absolute;
-  width:5px;
-  height:7px;
-  background:#633;
-  border-radius:50%;
-  top:48px;
-  z-index:3;
+/* =========================================
+   CLICKABLE HEART
+========================================= */
+
+.heart-wrapper {
+    position: relative;
+    width: 260px;
+    height: 135px;
+    margin: 10px auto 0;
 }
 
-.eye.left{left:36px}
-.eye.right{right:36px}
+/* CLICKABLE HEART */
+#heartButton {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
 
-.cupid-heart{
-  position:absolute;
-  color:#ff669c;
-  font-size:23px;
-  left:41px;
-  top:63px;
-  z-index:5;
+    margin: 0;
+    width: 100px;
+    height: 100px;
+    background: #ff4f91;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 55px;
+    box-shadow: 0 10px 35px rgba(255, 79, 145, .4);
+    animation: heartbeat 1.2s infinite;
+    z-index: 5;
 }
 
-/* PHOTOS */
-.memory-card{
-  position:absolute;
-  width:190px;
-  height:235px;
-  background:#fff;
-  padding:12px 12px 38px;
-  border-radius:7px;
-  box-shadow:0 10px 25px rgba(100,40,70,.2);
-  z-index:20;
-  transition:.3s;
+#heartButton:hover {
+    transform: translateX(-50%) scale(1.12);
 }
 
-.memory-card:hover{
-  transform:rotate(0deg) scale(1.05);
-  z-index:60;
+/* =========================================
+   CURVED CLICK HERE GUIDE
+   Arrowhead points directly to heart
+========================================= */
+
+.click-guide {
+    position: absolute;
+    left: 50%;
+    top: -8px;
+    width: 250px;
+    height: 115px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 10;
 }
 
-.memory-card.left{
-  left:12%;
-  top:190px;
-  transform:rotate(-7deg);
+.click-guide .click-text {
+    position: absolute;
+    right: 5px;
+    top: 0;
+
+    color: #d83b78;
+    font-size: 17px;
+    font-weight: bold;
+
+    transform: rotate(5deg);
+    white-space: nowrap;
+
+    text-shadow: 0 2px 5px rgba(255,255,255,.9);
 }
 
-.memory-card.right{
-  right:12%;
-  top:190px;
-  transform:rotate(7deg);
+.click-guide svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
 }
 
-.photo-window{
-  width:100%;
-  height:185px;
-  overflow:hidden;
-  background:#f8dce8;
-  border-radius:3px;
+.click-guide path {
+    fill: none;
+    stroke: #d83b78;
+    stroke-width: 3.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
-.photo-window img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
+.click-guide .arrow-head {
+    fill: #d83b78;
+    stroke: none;
 }
 
-.photo-label{
-  position:absolute;
-  bottom:8px;
-  left:0;
-  right:0;
-  text-align:center;
-  font-size:18px;
-  font-weight:bold;
-  color:#d24b7d;
+/* LETTER */
+#letter {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(89, 25, 52, .55);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
-/* GLOWING HEART */
-.big-heart{
-  position:absolute;
-  width:300px;
-  height:300px;
-  left:50%;
-  top:155px;
-  transform:translateX(-50%);
-  z-index:15;
-  cursor:pointer;
-  filter:drop-shadow(0 0 9px rgba(255,82,145,.65));
+.letter-paper {
+    position: relative;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: #fffafc;
+    border-radius: 15px;
+    padding: 40px 30px;
+    border: 3px solid #ff9cbe;
+    box-shadow: 0 20px 70px rgba(0,0,0,.25);
+    animation: letterOpen .6s ease;
+    text-align: left;
 }
 
-.big-heart svg{
-  width:100%;
-  height:100%;
-  overflow:visible;
+@keyframes letterOpen {
+    from {
+        transform: scale(.5) rotate(-5deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
 }
 
-.heart-path{
-  fill:none;
-  stroke:#ff4f91;
-  stroke-width:4;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-dasharray:1000;
-  stroke-dashoffset:1000;
-  animation:drawHeart 2s ease forwards 2s,
-            heartGlow 1.4s ease-in-out infinite 4s;
+.letter-paper h2 {
+    text-align: center;
+    color: #df407b;
+    font-size: 30px;
 }
 
-@keyframes drawHeart{
-  to{stroke-dashoffset:0}
+.letter-paper p {
+    line-height: 1.8;
+    font-size: 17px;
 }
 
-@keyframes heartGlow{
-  0%,100%{filter:drop-shadow(0 0 4px #ff78aa)}
-  50%{filter:drop-shadow(0 0 15px #ff4f91)}
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background: transparent;
+    font-size: 28px;
+    color: #b83c69;
 }
 
-/* CUTE CURVED CLICK ARROW */
-.click-guide{
-  position:absolute;
-  right:2%;
-  top:245px;
-  width:185px;
-  height:135px;
-  z-index:80;
-  pointer-events:none;
-  opacity:0;
-  animation:guideAppear .8s ease 4s forwards;
+.music-button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 300;
+    background: white;
+    border: 2px solid #ff80ac;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
 }
 
-.click-guide svg{
-  width:100%;
-  height:100%;
-  overflow:visible;
-}
+@media(max-width:500px) {
 
-.click-guide .curve{
-  fill:none;
-  stroke:#d94d83;
-  stroke-width:4;
-  stroke-linecap:round;
-  stroke-dasharray:7 5;
-  filter:drop-shadow(0 2px 2px rgba(180,60,110,.15));
-}
+    .lock-box h1 {
+        font-size: 30px;
+    }
 
-.click-guide .arrowhead{
-  fill:none;
-  stroke:#d94d83;
-  stroke-width:4;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
+    #countdown {
+        font-size: 23px;
+    }
 
-.click-guide-text{
-  position:absolute;
-  top:0;
-  right:3px;
-  color:#c93676;
-  font-size:19px;
-  font-weight:bold;
-  transform:rotate(-8deg);
-  white-space:nowrap;
-  text-shadow:0 2px 5px rgba(255,255,255,.8);
-}
+    .card {
+        min-height: 550px;
+    }
 
-@keyframes guideAppear{
-  from{
-    opacity:0;
-    transform:translate(10px,-5px) rotate(3deg);
-  }
-  to{
-    opacity:1;
-    transform:translate(0,0) rotate(0);
-  }
-}
+    .heart-wrapper {
+        width: 235px;
+        height: 125px;
+    }
 
-/* HEART BURST */
-.heart-burst{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index:100;
-}
+    .click-guide {
+        width: 225px;
+        height: 105px;
+        top: -5px;
+    }
 
-.burst-heart{
-  position:absolute;
-  left:50%;
-  top:50%;
-  font-size:25px;
-  opacity:0;
-}
+    .click-guide .click-text {
+        font-size: 15px;
+        right: 0;
+    }
 
-.heart-burst.active .burst-heart{
-  animation:burst 1s ease forwards;
-}
-
-.burst-heart:nth-child(1){--x:-150px;--y:-100px}
-.burst-heart:nth-child(2){--x:150px;--y:-100px}
-.burst-heart:nth-child(3){--x:-170px;--y:80px}
-.burst-heart:nth-child(4){--x:170px;--y:80px}
-.burst-heart:nth-child(5){--x:-50px;--y:-160px}
-.burst-heart:nth-child(6){--x:60px;--y:160px}
-
-@keyframes burst{
-  0%{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(.3);
-  }
-  100%{
-    opacity:0;
-    transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y))) scale(1.5);
-  }
-}
-
-/* LOVE LETTER */
-.letter-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(110,45,75,.45);
-  backdrop-filter:blur(5px);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  padding:18px;
-  z-index:2000;
-  overflow-y:auto;
-}
-
-.letter-overlay.show{
-  display:flex;
-}
-
-.letter-paper{
-  position:relative;
-  width:min(600px,100%);
-  max-height:90vh;
-  overflow-y:auto;
-  background:#fffafc;
-  border:3px solid #ffb1ce;
-  border-radius:25px;
-  padding:35px 28px 30px;
-  box-shadow:0 20px 60px rgba(80,20,50,.3);
-  text-align:left;
-  animation:letterOpen .5s ease;
-}
-
-@keyframes letterOpen{
-  from{
-    opacity:0;
-    transform:scale(.8) rotate(-2deg);
-  }
-  to{
-    opacity:1;
-    transform:scale(1) rotate(0);
-  }
-}
-
-.letter-paper h2{
-  text-align:center;
-  color:#d33f76;
-  margin-bottom:20px;
-}
-
-.letter-paper p{
-  color:#75435a;
-  font-family:Arial,sans-serif;
-  line-height:1.7;
-  margin-bottom:15px;
-}
-
-.letter-paper .signature{
-  text-align:right;
-  font-family:"Comic Sans MS",cursive;
-  color:#c83f75;
-  font-size:18px;
-  margin-top:20px;
-}
-
-.back-button{
-  display:block;
-  margin:25px auto 0;
-  border:none;
-  background:#ff83ae;
-  color:white;
-  padding:11px 24px;
-  border-radius:25px;
-  font-family:inherit;
-  font-size:16px;
-  cursor:pointer;
-}
-
-/* MUSIC */
-.music-btn{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  border:none;
-  width:52px;
-  height:52px;
-  border-radius:50%;
-  background:#ff82ae;
-  color:white;
-  font-size:22px;
-  cursor:pointer;
-  z-index:500;
-  box-shadow:0 6px 15px rgba(190,60,110,.25);
-}
-
-/* MOBILE */
-@media(max-width:600px){
-
-  #main{
-    padding:15px 10px;
-  }
-
-  .card{
-    padding:20px 10px 30px;
-  }
-
-  .question{
-    font-size:27px;
-  }
-
-  .btn{
-    font-size:18px;
-    padding:12px 25px;
-  }
-
-  .memory-scene{
-    height:500px;
-  }
-
-  .cupid{
-    transform:translateX(-50%) scale(.8);
-    top:15px;
-  }
-
-  .memory-card{
-    width:145px;
-    height:190px;
-    padding:9px 9px 30px;
-  }
-
-  .photo-window{
-    height:150px;
-  }
-
-  .memory-card.left{
-    left:5%;
-    top:180px;
-  }
-
-  .memory-card.right{
-    right:5%;
-    top:180px;
-  }
-
-  .photo-label{
-    font-size:15px;
-    bottom:5px;
-  }
-
-  .big-heart{
-    width:250px;
-    height:250px;
-    top:150px;
-  }
-
-  .click-guide{
-    width:140px;
-    height:105px;
-    right:0;
-    top:285px;
-  }
-
-  .click-guide-text{
-    font-size:14px;
-    top:0;
-  }
-
-  .yay{
-    font-size:32px;
-  }
-
-  .letter-paper{
-    padding:30px 20px 25px;
-  }
+    #heartButton {
+        width: 90px;
+        height: 90px;
+        font-size: 48px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- FLOATING HEARTS -->
-<div class="floating-heart" style="left:8%;animation-duration:8s;animation-delay:0s">♥</div>
-<div class="floating-heart" style="left:22%;animation-duration:10s;animation-delay:2s">♡</div>
-<div class="floating-heart" style="left:40%;animation-duration:7s;animation-delay:1s">♥</div>
-<div class="floating-heart" style="left:65%;animation-duration:11s;animation-delay:3s">♡</div>
-<div class="floating-heart" style="left:82%;animation-duration:9s;animation-delay:1s">♥</div>
-<div class="floating-heart" style="left:92%;animation-duration:12s;animation-delay:4s">♡</div>
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <!-- LOCK SCREEN -->
 <section id="lockScreen">
-  <div class="lock-box">
-    <h1>Something is waiting for you... 💗</h1>
-    <p id="lockText">Open this when the time comes.</p>
-    <div id="countdown">Loading...</div>
-  </div>
+    <div class="lock-box">
+
+        <div class="lock-icon">💗</div>
+
+        <h1>Something is waiting for you...</h1>
+
+        <p>
+            But you have to wait until<br>
+            <strong>September 11, 2026 • 12:00 AM</strong>
+        </p>
+
+        <div class="countdown-label">
+            Time remaining:
+        </div>
+
+        <div id="countdown">
+            Loading...
+        </div>
+
+    </div>
 </section>
 
-<!-- MAIN -->
-<main id="main">
 
-  <div class="card">
+<!-- MAIN CONTENT -->
+<section id="mainContent">
 
-    <div id="questionScreen">
+    <div class="card">
 
-      <div class="question">
-        Do you still love me? 💗
-      </div>
+        <div id="questionScreen">
 
-      <div class="buttons">
-        <button class="btn yes" id="yesBtn">YES 💕</button>
-        <button class="btn no" id="noBtn">NO 😭</button>
-      </div>
+            <div style="font-size:55px;">💌</div>
+
+            <h1>Do you still love me?</h1>
+
+            <p class="subtitle">
+                Be honest... I already know the answer. 🤭
+            </p>
+
+            <div class="buttons">
+
+                <button id="yesBtn">
+                    YES 💗
+                </button>
+
+                <button id="noBtn">
+                    NO 😭
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- YES SCREEN -->
+        <div id="loveScreen">
+
+            <h1>YAAAAAY! 💗</h1>
+
+            <div class="cute-scene">
+
+                <div class="heart-float heart1">💗</div>
+                <div class="heart-float heart2">💕</div>
+
+                <div class="bear">
+
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+
+                    <div class="nose"></div>
+
+                </div>
+
+            </div>
+
+            <p class="love-message">
+                I knew it! 🥹💗<br>
+                Happy Monthsary, Hon!!!
+            </p>
+
+            <!-- HEART + ARROW -->
+            <div class="heart-wrapper">
+
+                <div class="click-guide">
+
+                    <div class="click-text">
+                        click here
+                    </div>
+
+                    <svg viewBox="0 0 250 115">
+
+                        <!-- Curved line -->
+                        <path
+                            d="
+                            M 225 25
+                            C 190 20,
+                              150 25,
+                              125 48
+                            C 102 69,
+                              105 88,
+                              125 101
+                            "
+                        />
+
+                        <!-- Arrowhead ends directly toward heart -->
+                        <path
+                            class="arrow-head"
+                            d="
+                            M 125 101
+                            L 111 91
+                            L 114 108
+                            Z
+                            "
+                        />
+
+                    </svg>
+
+                </div>
+
+
+                <button id="heartButton">
+                    ❤️
+                </button>
+
+            </div>
+
+            <p>
+                <small>Click the heart 💗</small>
+            </p>
+
+        </div>
 
     </div>
 
-    <!-- AFTER YES -->
-    <section id="yesScreen">
+</section>
 
-      <div class="yay">YAY! ♥</div>
-      <div class="subtitle">I knew it hehe 🥹💗</div>
-
-      <div class="memory-scene">
-
-        <div class="deco d1">♡</div>
-        <div class="deco d2">✦</div>
-        <div class="deco d3">♥</div>
-        <div class="deco d4">✧</div>
-
-        <!-- CUPID -->
-        <div class="cupid">
-          <div class="cupid-ear left"></div>
-          <div class="cupid-ear right"></div>
-
-          <div class="cupid-body"></div>
-
-          <div class="eye left"></div>
-          <div class="eye right"></div>
-
-          <div class="cupid-heart">♥</div>
-        </div>
-
-        <!-- PHOTOS -->
-        <div class="memory-card left">
-          <div class="photo-window">
-            <img src="photo1.jpeg" alt="You">
-          </div>
-          <div class="photo-label">You</div>
-        </div>
-
-        <div class="memory-card right">
-          <div class="photo-window">
-            <img src="photo2.jpeg" alt="Me">
-          </div>
-          <div class="photo-label">Me</div>
-        </div>
-
-        <!-- GLOWING HEART -->
-        <div class="big-heart" id="bigHeart" title="Click me">
-          <svg viewBox="0 0 300 300">
-            <path
-              class="heart-path"
-              d="M150 245
-                 C135 225 55 180 55 115
-                 C55 70 105 50 150 92
-                 C195 50 245 70 245 115
-                 C245 180 165 225 150 245 Z">
-            </path>
-          </svg>
-        </div>
-
-        <!-- CUTE CURVED ARROW -->
-        <div class="click-guide">
-          <div class="click-guide-text">click here ♡</div>
-
-          <svg viewBox="0 0 185 135" aria-hidden="true">
-            <path
-              class="curve"
-              d="M165 35
-                 C125 5 65 10 48 45
-                 C34 72 38 94 55 111">
-            </path>
-
-            <path
-              class="arrowhead"
-              d="M55 111 L43 99 M55 111 L58 95">
-            </path>
-          </svg>
-        </div>
-
-        <!-- HEART BURST -->
-        <div class="heart-burst" id="heartBurst">
-          <div class="burst-heart">💗</div>
-          <div class="burst-heart">💖</div>
-          <div class="burst-heart">💕</div>
-          <div class="burst-heart">💗</div>
-          <div class="burst-heart">💞</div>
-          <div class="burst-heart">💓</div>
-        </div>
-
-      </div>
-    </section>
-
-  </div>
-</main>
 
 <!-- LOVE LETTER -->
-<div class="letter-overlay" id="letterOverlay">
+<div id="letter">
 
-  <div class="letter-paper">
+    <div class="letter-paper">
 
-    <h2>For You, Hon 💗</h2>
+        <button class="close" id="closeLetter">×</button>
 
-    <p>Hon,</p>
+        <h2>💌 Happy Monthsary 💌</h2>
 
-    <p>
-      Happy monthsary to us. ❤️
-    </p>
+        <p>
+            Hon,
+        </p>
 
-    <p>
-      Another month has passed, and I'm still grateful that somehow, through everything, we're still here. We've had our happy moments, little arguments, random conversations, and memories that I'll always keep close to my heart.
-    </p>
+        <p>
+            Happy monthsary to us. ❤️
+        </p>
 
-    <p>
-      I may not always know the perfect words to say, but I hope you know how much you mean to me. Thank you for staying, for making me smile, and for understanding my random moodswing hehe.
-    </p>
+        <p>
+            Another month has passed, and I'm still grateful
+            that somehow, through everything, we're still here.
+            We've had our happy moments, little arguments,
+            random conversations, and memories that I'll always
+            keep close to my heart.
+        </p>
 
-    <p>
-      Thank you kasi you always make sure that I'll feel special every monthsary natin. I don't know how ako makakabawi sa ngayon so I'll just try na iparamdam at ipaalam sayo na super love kita kahit with this way muna. I hope you'll never get tired with our setup. I know, it's hard for both of us pero, I promise to hold on us as long as may reason na panghahawakan ko. And if walang reason, edi I'll look for every possible reason hehe. Mahal na mahal kita, Cielo.
-    </p>
+        <p>
+            I may not always know the perfect words to say,
+            but I hope you know how much you mean to me.
+            Thank you for staying, for making me smile, and for understanding my 
+            random moodswing hehe.
+        </p>
 
-    <p>
-      I hope we continue to fight the distance that blocking us from hugging each other. More laughs, more late-night talks, more random topics, and more monthsaries to celebrate.
-    </p>
+        <p>
+            Thank you kasi you always make sure that I'll feel special every monthsary natin. 
+            I don't know how ako makakabawi sa ngayon so I'll just try na iparamdam at ipaalam sayo
+            na super love kita kahit with this way muna. I hope you'll never get tired with our setup.
+            I know, it's hard for both of us pero, I promise to hold on us as long as may reason na panghahawakan ko.
+            And if walang reason, edi I'll look for every possible reason hehe. Mahal na mahal kita, Cielo.
+        </p>
 
-    <p>
-      Happy monthsary, hon. 💗
-    </p>
+        <p>
+            I hope we continue to fight the distance that blocking us from hugging each other.
+            More laughs, more late-night talks, more random
+            topics, and more monthsaries to celebrate. 
+        </p>
 
-    <p class="signature">
-      I love you super ultra mega 😝❤️
-      <br><br>
-      — misis mo🤪
-    </p>
+        <p>
+            Happy monthsary, hon. 💗
+        </p>
 
-    <button class="back-button" id="backButton">
-      ← back
-    </button>
+        <p style="text-align:center; font-size:24px;">
+            I love you super ultra mega 😝❤️
+        </p>
 
-  </div>
+        <p style="text-align:right;">
+            — misis mo🤪​
+        </p>
+
+    </div>
+
 </div>
 
-<!-- MUSIC -->
-<button class="music-btn" id="musicBtn">🎵</button>
-<audio id="music" src="music.mp3" loop></audio>
+
+<!-- MUSIC CONTROL -->
+<button class="music-button" id="musicButton">
+    🎵
+</button>
+
 
 <script>
 
-/* =========================
-   DATE / LOCK
-========================= */
+/* =========================================
+   TARGET DATE
+========================================= */
 
-/* TEST MODE — opens immediately */
-const targetDate = Date.now() - 1000;
+const targetDate = new Date().getTime() - 1000;
+    
+const lockScreen =
+    document.getElementById("lockScreen");
 
-/*
-   ACTUAL ITALY DATE:
-   const targetDate =
-     new Date("2026-09-11T00:00:00+02:00").getTime();
-*/
+const mainContent =
+    document.getElementById("mainContent");
 
-const lockScreen = document.getElementById("lockScreen");
-const main = document.getElementById("main");
-const countdown = document.getElementById("countdown");
+const countdown =
+    document.getElementById("countdown");
 
-function updateCountdown(){
+const music =
+    document.getElementById("music");
 
-  const now = Date.now();
-  const difference = targetDate - now;
 
-  if(difference <= 0){
+/* =========================================
+   COUNTDOWN
+========================================= */
 
-    lockScreen.style.display = "none";
-    main.style.display = "block";
-    return;
-  }
+function updateCountdown() {
 
-  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(
-    (difference / (1000 * 60 * 60)) % 24
-  );
-  const minutes = Math.floor(
-    (difference / (1000 * 60)) % 60
-  );
-  const seconds = Math.floor(
-    (difference / 1000) % 60
-  );
+    const now = new Date().getTime();
 
-  countdown.textContent =
-    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    const distance = targetDate - now;
 
+    if (distance <= 0) {
+
+        lockScreen.style.display = "none";
+        mainContent.style.display = "flex";
+
+        startMusic();
+
+        clearInterval(timer);
+
+        return;
+    }
+
+    const days =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours =
+        Math.floor(
+            (distance % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
+
+    const minutes =
+        Math.floor(
+            (distance % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
+
+    const seconds =
+        Math.floor(
+            (distance % (1000 * 60))
+            / 1000
+        );
+
+    countdown.innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
+
+const timer = setInterval(updateCountdown, 1000);
 
 updateCountdown();
-setInterval(updateCountdown,1000);
 
 
-/* =========================
+/* =========================================
    MUSIC
-========================= */
+========================================= */
 
-const music = document.getElementById("music");
-const musicBtn = document.getElementById("musicBtn");
+function startMusic() {
 
-let musicPlaying = false;
+    music.volume = 0.5;
 
-musicBtn.addEventListener("click",()=>{
+    music.play().catch(() => {
 
-  if(musicPlaying){
+        console.log(
+            "Autoplay was blocked. Tap the music button."
+        );
 
-    music.pause();
-    musicBtn.textContent = "🎵";
-    musicPlaying = false;
-
-  }else{
-
-    music.play().catch(()=>{});
-    musicBtn.textContent = "🔊";
-    musicPlaying = true;
-
-  }
-
-});
-
-
-/* =========================
-   NO BUTTON
-========================= */
-
-const noBtn = document.getElementById("noBtn");
-
-function moveNoButton(){
-
-  const maxX =
-    Math.max(20, window.innerWidth - noBtn.offsetWidth - 30);
-
-  const maxY =
-    Math.max(20, window.innerHeight - noBtn.offsetHeight - 30);
-
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
-
-  noBtn.style.position = "fixed";
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
+    });
 }
 
-noBtn.addEventListener("mouseenter",moveNoButton);
-noBtn.addEventListener("touchstart",moveNoButton);
-noBtn.addEventListener("click",moveNoButton);
+
+/* Music button */
+
+const musicButton =
+    document.getElementById("musicButton");
+
+musicButton.addEventListener("click", () => {
+
+    if (music.paused) {
+
+        music.play();
+
+        musicButton.innerHTML = "🔊";
+
+    } else {
+
+        music.pause();
+
+        musicButton.innerHTML = "🔇";
+
+    }
+
+});
 
 
-/* =========================
+/* =========================================
+   NO BUTTON RUNS AWAY
+========================================= */
+
+const noBtn =
+    document.getElementById("noBtn");
+
+const buttonsArea =
+    document.querySelector(".buttons");
+
+function moveNoButton() {
+
+    const areaWidth =
+        buttonsArea.clientWidth - noBtn.offsetWidth;
+
+    const areaHeight =
+        buttonsArea.clientHeight - noBtn.offsetHeight;
+
+    const randomX =
+        Math.random() * areaWidth;
+
+    const randomY =
+        Math.random() * areaHeight;
+
+    noBtn.style.left =
+        randomX + "px";
+
+    noBtn.style.top =
+        randomY + "px";
+}
+
+
+/* Desktop */
+noBtn.addEventListener("mouseenter", moveNoButton);
+
+/* Mobile */
+noBtn.addEventListener("touchstart", function(e) {
+
+    e.preventDefault();
+
+    moveNoButton();
+
+});
+
+
+/* Also move if clicked */
+
+noBtn.addEventListener("click", function(e) {
+
+    e.preventDefault();
+
+    moveNoButton();
+
+});
+
+
+/* =========================================
    YES BUTTON
-========================= */
+========================================= */
 
-const yesBtn = document.getElementById("yesBtn");
-const questionScreen = document.getElementById("questionScreen");
-const yesScreen = document.getElementById("yesScreen");
+const yesBtn =
+    document.getElementById("yesBtn");
 
-yesBtn.addEventListener("click",()=>{
+const questionScreen =
+    document.getElementById("questionScreen");
 
-  questionScreen.style.display = "none";
-  yesScreen.style.display = "block";
+const loveScreen =
+    document.getElementById("loveScreen");
 
-  music.play().catch(()=>{});
-  musicPlaying = true;
-  musicBtn.textContent = "🔊";
+yesBtn.addEventListener("click", () => {
+
+    questionScreen.style.display = "none";
+
+    loveScreen.style.display = "block";
+
+    startMusic();
 
 });
 
 
-/* =========================
+/* =========================================
    HEART → LOVE LETTER
-========================= */
+========================================= */
 
-const bigHeart = document.getElementById("bigHeart");
-const heartBurst = document.getElementById("heartBurst");
-const letterOverlay = document.getElementById("letterOverlay");
+const heartButton =
+    document.getElementById("heartButton");
 
-bigHeart.addEventListener("click",()=>{
+const letter =
+    document.getElementById("letter");
 
-  heartBurst.classList.remove("active");
+heartButton.addEventListener("click", () => {
 
-  void heartBurst.offsetWidth;
-
-  heartBurst.classList.add("active");
-
-  setTimeout(()=>{
-
-    letterOverlay.classList.add("show");
-
-  },800);
+    letter.style.display = "flex";
 
 });
 
 
-/* =========================
-   BACK BUTTON
-========================= */
+/* CLOSE LETTER */
 
-const backButton = document.getElementById("backButton");
+const closeLetter =
+    document.getElementById("closeLetter");
 
-backButton.addEventListener("click",()=>{
+closeLetter.addEventListener("click", () => {
 
-  letterOverlay.classList.remove("show");
+    letter.style.display = "none";
+
+});
+
+
+/* Click outside letter */
+
+letter.addEventListener("click", (e) => {
+
+    if (e.target === letter) {
+
+        letter.style.display = "none";
+
+    }
 
 });
 
 
-/* =========================
-   CLICK OUTSIDE LETTER
-========================= */
+/* =========================================
+   FLOATING HEARTS
+========================================= */
 
-letterOverlay.addEventListener("click",(e)=>{
+function createHeart() {
 
-  if(e.target === letterOverlay){
-    letterOverlay.classList.remove("show");
-  }
+    const heart =
+        document.createElement("div");
 
-});
+    heart.className =
+        "floating-heart";
+
+    heart.innerHTML =
+        ["💗","💕","💖","💞","💓"]
+        [Math.floor(Math.random() * 5)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 10000);
+}
+
+setInterval(createHeart, 700);
+
+
+/* =========================================
+   TRY TO START MUSIC AFTER FIRST TOUCH
+========================================= */
+
+document.addEventListener("click", () => {
+
+    if (
+        new Date().getTime() >= targetDate &&
+        music.paused
+    ) {
+
+        music.play().catch(() => {});
+
+    }
+
+}, { once: true });
 
 </script>
 
