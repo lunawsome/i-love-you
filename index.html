@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #ffeef6, #ffc1d9);
+    overflow: hidden;
+    color: #6b2347;
+}
+
+/* Floating hearts */
+.floating-heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    animation: floatUp linear infinite;
+    opacity: .7;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: .8;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* LOCK SCREEN */
+#lockScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle, #fff0f6, #ffb5d0);
+    padding: 20px;
+}
+
+.lock-box {
+    width: min(90%, 520px);
+    padding: 40px 25px;
+    background: rgba(255,255,255,.8);
+    border: 3px solid #ff7eae;
+    border-radius: 30px;
+    box-shadow: 0 15px 50px rgba(164, 45, 91, .2);
+}
+
+.lock-box h1 {
+    font-size: 40px;
+    margin: 0 0 15px;
+}
+
+.lock-icon {
+    font-size: 65px;
+    animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+#countdown {
+    margin-top: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #d83b78;
+}
+
+.countdown-label {
+    font-size: 14px;
+    color: #9b5472;
+}
+
+/* MAIN */
+#mainContent {
+    display: none;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.card {
+    position: relative;
+    width: min(92%, 650px);
+    min-height: 500px;
+    padding: 45px 25px;
+    background: rgba(255,255,255,.82);
+    border: 3px solid #ff8bb7;
+    border-radius: 35px;
+    box-shadow: 0 20px 70px rgba(128, 30, 72, .2);
+    overflow: hidden;
+}
+
+.card h1 {
+    font-size: clamp(32px, 7vw, 55px);
+    margin: 20px 0 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    position: relative;
+    height: 150px;
+    margin-top: 20px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+#yesBtn,
+#noBtn {
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+#yesBtn {
+    background: #ff4f91;
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 79, 145, .35);
+}
+
+#yesBtn:hover {
+    transform: scale(1.08);
+}
+
+#noBtn {
+    position: absolute;
+    left: 55%;
+    top: 0;
+    background: #eee;
+    color: #777;
+}
+
+/* YES SCREEN */
+#loveScreen {
+    display: none;
+}
+
+.cute-scene {
+    margin: 20px auto;
+    width: 220px;
+    height: 180px;
+    position: relative;
+}
+
+/* Cute animated bear */
+.bear {
+    position: absolute;
+    width: 110px;
+    height: 100px;
+    background: #c98b65;
+    border-radius: 50% 50% 45% 45%;
+    left: 55px;
+    top: 45px;
+    animation: bounce 1.5s infinite ease-in-out;
+}
+
+.ear {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #b87450;
+    border-radius: 50%;
+    top: -12px;
+}
+
+.ear.left { left: 5px; }
+.ear.right { right: 5px; }
+
+.eye {
+    position: absolute;
+    width: 10px;
+    height: 14px;
+    background: #44232d;
+    border-radius: 50%;
+    top: 35px;
+}
+
+.eye.left { left: 28px; }
+.eye.right { right: 28px; }
+
+.nose {
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    background: #44232d;
+    border-radius: 50%;
+    left: 48px;
+    top: 50px;
+}
+
+.heart-float {
+    position: absolute;
+    font-size: 35px;
+    animation: heartFloat 2s infinite;
+}
+
+.heart1 {
+    left: 15px;
+    top: 20px;
+}
+
+.heart2 {
+    right: 15px;
+    top: 5px;
+    animation-delay: .6s;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes heartFloat {
+    0%,100% {
+        transform: translateY(0) scale(1);
+        opacity: .7;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+.love-message {
+    font-size: 21px;
+    line-height: 1.6;
+}
+
+/* CLICKABLE HEART */
+#heartButton {
+    margin: 25px auto;
+    width: 100px;
+    height: 100px;
+    background: #ff4f91;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 55px;
+    box-shadow: 0 10px 35px rgba(255, 79, 145, .4);
+    animation: heartbeat 1.2s infinite;
+}
+
+#heartButton:hover {
+    transform: scale(1.12);
+}
+
+/* LETTER */
+#letter {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(89, 25, 52, .55);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.letter-paper {
+    position: relative;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    background: #fffafc;
+    border-radius: 15px;
+    padding: 40px 30px;
+    border: 3px solid #ff9cbe;
+    box-shadow: 0 20px 70px rgba(0,0,0,.25);
+    animation: letterOpen .6s ease;
+    text-align: left;
+}
+
+@keyframes letterOpen {
+    from {
+        transform: scale(.5) rotate(-5deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.letter-paper h2 {
+    text-align: center;
+    color: #df407b;
+    font-size: 30px;
+}
+
+.letter-paper p {
+    line-height: 1.8;
+    font-size: 17px;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background: transparent;
+    font-size: 28px;
+    color: #b83c69;
+}
+
+.music-button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 300;
+    background: white;
+    border: 2px solid #ff80ac;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+}
+
+@media(max-width:500px) {
+    .lock-box h1 {
+        font-size: 30px;
+    }
+
+    #countdown {
+        font-size: 23px;
+    }
+
+    .card {
+        min-height: 550px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- LOCK SCREEN -->
+<section id="lockScreen">
+    <div class="lock-box">
+
+        <div class="lock-icon">💗</div>
+
+        <h1>Something is waiting for you...</h1>
+
+        <p>
+            But you have to wait until<br>
+            <strong>September 11, 2026 • 12:00 AM</strong>
+        </p>
+
+        <div class="countdown-label">
+            Time remaining:
+        </div>
+
+        <div id="countdown">
+            Loading...
+        </div>
+
+    </div>
+</section>
+
+
+<!-- MAIN CONTENT -->
+<section id="mainContent">
+
+    <div class="card">
+
+        <div id="questionScreen">
+
+            <div style="font-size:55px;">💌</div>
+
+            <h1>Do you still love me?</h1>
+
+            <p class="subtitle">
+                Be honest... I already know the answer. 🤭
+            </p>
+
+            <div class="buttons">
+
+                <button id="yesBtn">
+                    YES 💗
+                </button>
+
+                <button id="noBtn">
+                    NO 😭
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- YES SCREEN -->
+        <div id="loveScreen">
+
+            <h1>YAAAAAY! 💗</h1>
+
+            <div class="cute-scene">
+
+                <div class="heart-float heart1">💗</div>
+                <div class="heart-float heart2">💕</div>
+
+                <div class="bear">
+
+                    <div class="ear left"></div>
+                    <div class="ear right"></div>
+
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+
+                    <div class="nose"></div>
+
+                </div>
+
+            </div>
+
+            <p class="love-message">
+                I knew it! 🥹💗<br>
+                You found something special waiting for you...
+            </p>
+
+            <button id="heartButton">
+                ❤️
+            </button>
+
+            <p>
+                <small>Click the heart 💗</small>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LOVE LETTER -->
+<div id="letter">
+
+    <div class="letter-paper">
+
+        <button class="close" id="closeLetter">×</button>
+
+        <h2>💌 Happy Monthsary 💌</h2>
+
+        <p>
+            My Love,
+        </p>
+
+        <p>
+            Happy monthsary to us. ❤️
+        </p>
+
+        <p>
+            Another month has passed, and I'm still grateful
+            that somehow, through everything, we're still here.
+            We've had our happy moments, little arguments,
+            random conversations, and memories that I'll always
+            keep close to my heart.
+        </p>
+
+        <p>
+            I may not always know the perfect words to say,
+            but I hope you know how much you mean to me.
+            Thank you for staying, for understanding me,
+            for making me smile, and simply for being you.
+        </p>
+
+        <p>
+            I hope we continue making more memories together.
+            More laughs, more late-night talks, more random
+            adventures, and more monthsaries to celebrate.
+        </p>
+
+        <p>
+            Whatever happens, I want you to know that
+            you are someone very special to me.
+        </p>
+
+        <p>
+            Happy monthsary, my love. 💗
+        </p>
+
+        <p style="text-align:center; font-size:24px;">
+            I love you. ❤️
+        </p>
+
+        <p style="text-align:right;">
+            — Yours always 💌
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- MUSIC CONTROL -->
+<button class="music-button" id="musicButton">
+    🎵
+</button>
+
+
+<script>
+
+/* =========================================
+   TARGET DATE
+========================================= */
+
+const targetDate =
+    new Date("September 11, 2026 00:00:00").getTime();
+
+const lockScreen =
+    document.getElementById("lockScreen");
+
+const mainContent =
+    document.getElementById("mainContent");
+
+const countdown =
+    document.getElementById("countdown");
+
+const music =
+    document.getElementById("music");
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+function updateCountdown() {
+
+    const now = new Date().getTime();
+
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+
+        lockScreen.style.display = "none";
+        mainContent.style.display = "flex";
+
+        startMusic();
+
+        clearInterval(timer);
+
+        return;
+    }
+
+    const days =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours =
+        Math.floor(
+            (distance % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
+
+    const minutes =
+        Math.floor(
+            (distance % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
+
+    const seconds =
+        Math.floor(
+            (distance % (1000 * 60))
+            / 1000
+        );
+
+    countdown.innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+const timer = setInterval(updateCountdown, 1000);
+
+updateCountdown();
+
+
+/* =========================================
+   MUSIC
+========================================= */
+
+function startMusic() {
+
+    music.volume = 0.5;
+
+    music.play().catch(() => {
+
+        console.log(
+            "Autoplay was blocked. Tap the music button."
+        );
+
+    });
+}
+
+
+/* Music button */
+
+const musicButton =
+    document.getElementById("musicButton");
+
+musicButton.addEventListener("click", () => {
+
+    if (music.paused) {
+
+        music.play();
+
+        musicButton.innerHTML = "🔊";
+
+    } else {
+
+        music.pause();
+
+        musicButton.innerHTML = "🔇";
+
+    }
+
+});
+
+
+/* =========================================
+   NO BUTTON RUNS AWAY
+========================================= */
+
+const noBtn =
+    document.getElementById("noBtn");
+
+const buttonsArea =
+    document.querySelector(".buttons");
+
+function moveNoButton() {
+
+    const areaWidth =
+        buttonsArea.clientWidth - noBtn.offsetWidth;
+
+    const areaHeight =
+        buttonsArea.clientHeight - noBtn.offsetHeight;
+
+    const randomX =
+        Math.random() * areaWidth;
+
+    const randomY =
+        Math.random() * areaHeight;
+
+    noBtn.style.left =
+        randomX + "px";
+
+    noBtn.style.top =
+        randomY + "px";
+}
+
+
+/* Desktop */
+noBtn.addEventListener("mouseenter", moveNoButton);
+
+/* Mobile */
+noBtn.addEventListener("touchstart", function(e) {
+
+    e.preventDefault();
+
+    moveNoButton();
+
+});
+
+
+/* Also move if clicked */
+
+noBtn.addEventListener("click", function(e) {
+
+    e.preventDefault();
+
+    moveNoButton();
+
+});
+
+
+/* =========================================
+   YES BUTTON
+========================================= */
+
+const yesBtn =
+    document.getElementById("yesBtn");
+
+const questionScreen =
+    document.getElementById("questionScreen");
+
+const loveScreen =
+    document.getElementById("loveScreen");
+
+yesBtn.addEventListener("click", () => {
+
+    questionScreen.style.display = "none";
+
+    loveScreen.style.display = "block";
+
+    startMusic();
+
+});
+
+
+/* =========================================
+   HEART → LOVE LETTER
+========================================= */
+
+const heartButton =
+    document.getElementById("heartButton");
+
+const letter =
+    document.getElementById("letter");
+
+heartButton.addEventListener("click", () => {
+
+    letter.style.display = "flex";
+
+});
+
+
+/* CLOSE LETTER */
+
+const closeLetter =
+    document.getElementById("closeLetter");
+
+closeLetter.addEventListener("click", () => {
+
+    letter.style.display = "none";
+
+});
+
+
+/* Click outside letter */
+
+letter.addEventListener("click", (e) => {
+
+    if (e.target === letter) {
+
+        letter.style.display = "none";
+
+    }
+
+});
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+function createHeart() {
+
+    const heart =
+        document.createElement("div");
+
+    heart.className =
+        "floating-heart";
+
+    heart.innerHTML =
+        ["💗","💕","💖","💞","💓"]
+        [Math.floor(Math.random() * 5)];
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 20) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 10000);
+}
+
+setInterval(createHeart, 700);
+
+
+/* =========================================
+   TRY TO START MUSIC AFTER FIRST TOUCH
+========================================= */
+
+document.addEventListener("click", () => {
+
+    if (
+        new Date().getTime() >= targetDate &&
+        music.paused
+    ) {
+
+        music.play().catch(() => {});
+
+    }
+
+}, { once: true });
+
+</script>
+
+</body>
+</html>
