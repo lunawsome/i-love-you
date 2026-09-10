@@ -2,42 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">a<!-- CLICK HERE + CURVED ARROW -->
-
-<div id="heartAction" class="heart-action">
-
-    <div class="arrow-text">
-        click here ♡
-    </div>
-
-    <svg
-        class="curved-arrow"
-        viewBox="0 0 180 110"
-        aria-hidden="true">
-
-        <path
-            d="
-            M8 22
-            C42 8,
-              63 12,
-              77 30
-            C91 48,
-              105 56,
-              125 45
-            "
-        />
-
-        <polygon
-            points="
-            125,45
-            111,43
-            117,56
-            "
-        />
-
-    </svg>
-
-</div>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>💗</title>
 
 <style>
@@ -682,9 +647,11 @@ button {
 .heart-action {
     display: none;
     position: relative;
+
     width: 300px;
-    height: 135px;
-    margin: -5px auto 0;
+    height: 115px;
+
+    margin: -20px auto 0;
 }
 
 .heart-action.show {
@@ -706,24 +673,28 @@ button {
 
 .arrow-text {
     position: absolute;
-    left: 8px;
-    top: 35px;
+
+    left: 5px;
+    top: 55px;
 
     font-size: 23px;
     color: #bd426d;
+
     transform: rotate(-8deg);
+
     white-space: nowrap;
 }
 
-/* CURVED ARROW DIRECTLY TO HEART */
+/* CURVED ARROW TOWARD HEART */
 
 .curved-arrow {
     position: absolute;
-    width: 175px;
-    height: 105px;
 
-    left: 92px;
-    top: 3px;
+    width: 190px;
+    height: 115px;
+
+    left: 78px;
+    top: 0;
 
     overflow: visible;
 }
@@ -1304,20 +1275,11 @@ button {
                 aria-hidden="true">
 
                 <path
-                    d="
-                    M8 18
-                    C55 2,
-                      55 82,
-                      135 68
-                    "
+                    d="M8 78 C38 75, 55 48, 78 38 C96 30, 112 32, 128 20"
                 />
 
                 <polygon
-                    points="
-                    135,68
-                    121,60
-                    124,76
-                    "
+                    points="128,20 113,20 121,32"
                 />
 
             </svg>
@@ -1435,27 +1397,12 @@ button {
    SETTINGS
    ========================================================= */
 
-/*
-   TRUE = skip the countdown for testing.
-   FALSE = actual countdown until September 11, 2026
-   at exactly 12:00 AM Europe/Rome.
-*/
-
 const TEST_MODE = true;
 
 
 /* =========================================================
    EXACT UNLOCK TIME
    ========================================================= */
-
-/*
-   September 11, 2026 at 12:00 AM Europe/Rome.
-
-   Rome is UTC+2 on this date.
-
-   Therefore:
-   September 10, 2026 — 22:00 UTC
-*/
 
 const targetDate =
     new Date("2026-09-10T22:00:00Z").getTime();
@@ -1518,12 +1465,10 @@ function updateCountdown() {
         return;
     }
 
-
     const now = Date.now();
 
     const difference =
         targetDate - now;
-
 
     if (difference <= 0) {
 
@@ -1535,32 +1480,26 @@ function updateCountdown() {
         return;
     }
 
-
     const totalSeconds =
         Math.floor(difference / 1000);
-
 
     const days =
         Math.floor(
             totalSeconds / 86400
         );
 
-
     const hours =
         Math.floor(
             (totalSeconds % 86400) / 3600
         );
-
 
     const minutes =
         Math.floor(
             (totalSeconds % 3600) / 60
         );
 
-
     const seconds =
         totalSeconds % 60;
-
 
     countdown.innerHTML =
         String(days).padStart(2, "0") +
@@ -1583,16 +1522,13 @@ function updateCountdown() {
 
 let unlocked = false;
 
-
 function unlockPage() {
 
     if (unlocked) {
         return;
     }
 
-
     unlocked = true;
-
 
     lockScreen.style.display =
         "none";
@@ -1600,10 +1536,8 @@ function unlockPage() {
     questionScreen.style.display =
         "flex";
 
-
     music.volume =
         0.45;
-
 
     music.play().catch(() => {});
 }
@@ -1646,23 +1580,19 @@ document.addEventListener(
 const noButton =
     document.getElementById("noButton");
 
-
 function moveNoButton() {
 
     const padding = 15;
-
 
     const maxX =
         window.innerWidth -
         noButton.offsetWidth -
         padding;
 
-
     const maxY =
         window.innerHeight -
         noButton.offsetHeight -
         padding;
-
 
     const x =
         Math.max(
@@ -1670,13 +1600,11 @@ function moveNoButton() {
             Math.random() * maxX
         );
 
-
     const y =
         Math.max(
             padding,
             Math.random() * maxY
         );
-
 
     noButton.style.position =
         "fixed";
@@ -1691,12 +1619,10 @@ function moveNoButton() {
         "100";
 }
 
-
 noButton.addEventListener(
     "mouseenter",
     moveNoButton
 );
-
 
 noButton.addEventListener(
     "touchstart",
@@ -1708,7 +1634,6 @@ noButton.addEventListener(
 
     }
 );
-
 
 noButton.addEventListener(
     "click",
@@ -1733,18 +1658,6 @@ function showYes() {
 
     yesScreen.style.display =
         "flex";
-
-
-    /*
-       SEQUENCE:
-
-       1. You
-       2. +
-       3. Me
-       4. =
-       5. ONE BIG HEART around both
-       6. Clickable heart + arrow
-    */
 
 
     /* YOU */
@@ -1834,12 +1747,10 @@ function openLetter() {
     letterScreen.style.display =
         "flex";
 
-
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
-
 
     music.volume =
         0.5;
@@ -1857,7 +1768,6 @@ function closeLetter() {
 
     yesScreen.style.display =
         "flex";
-
 
     window.scrollTo({
         top: 0,
