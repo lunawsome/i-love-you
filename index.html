@@ -3,694 +3,377 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💗</title>
+<title>For You ♡</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Short+Stack&display=swap');
-
 * {
     box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: "Patrick Hand", cursive;
-    color: #8f3155;
-    overflow-x: hidden;
-
+    font-family: "Comic Sans MS", "Trebuchet MS", cursive;
     background:
-        radial-gradient(circle at 10% 10%, rgba(255,255,255,.65) 0 2px, transparent 3px),
-        radial-gradient(circle at 30% 75%, rgba(255,255,255,.55) 0 3px, transparent 4px),
-        radial-gradient(circle at 75% 18%, rgba(255,255,255,.55) 0 2px, transparent 3px),
-        radial-gradient(circle at 90% 65%, rgba(255,255,255,.55) 0 3px, transparent 4px),
-        linear-gradient(135deg, #ffdce8, #ffd2e2 38%, #f9d7e8 70%, #f6cce0);
-
-    background-size:
-        90px 90px,
-        120px 120px,
-        150px 150px,
-        130px 130px,
-        cover;
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.8) 0 5%, transparent 6%),
+        radial-gradient(circle at 85% 25%, rgba(255,255,255,.55) 0 4%, transparent 5%),
+        linear-gradient(135deg, #ffdce9, #fff0f5 45%, #ffd2e2);
+    color: #7d3151;
+    overflow-x: hidden;
 }
 
 body::before {
-    content: "";
+    content: "♡  ✦  ♡  ✧  ♡  ✦  ♡";
     position: fixed;
-    width: 500px;
-    height: 500px;
-    left: -230px;
-    top: 35%;
-    background: rgba(255,255,255,.23);
-    border-radius: 50%;
-    filter: blur(8px);
-    z-index: -5;
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    width: 550px;
-    height: 550px;
-    right: -260px;
-    bottom: -100px;
-    background: rgba(255,255,255,.27);
-    border-radius: 50%;
-    filter: blur(10px);
-    z-index: -5;
-}
-
-/* FLOATING DECORATIONS */
-
-.float {
-    position: fixed;
-    z-index: 2;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    color: rgba(214, 78, 123, .35);
+    letter-spacing: 18px;
     pointer-events: none;
-    opacity: .72;
-    animation: floating 6s ease-in-out infinite;
 }
 
-.f1 {
-    left: 4%;
-    top: 13%;
-    font-size: 23px;
-}
-
-.f2 {
-    right: 5%;
-    top: 24%;
-    font-size: 19px;
-    animation-delay: 1s;
-}
-
-.f3 {
-    left: 7%;
-    bottom: 16%;
-    font-size: 18px;
-    animation-delay: 2s;
-}
-
-.f4 {
-    right: 9%;
-    bottom: 18%;
-    font-size: 26px;
-    animation-delay: 3s;
-}
-
-.f5 {
-    left: 17%;
-    top: 7%;
-    font-size: 16px;
-    animation-delay: 4s;
-}
-
-.f6 {
-    right: 18%;
-    top: 8%;
-    font-size: 17px;
-    animation-delay: 1.7s;
-}
-
-@keyframes floating {
-    0%,100% {
-        transform: translateY(0) rotate(-5deg);
-    }
-
-    50% {
-        transform: translateY(-14px) rotate(5deg);
-    }
-}
-
-/* SCREEN */
-
-.screen {
+.page {
     min-height: 100vh;
-    padding: 25px 14px 50px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
 }
 
-/* MAIN SCRAPBOOK CARD */
+/* ================= LOCK SCREEN ================= */
 
-.card {
+#lockScreen {
+    text-align: center;
+}
+
+.lock-card {
+    width: min(420px, 92vw);
+    padding: 42px 25px;
+    background: rgba(255,255,255,.78);
+    border: 2px solid rgba(255,255,255,.9);
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(175, 68, 108, .18);
     position: relative;
-    width: min(720px, 95vw);
-    padding: 48px 28px 50px;
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            rgba(255,250,252,.91),
-            rgba(255,242,248,.88)
-        );
-
-    border: 3px solid rgba(218,103,145,.30);
-
-    box-shadow:
-        0 15px 40px rgba(145,61,98,.17),
-        inset 0 0 35px rgba(255,190,214,.35);
-
-    transform: rotate(-.35deg);
 }
 
-.card::before,
-.card::after {
-    content: "";
+.lock-card::before {
+    content: "♡";
     position: absolute;
-    width: 88px;
-    height: 25px;
-    top: 13px;
-    background: rgba(231,158,187,.38);
+    top: 12px;
+    left: 20px;
+    font-size: 28px;
+    transform: rotate(-15deg);
+    color: #e985a8;
 }
 
-.card::before {
-    left: 22px;
-    transform: rotate(-8deg);
-}
-
-.card::after {
-    right: 22px;
-    transform: rotate(8deg);
-}
-
-/* CORNERS */
-
-.corner {
+.lock-card::after {
+    content: "✦";
     position: absolute;
+    right: 25px;
+    bottom: 18px;
     font-size: 25px;
+    color: #e985a8;
 }
 
-.corner.tl {
-    top: 52px;
-    left: 17px;
+.lock-title {
+    font-size: 27px;
+    margin-bottom: 12px;
+    color: #b53f6d;
 }
 
-.corner.tr {
-    top: 52px;
-    right: 17px;
+.lock-date {
+    font-size: 16px;
+    color: #9b6177;
+    margin-bottom: 25px;
 }
 
-.corner.bl {
-    bottom: 17px;
-    left: 19px;
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
-.corner.br {
-    bottom: 17px;
-    right: 19px;
+.time-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 10px 8px;
+    min-width: 62px;
+    box-shadow: 0 5px 15px rgba(190, 73, 116, .12);
 }
 
-/* HEADINGS */
+.time-number {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    color: #c84978;
+}
 
-h1 {
-    font-family: "Short Stack", cursive;
-    color: #a32f59;
-    font-size: clamp(34px, 8vw, 58px);
-    line-height: 1.08;
-    margin: 15px 0;
-    text-shadow: 2px 2px rgba(255,255,255,.9);
+.time-label {
+    font-size: 10px;
+    color: #a77b8c;
+}
+
+/* ================= QUESTION ================= */
+
+#questionPage,
+#yesPage,
+#letterPage {
+    display: none;
+}
+
+.question-card {
+    width: min(450px, 92vw);
+    background: rgba(255,255,255,.82);
+    padding: 38px 25px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 18px 45px rgba(180, 70, 110, .2);
+    position: relative;
+}
+
+.envelope {
+    font-size: 65px;
+    animation: float 2s ease-in-out infinite;
+}
+
+.question-card h1 {
+    color: #b83f6c;
+    font-size: 31px;
+    margin: 8px 0;
 }
 
 .subtitle {
-    font-size: 22px;
-    line-height: 1.4;
-    margin: 8px auto 24px;
+    color: #a56a7e;
+    font-size: 15px;
 }
 
-.small-text {
-    font-size: 19px;
-}
-
-/* BUTTONS */
-
-button {
-    font-family: "Patrick Hand", cursive;
-    cursor: pointer;
+.buttons {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
 }
 
 .yes-btn,
 .no-btn {
-    border-radius: 40px;
-    padding: 12px 34px;
-    font-size: 22px;
-    border: 2px solid rgba(143,49,85,.16);
-    transition: .2s ease;
+    border: none;
+    border-radius: 50px;
+    padding: 13px 28px;
+    font-family: inherit;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .yes-btn {
+    background: #e95b8c;
     color: white;
-    background: linear-gradient(#ef6c9e, #dc4f87);
-    box-shadow:
-        0 5px 0 #b93d6c,
-        0 8px 18px rgba(190,61,111,.25);
-}
-
-.yes-btn:hover {
-    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 7px 15px rgba(210, 67, 116, .25);
 }
 
 .no-btn {
-    color: #8c7180;
-    background: #eadfe5;
-    box-shadow: 0 5px 0 #cdbfc7;
+    background: white;
+    color: #c64e79;
+    border: 2px solid #f0a2bb;
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    margin-top: 25px;
-}
+/* ================= YES PAGE ================= */
 
-/* LOCK SCREEN */
-
-.lock-screen {
+.yes-card {
+    width: min(700px, 95vw);
     text-align: center;
-}
-
-.bunny {
-    font-size: 76px;
-    margin-top: 5px;
-    animation: bunnyBounce 2.5s ease-in-out infinite;
-}
-
-@keyframes bunnyBounce {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-.waiting {
-    font-family: "Short Stack", cursive;
-    font-size: clamp(27px, 6vw, 42px);
-    color: #a32f59;
-    margin: 8px 0;
-}
-
-.date-pill {
-    display: inline-block;
-    padding: 10px 22px;
-    margin: 8px 0 18px;
-    border-radius: 30px;
-    color: #9e315b;
-    font-size: 21px;
-    font-weight: bold;
-    background: #f9a8c5;
-
-    box-shadow:
-        inset 0 2px 5px rgba(255,255,255,.5),
-        0 4px 10px rgba(180,67,108,.13);
-}
-
-.timer-title {
-    font-size: 20px;
-    margin-bottom: 7px;
-}
-
-.timer {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 290px;
-    padding: 12px 22px;
-    border-radius: 35px;
-    color: white;
-
-    background: linear-gradient(180deg, #ef6a9d, #db4e83);
-
-    box-shadow:
-        0 5px 0 #b93d6c,
-        inset 0 2px 5px rgba(255,255,255,.35),
-        0 8px 20px rgba(190,61,111,.18);
-
-    font-family: "Short Stack", cursive;
-    font-size: clamp(21px, 5vw, 30px);
-    letter-spacing: 1px;
-}
-
-.doodle-line {
-    margin: 25px auto 0;
-    width: 220px;
-    font-size: 30px;
-    letter-spacing: 8px;
-}
-
-/* QUESTION */
-
-.question-screen {
-    display: none;
-    text-align: center;
-}
-
-.envelope-icon {
-    font-size: 58px;
-    animation: gentleBounce 2s ease-in-out infinite;
-}
-
-@keyframes gentleBounce {
-    0%,100% {
-        transform: rotate(-3deg);
-    }
-
-    50% {
-        transform: rotate(3deg) translateY(-5px);
-    }
-}
-
-.question {
-    margin-top: 10px;
-}
-
-.question h1 {
-    max-width: 570px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* YES SCREEN */
-
-.yes-screen {
-    display: none;
-    text-align: center;
+    padding: 30px 15px;
 }
 
 .yay {
-    font-size: clamp(40px, 9vw, 67px);
-    margin-bottom: 3px;
-}
-
-.lucky {
-    font-size: 23px;
-    margin-bottom: 20px;
+    color: #c13f70;
+    font-size: 39px;
+    margin: 0 0 5px;
+    animation: pop .7s ease;
 }
 
 .bear {
-    font-size: 70px;
-    animation: bearMove 2.4s ease-in-out infinite;
+    font-size: 75px;
+    animation: float 2s ease-in-out infinite;
+    margin-bottom: 5px;
 }
 
-@keyframes bearMove {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px);
-    }
-}
-
-/* PHOTO AREA */
+/* ================= PHOTOS ================= */
 
 .photo-area {
+    width: min(650px, 94vw);
+    margin: 10px auto 0;
     position: relative;
-    width: 100%;
-    max-width: 620px;
-    margin: 28px auto 0;
-    min-height: 330px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    min-height: 310px;
 }
 
 .photo-sequence {
-    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 18px;
     position: relative;
     z-index: 2;
 }
 
 .person {
-    position: relative;
-    width: 220px;
     display: none;
-    animation: photoAppear .8s cubic-bezier(.2,.9,.3,1.2);
+    flex-direction: column;
+    align-items: center;
+    animation: photoAppear .8s ease;
 }
 
 .person.show {
-    display: block;
+    display: flex;
 }
 
-@keyframes photoAppear {
-    from {
-        opacity: 0;
-        transform: scale(.65) rotate(-8deg);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(-2deg);
-    }
-}
-
-/* PHOTO FRAME */
-
-.photo-frame {
-    position: relative;
-    padding: 10px 10px 12px;
-    background: #fff7fa;
-    border: 3px solid #e77ba5;
-
-    box-shadow:
-        0 6px 13px rgba(137,52,90,.16),
-        inset 0 0 10px rgba(245,155,184,.18);
-
-    transform: rotate(-2deg);
-}
-
-.photo-frame img {
-    width: 100%;
-    height: 235px;
+.person img {
+    width: 180px;
+    height: 215px;
     object-fit: cover;
-    display: block;
-    border: 1px solid rgba(170,70,110,.2);
+    border-radius: 12px;
+    background: white;
+    padding: 8px 8px 28px;
+    box-shadow: 0 8px 20px rgba(150, 55, 91, .2);
+    transform: rotate(-3deg);
 }
 
-/* PHOTO TAPE */
-
-.person::before {
-    content: "";
-    position: absolute;
-    z-index: 4;
-    width: 48px;
-    height: 18px;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%) rotate(-5deg);
-    background: rgba(244,175,199,.72);
+.person:nth-child(3) img {
+    transform: rotate(3deg);
 }
-
-/* LABELS */
 
 .photo-label {
-    font-family: "Short Stack", cursive;
-    font-size: 22px;
-    margin-top: 7px;
-    color: #a3335c;
-}
-
-/* PLUS / EQUAL */
-
-.symbol {
-    display: none;
-    flex-shrink: 0;
-    font-family: "Short Stack", cursive;
-    font-size: 42px;
-    color: #d34d80;
-    animation: symbolPop .6s ease;
-    position: relative;
+    margin-top: -27px;
     z-index: 3;
+    font-size: 20px;
+    color: #a63c64;
+    background: #fff8fb;
+    padding: 3px 13px;
+    border-radius: 12px;
+    transform: rotate(-3deg);
 }
 
-.symbol.show {
+.person:nth-child(3) .photo-label {
+    transform: rotate(3deg);
+}
+
+.plus,
+.equals {
+    display: none;
+    font-size: 38px;
+    color: #ce5880;
+    margin-top: 80px;
+    animation: pop .5s ease;
+}
+
+.plus.show,
+.equals.show {
     display: block;
 }
 
-@keyframes symbolPop {
-    from {
-        opacity: 0;
-        transform: scale(.2) rotate(-20deg);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0);
-    }
-}
-
-/* =========================
-   ONE BIG HEART AROUND BOTH
-   ========================= */
+/* BIG COMBINED HEART */
 
 .combined-heart {
     position: absolute;
-    z-index: 5;
-    pointer-events: none;
-
-    width: 590px;
-    height: 355px;
-
+    width: 620px;
+    max-width: 95vw;
+    height: 370px;
     left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
+    top: -12px;
+    transform: translateX(-50%);
+    z-index: 4;
+    pointer-events: none;
     opacity: 0;
 }
 
 .combined-heart.show {
     opacity: 1;
+    animation: heartDraw 1.2s ease forwards;
 }
 
 .combined-heart path {
-    fill: rgba(255,105,158,.035);
-    stroke: #ff74a8;
-    stroke-width: 5;
+    fill: rgba(255, 255, 255, .04);
+    stroke: #ec6390;
+    stroke-width: 7;
     stroke-linecap: round;
     stroke-linejoin: round;
-
-    filter:
-        drop-shadow(0 0 3px rgba(255,255,255,.95))
-        drop-shadow(0 0 8px rgba(255,72,137,.85))
-        drop-shadow(0 0 17px rgba(255,92,151,.55));
-
-    stroke-dasharray: 1400;
-    stroke-dashoffset: 1400;
-
-    animation:
-        drawCombinedHeart 2s ease forwards,
-        heartGlow 1.5s ease-in-out 2s infinite;
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 1500;
 }
 
-@keyframes drawCombinedHeart {
-    to {
-        stroke-dashoffset: 0;
-    }
+.combined-heart.show path {
+    animation: drawHeart 1.5s ease forwards;
 }
-
-@keyframes heartGlow {
-    0%,100% {
-        filter:
-            drop-shadow(0 0 3px rgba(255,255,255,.95))
-            drop-shadow(0 0 8px rgba(255,72,137,.75))
-            drop-shadow(0 0 14px rgba(255,92,151,.45));
-    }
-
-    50% {
-        filter:
-            drop-shadow(0 0 5px white)
-            drop-shadow(0 0 14px #ff4f96)
-            drop-shadow(0 0 28px #ff83b3);
-    }
-}
-
-/* HEART SPARKLES */
 
 .heart-sparkle {
-    position: absolute;
-    z-index: 7;
-    color: #ff65a0;
-    font-size: 22px;
+    fill: #e56b92;
+    font-size: 30px;
     opacity: 0;
-    pointer-events: none;
 }
 
-.combined-heart.show .spark1 {
-    animation: sparklePop 1s ease forwards 1.4s;
+.combined-heart.show .heart-sparkle {
+    animation: sparkle .8s ease 1s forwards;
 }
 
-.combined-heart.show .spark2 {
-    animation: sparklePop 1s ease forwards 1.7s;
-}
+/* ================= CLICKABLE HEART AREA ================= */
 
-.spark1 {
-    top: 5%;
-    right: 8%;
-}
-
-.spark2 {
-    bottom: 9%;
-    left: 8%;
-}
-
-@keyframes sparklePop {
-    0% {
-        opacity: 0;
-        transform: scale(.2);
-    }
-
-    60% {
-        opacity: 1;
-        transform: scale(1.25);
-    }
-
-    100% {
-        opacity: .8;
-        transform: scale(1);
-    }
-}
-
-/* CLICK HERE AREA */
-
-.heart-action {
+.heart-click-zone {
     display: none;
     position: relative;
-    width: 300px;
-    height: 135px;
-    margin: -5px auto 0;
+    width: 360px;
+    height: 165px;
+    margin: -8px auto 0;
+    z-index: 8;
 }
 
-.heart-action.show {
+.heart-click-zone.show {
     display: block;
     animation: actionAppear .8s ease;
 }
 
-@keyframes actionAppear {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.big-heart {
+    position: absolute;
+    right: 35px;
+    top: 28px;
+    border: none;
+    background: transparent;
+    font-size: 92px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    filter: drop-shadow(0 8px 10px rgba(220, 65, 111, .25));
+    animation: heartPulse 1.4s ease-in-out infinite;
+    z-index: 10;
 }
+
+.big-heart:hover {
+    transform: scale(1.12) rotate(-3deg);
+}
+
+/* CLICK HERE + CURVED ARROW */
 
 .arrow-text {
     position: absolute;
-    left: 8px;
-    top: 35px;
-
-    font-size: 23px;
+    left: 2px;
+    top: 62px;
     color: #bd426d;
-    transform: rotate(-8deg);
+    font-size: 22px;
     white-space: nowrap;
+    transform: rotate(-7deg);
+    z-index: 12;
 }
-
-/* CURVED ARROW DIRECTLY TO HEART */
 
 .curved-arrow {
     position: absolute;
-    width: 175px;
-    height: 105px;
-
-    left: 92px;
-    top: 3px;
-
+    left: 70px;
+    top: 15px;
+    width: 220px;
+    height: 125px;
     overflow: visible;
+    z-index: 9;
+    pointer-events: none;
 }
 
 .curved-arrow path {
@@ -698,507 +381,349 @@ button {
     stroke: #d84f80;
     stroke-width: 3.5;
     stroke-linecap: round;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+}
+
+.heart-click-zone.show .curved-arrow path {
+    animation: drawArrow 1.2s ease .25s forwards;
 }
 
 .curved-arrow polygon {
     fill: #d84f80;
+    opacity: 0;
 }
 
-/* BIG CLICKABLE HEART */
+.heart-click-zone.show .curved-arrow polygon {
+    animation: arrowHead .25s ease 1.35s forwards;
+}
 
-.big-heart {
-    display: none;
+/* ================= LETTER ================= */
 
-    border: none;
-    background: transparent;
-
-    font-size: 76px;
-    line-height: 1;
-
-    margin: 0 auto;
-
-    filter:
-        drop-shadow(0 0 5px white)
-        drop-shadow(0 0 12px rgba(255,68,130,.7));
-
-    animation: bigHeartPulse 1.25s ease-in-out infinite;
-
+.letter-wrapper {
+    width: min(700px, 94vw);
     position: relative;
-    z-index: 20;
 }
-
-.big-heart.show {
-    display: block;
-}
-
-.big-heart:hover {
-    transform: scale(1.12);
-}
-
-@keyframes bigHeartPulse {
-    0%,100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.16);
-    }
-}
-
-/* LOVE LETTER */
-
-.letter-screen {
-    display: none;
-    min-height: 100vh;
-    width: 100%;
-    padding: 35px 15px 55px;
-    align-items: center;
-    justify-content: center;
-}
-
-/* CUTE LETTER PAPER */
 
 .letter-paper {
-    position: relative;
-    width: min(700px, 94vw);
-    padding: 43px 35px 48px;
-
     background:
-        radial-gradient(
-            circle at 10% 15%,
-            rgba(255,180,205,.20),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 90% 80%,
-            rgba(255,190,210,.22),
-            transparent 28%
-        ),
-        linear-gradient(
-            rgba(255,250,245,.97),
-            rgba(255,244,242,.96)
+        linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.78)),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 28px,
+            rgba(226,145,170,.13) 29px
         );
-
-    border: 3px solid rgba(207,105,139,.38);
-    border-radius: 18px;
-
-    box-shadow:
-        0 16px 35px rgba(110,52,76,.20),
-        inset 0 0 35px rgba(255,191,202,.25);
-
-    transform: rotate(.4deg);
-}
-
-.letter-paper::before,
-.letter-paper::after {
-    content: "";
-    position: absolute;
-    width: 100px;
-    height: 25px;
-    top: 10px;
-    background: rgba(231,158,187,.42);
+    border-radius: 7px;
+    padding: 45px 38px;
+    box-shadow: 0 15px 40px rgba(150, 60, 90, .2);
+    position: relative;
+    transform: rotate(-.5deg);
 }
 
 .letter-paper::before {
-    left: 22px;
-    transform: rotate(-6deg);
+    content: "♡";
+    position: absolute;
+    top: 12px;
+    left: 17px;
+    color: #e487a5;
+    font-size: 25px;
 }
 
 .letter-paper::after {
-    right: 22px;
-    transform: rotate(7deg);
-}
-
-/* LETTER DECORATIONS */
-
-.letter-deco {
+    content: "✦";
     position: absolute;
-    font-size: 27px;
-    opacity: .8;
+    right: 18px;
+    bottom: 15px;
+    color: #e487a5;
+    font-size: 25px;
 }
-
-.letter-deco.one {
-    left: 12px;
-    top: 75px;
-}
-
-.letter-deco.two {
-    right: 12px;
-    top: 82px;
-}
-
-.letter-deco.three {
-    left: 14px;
-    bottom: 24px;
-}
-
-.letter-deco.four {
-    right: 14px;
-    bottom: 25px;
-}
-
-.letter-content {
-    position: relative;
-    z-index: 2;
-    font-size: 20px;
-    line-height: 1.55;
-    color: #74455a;
-}
-
-.letter-content p {
-    margin: 0 0 15px;
-}
-
-/* ORIGINAL LETTER — DO NOT CHANGE */
 
 .letter-greeting {
-    font-size: 27px;
-    color: #a32f59;
-    margin-bottom: 15px !important;
-}
-
-.signature {
-    text-align: right;
     font-size: 22px;
-    color: #a32f59;
-    margin-top: 22px;
+    margin-top: 0;
+    color: #a83d65;
 }
 
-.flowers {
-    text-align: center;
-    font-size: 27px;
-    letter-spacing: 5px;
-    margin-top: 20px;
+.letter-paper p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #71485a;
 }
-
-/* CLOSE BUTTON */
 
 .close-letter {
     display: block;
     margin: 25px auto 0;
-
     border: none;
     border-radius: 30px;
-    padding: 9px 24px;
-
-    background: #ef8db0;
+    padding: 11px 22px;
+    background: #e96894;
     color: white;
-    font-size: 19px;
-
-    box-shadow: 0 4px 0 #c85b82;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
 }
 
-.close-letter:hover {
-    transform: translateY(-2px);
+/* ================= ANIMATIONS ================= */
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
 
-/* RESPONSIVE */
+@keyframes pop {
+    0% { transform: scale(.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
 
-@media (max-width: 650px) {
+@keyframes photoAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 
-    .card {
-        padding: 43px 18px 43px;
+@keyframes heartDraw {
+    from { transform: translateX(-50%) scale(.85); }
+    to { transform: translateX(-50%) scale(1); }
+}
+
+@keyframes drawHeart {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes sparkle {
+    from {
+        opacity: 0;
+        transform: scale(.3);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes heartPulse {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes drawArrow {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes arrowHead {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes actionAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .lock-title {
+        font-size: 23px;
     }
 
-    .subtitle {
-        font-size: 19px;
-    }
-
-    .buttons {
-        gap: 16px;
-    }
-
-    .yes-btn,
-    .no-btn {
-        padding: 10px 26px;
-        font-size: 20px;
-    }
-
-    .photo-area {
-        min-height: 285px;
-    }
-
-    .person {
-        width: 150px;
-    }
-
-    .photo-frame img {
-        height: 180px;
-    }
-
-    .photo-sequence {
+    .countdown {
         gap: 5px;
     }
 
-    .symbol {
-        font-size: 30px;
+    .time-box {
+        min-width: 55px;
     }
 
-    .combined-heart {
-        width: 410px;
-        height: 280px;
-    }
-
-    .heart-action {
-        width: 270px;
-    }
-
-    .arrow-text {
-        font-size: 20px;
-    }
-
-    .curved-arrow {
-        left: 75px;
-    }
-
-    .letter-paper {
-        padding: 40px 23px 42px;
-    }
-
-    .letter-content {
-        font-size: 18px;
-    }
-
-    .timer {
-        min-width: 260px;
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 430px) {
-
-    .person {
-        width: 125px;
-    }
-
-    .photo-frame {
-        padding: 7px 7px 9px;
-    }
-
-    .photo-frame img {
-        height: 145px;
-    }
-
-    .photo-label {
-        font-size: 18px;
-    }
-
-    .photo-sequence {
-        gap: 3px;
+    .yay {
+        font-size: 32px;
     }
 
     .photo-area {
-        min-height: 250px;
+        min-height: 270px;
+    }
+
+    .photo-sequence {
+        gap: 7px;
+    }
+
+    .person img {
+        width: 135px;
+        height: 175px;
+    }
+
+    .plus,
+    .equals {
+        font-size: 28px;
+        margin-top: 65px;
     }
 
     .combined-heart {
-        width: 350px;
-        height: 240px;
+        width: 390px;
+        height: 260px;
+        top: 0;
+    }
+
+    .heart-click-zone {
+        width: 330px;
+        height: 155px;
     }
 
     .big-heart {
-        font-size: 68px;
-    }
-
-    .heart-action {
-        width: 245px;
-        height: 120px;
+        right: 15px;
+        top: 27px;
+        font-size: 80px;
     }
 
     .arrow-text {
         left: 0;
-        top: 32px;
+        top: 62px;
         font-size: 19px;
     }
 
     .curved-arrow {
-        width: 155px;
-        height: 95px;
-        left: 68px;
+        left: 63px;
+        top: 17px;
+        width: 205px;
+        height: 120px;
     }
-}
 
-/* HIDDEN */
+    .letter-paper {
+        padding: 35px 22px;
+    }
 
-.hidden {
-    display: none !important;
+    .letter-paper p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- FLOATING DECORATIONS -->
-
-<div class="float f1">♡</div>
-<div class="float f2">♥</div>
-<div class="float f3">✧</div>
-<div class="float f4">♡</div>
-<div class="float f5">✦</div>
-<div class="float f6">✿</div>
-
-
 <!-- ================= LOCK SCREEN ================= -->
 
-<section id="lockScreen" class="screen">
-
-    <div class="card lock-screen">
-
-        <div class="corner tl">✦</div>
-        <div class="corner tr">♡</div>
-        <div class="corner bl">✧</div>
-        <div class="corner br">♡</div>
+<div id="lockScreen" class="page">
+    <div class="lock-card">
 
         <div class="bunny">🐰</div>
 
-        <div class="waiting">
-            You have to wait<br>
-            to open this ♡
+        <div class="lock-title">
+            You have to wait to open this ♡
         </div>
 
-        <div class="date-pill">
+        <div class="lock-date">
             September 11, 2026 • 12:00 AM
         </div>
 
-        <div class="timer-title">
-            Time remaining:
-        </div>
+        <div class="countdown">
+            <div class="time-box">
+                <span id="days" class="time-number">00</span>
+                <span class="time-label">DAYS</span>
+            </div>
 
-        <div id="countdown" class="timer">
-            Loading...
-        </div>
+            <div class="time-box">
+                <span id="hours" class="time-number">00</span>
+                <span class="time-label">HOURS</span>
+            </div>
 
-        <div class="doodle-line">
-            ♡ 〰️ ♡
+            <div class="time-box">
+                <span id="minutes" class="time-number">00</span>
+                <span class="time-label">MINUTES</span>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds" class="time-number">00</span>
+                <span class="time-label">SECONDS</span>
+            </div>
         </div>
 
     </div>
-</section>
+</div>
 
 
-<!-- ================= QUESTION SCREEN ================= -->
+<!-- ================= QUESTION PAGE ================= -->
 
-<section id="questionScreen" class="screen question-screen">
+<div id="questionPage" class="page">
 
-    <div class="card">
+    <div class="question-card">
 
-        <div class="corner tl">♡</div>
-        <div class="corner tr">✧</div>
-        <div class="corner bl">♡</div>
-        <div class="corner br">✦</div>
+        <div class="envelope">💌</div>
 
-        <div class="envelope-icon">💌</div>
+        <h1>Do you still love me?</h1>
 
-        <div class="question">
-
-            <h1>
-                Do you still<br>
-                love me?
-            </h1>
-
-            <div class="subtitle">
-                😏​😏​😏​😏​😏​😏​
-            </div>
-
+        <div class="subtitle">
+            Be honest... I already know the answer. 🤭
         </div>
 
         <div class="buttons">
-
-            <button class="yes-btn" onclick="showYes()">
-                YES ♡
+            <button class="yes-btn" onclick="showYesPage()">
+                YES 💗
             </button>
 
-            <button id="noButton" class="no-btn">
-                NO
+            <button id="noBtn" class="no-btn">
+                NO 😭
             </button>
-
-        </div>
-
-        <div class="doodle-line">
-            〰️ ♡ 〰️
         </div>
 
     </div>
 
-</section>
+</div>
 
 
-<!-- ================= YES SCREEN ================= -->
+<!-- ================= YES PAGE ================= -->
 
-<section id="yesScreen" class="screen yes-screen">
+<div id="yesPage" class="page">
 
-    <div class="card">
+    <div class="yes-card">
 
-        <div class="corner tl">♡</div>
-        <div class="corner tr">✦</div>
-        <div class="corner bl">✿</div>
-        <div class="corner br">♡</div>
+        <h1 class="yay">YAAAAAY! 💗</h1>
 
-        <div class="bear">
-            🐻
-        </div>
-
-        <h1 class="yay">
-            YAAAAAY! 💗
-        </h1>
-
-        <div class="lucky">
-            I'm so lucky to have you! ♡
-        </div>
+        <div class="bear">🐻</div>
 
 
-        <!-- PHOTO AREA -->
-
-        <div class="photo-area">
+        <div id="photoArea" class="photo-area">
 
             <div class="photo-sequence">
 
                 <!-- YOU -->
 
                 <div id="person1" class="person">
-
-                    <div class="photo-frame">
-
-                        <img src="photo1.jpeg" alt="You">
-
-                    </div>
-
-                    <div class="photo-label">
-                        You
-                    </div>
-
+                    <img src="photo1.jpeg" alt="You">
+                    <div class="photo-label">You</div>
                 </div>
 
-
-                <!-- PLUS -->
-
-                <div id="plusSymbol" class="symbol">
-                    +
-                </div>
-
+                <div id="plus" class="plus">+</div>
 
                 <!-- ME -->
 
                 <div id="person2" class="person">
-
-                    <div class="photo-frame">
-
-                        <img src="photo2.jpeg" alt="Me">
-
-                    </div>
-
-                    <div class="photo-label">
-                        Me
-                    </div>
-
+                    <img src="photo2.jpeg" alt="Me">
+                    <div class="photo-label">Me</div>
                 </div>
 
-
-                <!-- EQUAL -->
-
-                <div id="equalSymbol" class="symbol">
-                    =
-                </div>
+                <div id="equals" class="equals">=</div>
 
             </div>
 
@@ -1223,108 +748,65 @@ button {
                     "
                 />
 
-                <text
-                    class="heart-sparkle spark1"
-                    x="535"
-                    y="75">
-                    ✦
-                </text>
-
-                <text
-                    class="heart-sparkle spark2"
-                    x="75"
-                    y="290">
-                    ♡
-                </text>
+                <text class="heart-sparkle spark1" x="535" y="75">✦</text>
+                <text class="heart-sparkle spark2" x="75" y="290">♡</text>
 
             </svg>
 
         </div>
 
 
-        <!-- BIG CLICKABLE HEART -->
+        <!-- CLICKABLE HEART + ARROW -->
 
-        <button
-            id="bigHeart"
-            class="big-heart"
-            onclick="openLetter()"
-            aria-label="Open love letter">
-
-            ❤️
-
-        </button>
-
-
-        <!-- CLICK HERE + CURVED ARROW -->
-
-        <div id="heartAction" class="heart-action">
+        <div id="heartClickZone" class="heart-click-zone">
 
             <div class="arrow-text">
                 click here ♡
             </div>
 
-            <svg
-                class="curved-arrow"
-                viewBox="0 0 180 110"
-                aria-hidden="true">
+            <!--
+                The arrow curves from the "click here" text
+                toward the actual clickable heart.
+            -->
+
+            <svg class="curved-arrow"
+                 viewBox="0 0 220 130"
+                 aria-hidden="true">
 
                 <path
                     d="
-                    M8 18
-                    C55 2,
-                      55 82,
-                      135 68
+                    M10 30
+                    C55 5, 105 12, 118 45
+                    C130 76, 153 94, 184 78
                     "
                 />
 
-                <polygon
-                    points="
-                    135,68
-                    121,60
-                    124,76
-                    "
-                />
+                <polygon points="184,78 168,72 173,88"/>
 
             </svg>
 
-        </div>
 
+            <button id="bigHeart"
+                    class="big-heart"
+                    onclick="openLetter()"
+                    aria-label="Open love letter">
+                ❤️
+            </button>
 
-        <div class="doodle-line">
-            ♡ 〰️ ✧ 〰️ ♡
         </div>
 
     </div>
 
-</section>
+</div>
 
 
 <!-- ================= LOVE LETTER ================= -->
 
-<section id="letterScreen" class="letter-screen">
+<div id="letterPage" class="page">
 
-    <div class="letter-paper">
+    <div class="letter-wrapper">
 
-        <div class="letter-deco one">
-            ♡
-        </div>
-
-        <div class="letter-deco two">
-            ✿
-        </div>
-
-        <div class="letter-deco three">
-            ♡
-        </div>
-
-        <div class="letter-deco four">
-            ✧
-        </div>
-
-
-        <div class="letter-content">
-
-            <!-- YOUR ORIGINAL LETTER — UNCHANGED -->
+        <div class="letter-paper">
 
             <p class="letter-greeting">
                 Hon,
@@ -1375,487 +857,264 @@ button {
                 — misis mo🤪
             </p>
 
+            <button class="close-letter" onclick="closeLetter()">
+                back ♡
+            </button>
+
         </div>
-
-
-        <button class="close-letter" onclick="closeLetter()">
-            close letter ♡
-        </button>
 
     </div>
 
-</section>
+</div>
 
 
-<!-- MUSIC -->
-
-<audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+<audio id="music" src="music.mp3" loop></audio>
 
 
 <script>
 
-/* =========================================================
-   SETTINGS
-   ========================================================= */
-
-/*
-   TRUE = skip the countdown for testing.
-   FALSE = actual countdown until September 11, 2026
-   at exactly 12:00 AM Europe/Rome.
-*/
+/* =====================================================
+   TEST MODE
+   true  = opens immediately for testing
+   false = waits until September 11, 2026 • 12:00 AM
+   ===================================================== */
 
 const TEST_MODE = true;
 
 
-/* =========================================================
-   EXACT UNLOCK TIME
-   ========================================================= */
-
 /*
-   September 11, 2026 at 12:00 AM Europe/Rome.
-
-   Rome is UTC+2 on this date.
-
-   Therefore:
-   September 10, 2026 — 22:00 UTC
+   September 11, 2026 12:00 AM in Europe/Rome
+   = September 10, 2026 22:00 UTC
 */
 
-const targetDate =
-    new Date("2026-09-10T22:00:00Z").getTime();
+const unlockTime = new Date("2026-09-10T22:00:00Z").getTime();
 
 
-/* =========================================================
-   ELEMENTS
-   ========================================================= */
+const lockScreen = document.getElementById("lockScreen");
+const questionPage = document.getElementById("questionPage");
+const yesPage = document.getElementById("yesPage");
+const letterPage = document.getElementById("letterPage");
 
-const lockScreen =
-    document.getElementById("lockScreen");
+const music = document.getElementById("music");
 
-const questionScreen =
-    document.getElementById("questionScreen");
-
-const yesScreen =
-    document.getElementById("yesScreen");
-
-const letterScreen =
-    document.getElementById("letterScreen");
-
-const countdown =
-    document.getElementById("countdown");
-
-const person1 =
-    document.getElementById("person1");
-
-const person2 =
-    document.getElementById("person2");
-
-const plusSymbol =
-    document.getElementById("plusSymbol");
-
-const equalSymbol =
-    document.getElementById("equalSymbol");
-
-const combinedHeart =
-    document.getElementById("combinedHeart");
-
-const bigHeart =
-    document.getElementById("bigHeart");
-
-const heartAction =
-    document.getElementById("heartAction");
-
-const music =
-    document.getElementById("music");
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
 
 
-/* =========================================================
-   COUNTDOWN
-   ========================================================= */
+/* ================= COUNTDOWN ================= */
 
 function updateCountdown() {
 
     if (TEST_MODE) {
-
         unlockPage();
-
         return;
     }
-
 
     const now = Date.now();
-
-    const difference =
-        targetDate - now;
-
+    const difference = unlockTime - now;
 
     if (difference <= 0) {
-
-        countdown.innerHTML =
-            "00d 00h 00m 00s";
-
         unlockPage();
-
         return;
     }
 
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
 
-    const totalSeconds =
-        Math.floor(difference / 1000);
+    const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+    );
 
+    const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+    );
 
-    const days =
-        Math.floor(
-            totalSeconds / 86400
-        );
+    const seconds = Math.floor(
+        (difference / 1000) % 60
+    );
 
-
-    const hours =
-        Math.floor(
-            (totalSeconds % 86400) / 3600
-        );
-
-
-    const minutes =
-        Math.floor(
-            (totalSeconds % 3600) / 60
-        );
-
-
-    const seconds =
-        totalSeconds % 60;
-
-
-    countdown.innerHTML =
-        String(days).padStart(2, "0") +
-        "d " +
-
-        String(hours).padStart(2, "0") +
-        "h " +
-
-        String(minutes).padStart(2, "0") +
-        "m " +
-
-        String(seconds).padStart(2, "0") +
-        "s";
+    daysEl.textContent = String(days).padStart(2, "0");
+    hoursEl.textContent = String(hours).padStart(2, "0");
+    minutesEl.textContent = String(minutes).padStart(2, "0");
+    secondsEl.textContent = String(seconds).padStart(2, "0");
 }
-
-
-/* =========================================================
-   UNLOCK PAGE
-   ========================================================= */
-
-let unlocked = false;
 
 
 function unlockPage() {
 
-    if (unlocked) {
-        return;
-    }
+    lockScreen.style.display = "none";
+    questionPage.style.display = "flex";
 
+    try {
+        music.volume = 0.7;
+        music.play().catch(() => {});
+    } catch (e) {}
 
-    unlocked = true;
-
-
-    lockScreen.style.display =
-        "none";
-
-    questionScreen.style.display =
-        "flex";
-
-
-    music.volume =
-        0.45;
-
-
-    music.play().catch(() => {});
 }
 
-
-/* =========================================================
-   START COUNTDOWN
-   ========================================================= */
 
 updateCountdown();
 
-setInterval(
-    updateCountdown,
-    1000
-);
+setInterval(updateCountdown, 1000);
 
 
-/* =========================================================
-   MUSIC AFTER FIRST TAP
-   ========================================================= */
+/* ================= MUSIC ================= */
 
-document.addEventListener(
-    "click",
-    function() {
+document.addEventListener("click", function () {
 
-        music.volume =
-            0.45;
-
+    try {
         music.play().catch(() => {});
+    } catch (e) {}
 
-    },
-    { once: true }
-);
-
-
-/* =========================================================
-   RUNAWAY NO BUTTON
-   ========================================================= */
-
-const noButton =
-    document.getElementById("noButton");
+}, { once: true });
 
 
-function moveNoButton() {
+/* ================= YES PAGE ================= */
 
-    const padding = 15;
+function showYesPage() {
 
+    questionPage.style.display = "none";
+    yesPage.style.display = "flex";
 
-    const maxX =
-        window.innerWidth -
-        noButton.offsetWidth -
-        padding;
-
-
-    const maxY =
-        window.innerHeight -
-        noButton.offsetHeight -
-        padding;
-
-
-    const x =
-        Math.max(
-            padding,
-            Math.random() * maxX
-        );
-
-
-    const y =
-        Math.max(
-            padding,
-            Math.random() * maxY
-        );
-
-
-    noButton.style.position =
-        "fixed";
-
-    noButton.style.left =
-        x + "px";
-
-    noButton.style.top =
-        y + "px";
-
-    noButton.style.zIndex =
-        "100";
+    startPhotoSequence();
 }
 
 
-noButton.addEventListener(
-    "mouseenter",
-    moveNoButton
-);
+/* ================= PHOTO SEQUENCE ================= */
 
+function startPhotoSequence() {
 
-noButton.addEventListener(
-    "touchstart",
-    function(e) {
-
-        e.preventDefault();
-
-        moveNoButton();
-
-    }
-);
-
-
-noButton.addEventListener(
-    "click",
-    function(e) {
-
-        e.preventDefault();
-
-        moveNoButton();
-
-    }
-);
-
-
-/* =========================================================
-   YES PAGE
-   ========================================================= */
-
-function showYes() {
-
-    questionScreen.style.display =
-        "none";
-
-    yesScreen.style.display =
-        "flex";
+    const person1 = document.getElementById("person1");
+    const plus = document.getElementById("plus");
+    const person2 = document.getElementById("person2");
+    const equals = document.getElementById("equals");
+    const combinedHeart = document.getElementById("combinedHeart");
+    const heartClickZone = document.getElementById("heartClickZone");
 
 
     /*
-       SEQUENCE:
-
        1. You
-       2. +
-       3. Me
-       4. =
-       5. ONE BIG HEART around both
-       6. Clickable heart + arrow
     */
 
-
-    /* YOU */
-
-    setTimeout(
-        function() {
-
-            person1.classList.add("show");
-
-        },
-        400
-    );
+    setTimeout(() => {
+        person1.classList.add("show");
+    }, 700);
 
 
-    /* PLUS */
+    /*
+       2. +
+    */
 
-    setTimeout(
-        function() {
-
-            plusSymbol.classList.add("show");
-
-        },
-        1200
-    );
+    setTimeout(() => {
+        plus.classList.add("show");
+    }, 1800);
 
 
-    /* ME */
+    /*
+       3. Me
+    */
 
-    setTimeout(
-        function() {
-
-            person2.classList.add("show");
-
-        },
-        1700
-    );
+    setTimeout(() => {
+        person2.classList.add("show");
+    }, 2700);
 
 
-    /* EQUAL */
+    /*
+       4. =
+    */
 
-    setTimeout(
-        function() {
-
-            equalSymbol.classList.add("show");
-
-        },
-        2500
-    );
+    setTimeout(() => {
+        equals.classList.add("show");
+    }, 3800);
 
 
-    /* ONE BIG HEART */
+    /*
+       5. BIG HEART around both
+    */
 
-    setTimeout(
-        function() {
-
-            combinedHeart.classList.add("show");
-
-        },
-        3100
-    );
+    setTimeout(() => {
+        combinedHeart.classList.add("show");
+    }, 4700);
 
 
-    /* CLICKABLE HEART + ARROW */
+    /*
+       6. Clickable heart + curved arrow
+    */
 
-    setTimeout(
-        function() {
+    setTimeout(() => {
+        heartClickZone.classList.add("show");
+    }, 5700);
 
-            bigHeart.classList.add("show");
-
-            heartAction.classList.add("show");
-
-        },
-        5000
-    );
 }
 
 
-/* =========================================================
-   OPEN LOVE LETTER
-   ========================================================= */
+/* ================= RUNAWAY NO ================= */
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseenter", moveNoButton);
+noBtn.addEventListener("touchstart", moveNoButton);
+
+
+function moveNoButton(e) {
+
+    if (e) {
+        e.preventDefault();
+    }
+
+    const buttonWidth = noBtn.offsetWidth;
+    const buttonHeight = noBtn.offsetHeight;
+
+    const maxX = window.innerWidth - buttonWidth - 20;
+    const maxY = window.innerHeight - buttonHeight - 20;
+
+    const x = Math.max(
+        10,
+        Math.random() * maxX
+    );
+
+    const y = Math.max(
+        10,
+        Math.random() * maxY
+    );
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+
+/* ================= OPEN LETTER ================= */
 
 function openLetter() {
 
-    yesScreen.style.display =
-        "none";
-
-    letterScreen.style.display =
-        "flex";
-
+    yesPage.style.display = "none";
+    letterPage.style.display = "flex";
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
 
-
-    music.volume =
-        0.5;
 }
 
 
-/* =========================================================
-   CLOSE LOVE LETTER
-   ========================================================= */
+/* ================= CLOSE LETTER ================= */
 
 function closeLetter() {
 
-    letterScreen.style.display =
-        "none";
-
-    yesScreen.style.display =
-        "flex";
-
+    letterPage.style.display = "none";
+    yesPage.style.display = "flex";
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 }
-
-
-/* =========================================================
-   RESET NO BUTTON ON RESIZE
-   ========================================================= */
-
-window.addEventListener(
-    "resize",
-    function() {
-
-        if (
-            noButton.style.position ===
-            "fixed"
-        ) {
-
-            noButton.style.position =
-                "";
-
-            noButton.style.left =
-                "";
-
-            noButton.style.top =
-                "";
-        }
-
-    }
-);
 
 </script>
 
